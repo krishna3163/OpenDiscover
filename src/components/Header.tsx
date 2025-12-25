@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <Link to="/" style={{ textDecoration: 'none' }}>
             <h1 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.03em', background: 'linear-gradient(to right, #fff, var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              OpenDiscover
+              Krishna
             </h1>
           </Link>
           <span className="badge badge-legal" title="We only index openly licensed software">Open Source Only</span>

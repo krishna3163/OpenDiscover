@@ -39,7 +39,7 @@ export const SubmitProjectPage: React.FC = () => {
                 <div style={{ textAlign: 'center', marginTop: '2rem' }}>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>Or contact us directly:</p>
                     <a href="mailto:kk3163019@gmail.com" className="btn btn-outline">
-                        📧 Email Support
+                        📧 Contact Krishna
                     </a>
                 </div>
             </div>
