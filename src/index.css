@@ -260,6 +260,25 @@ a:hover {
     background: var(--bg-card);
     text-decoration: none;
   }
+
+  /* Responsive Adjustments */
+  .container {
+    padding: 0 1rem;
+    /* Smaller padding on mobile */
+  }
+
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Ensure grids become single column on phones */
+  .grid-cols-auto {
+    grid-template-columns: 1fr;
+  }
 }
 
 @keyframes slideDown {
