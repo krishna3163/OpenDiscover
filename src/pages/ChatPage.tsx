@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { getBotResponse } from '../services/gemini';
 
 interface Message {
     id: number;
@@ -15,21 +16,32 @@ export const ChatPage: React.FC = () => {
     const { user, isAuthenticated } = useAuth();
     const [messages, setMessages] = useState<Message[]>([]);
     const [newMessage, setNewMessage] = useState('');
+    const [isTyping, setIsTyping] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    const isBot = username === 'Bot';
 
     // Initial mock messages
     useEffect(() => {
         setMessages([
-            { id: 1, sender: username || 'Staff', text: `Hello! How can I help you today?`, time: '10:00 AM', isUser: false }
+            {
+                id: 1,
+                sender: username || 'Staff',
+                text: isBot
+                    ? `Hello! I'm the OpenDiscover AI. Ask me about apps, privacy tools, or recommendations!`
+                    : `Hello! How can I help you today?`,
+                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                isUser: false
+            }
         ]);
-    }, [username]);
+    }, [username, isBot]);
 
     // Scroll to bottom
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages]);
+    }, [messages, isTyping]);
 
-    const handleSend = (e: React.FormEvent) => {
+    const handleSend = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!newMessage.trim()) return;
 
@@ -44,17 +56,37 @@ export const ChatPage: React.FC = () => {
         setMessages(prev => [...prev, userMsg]);
         setNewMessage('');
 
-        // Simulated reply
-        setTimeout(() => {
-            const replyMsg: Message = {
-                id: Date.now() + 1,
-                sender: username || 'Staff',
-                text: "Thanks for reaching out! I'll get back to you shortly.",
-                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-                isUser: false
-            };
-            setMessages(prev => [...prev, replyMsg]);
-        }, 1500);
+        if (isBot) {
+            setIsTyping(true);
+            try {
+                const responseText = await getBotResponse(userMsg.text);
+
+                const botMsg: Message = {
+                    id: Date.now() + 1,
+                    sender: 'Bot',
+                    text: responseText,
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                    isUser: false
+                };
+                setMessages(prev => [...prev, botMsg]);
+            } catch (error) {
+                console.error("Bot Error", error);
+            } finally {
+                setIsTyping(false);
+            }
+        } else {
+            // Simulated reply for human staff
+            setTimeout(() => {
+                const replyMsg: Message = {
+                    id: Date.now() + 1,
+                    sender: username || 'Staff',
+                    text: "Thanks for reaching out! I'll get back to you shortly.",
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                    isUser: false
+                };
+                setMessages(prev => [...prev, replyMsg]);
+            }, 1500);
+        }
     };
 
     if (!isAuthenticated) {
@@ -80,20 +112,40 @@ export const ChatPage: React.FC = () => {
                     {messages.map(msg => (
                         <div key={msg.id} style={{
                             alignSelf: msg.isUser ? 'flex-end' : 'flex-start',
-                            maxWidth: '70%',
-                            background: msg.isUser ? 'var(--accent-base)' : 'var(--bg-dark)',
+                            maxWidth: '85%', // Slightly wider for AI responses
+                            background: msg.isUser
+                                ? 'linear-gradient(135deg, var(--accent-base), #9333ea)' // User: Gradient
+                                : (isBot && !msg.isUser ? 'var(--bg-card)' : 'var(--bg-dark)'), // Bot: Dark Card
                             color: msg.isUser ? '#fff' : 'var(--text-primary)',
-                            padding: '0.75rem 1rem',
+                            padding: '1rem',
                             borderRadius: '1rem',
                             borderBottomRightRadius: msg.isUser ? '0' : '1rem',
                             borderBottomLeftRadius: msg.isUser ? '1rem' : '0',
                             position: 'relative',
-                            border: msg.isUser ? 'none' : '1px solid var(--border-color)'
+                            border: msg.isUser ? 'none' : '1px solid var(--border-color)',
+                            boxShadow: msg.isUser ? '0 4px 12px rgba(124, 58, 237, 0.3)' : 'none',
+                            whiteSpace: 'pre-wrap' // Preserve line breaks from AI
                         }}>
-                            <div style={{ fontSize: '0.95rem' }}>{msg.text}</div>
-                            <div style={{ fontSize: '0.7rem', opacity: 0.7, marginTop: '0.25rem', textAlign: 'right' }}>{msg.time}</div>
+                            {/* Bot Icon for AI messages */}
+                            {!msg.isUser && isBot && (
+                                <div style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>🤖</div>
+                            )}
+                            <div style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
+                                {/* Basic Markdown Support (Bold only for simplicity, can expand) */}
+                                {msg.text.split('**').map((part, i) =>
+                                    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+                                )}
+                            </div>
+                            <div style={{ fontSize: '0.7rem', opacity: 0.6, marginTop: '0.5rem', textAlign: 'right' }}>{msg.time}</div>
                         </div>
                     ))}
+
+                    {isTyping && (
+                        <div style={{ alignSelf: 'flex-start', background: 'var(--bg-dark)', padding: '0.5rem 1rem', borderRadius: '1rem', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                            Thinking...
+                        </div>
+                    )}
+
                     <div ref={messagesEndRef} />
                 </div>
 
@@ -103,10 +155,11 @@ export const ChatPage: React.FC = () => {
                         type="text"
                         value={newMessage}
                         onChange={e => setNewMessage(e.target.value)}
-                        placeholder="Type a message..."
+                        placeholder={isBot ? "Ask the AI..." : "Type a message..."}
+                        disabled={isTyping}
                         style={{ flex: 1, padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--bg-darkest)', color: '#fff' }}
                     />
-                    <button className="btn btn-primary">Send</button>
+                    <button className="btn btn-primary" disabled={isTyping}>Send</button>
                 </form>
             </div>
         </div>
