@@ -8,14 +8,14 @@ export const Footer: React.FC = () => {
                 <div style={{ marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
                     <p style={{ fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>LEGAL DISCLAIMER</p>
                     <p>
-                        Krishna does not host, distribute, or modify any software binaries.
+                        OpenDiscover does not host, distribute, or modify any software binaries.
                         All projects are indexed links to official sources (GitHub, F-Droid, Hugging Face, etc.).
                         We are a discovery metadata engine only.
                     </p>
                 </div>
 
                 <p style={{ marginBottom: '1rem' }}>
-                    © 2025 Krishna. Designed & Built by
+                    © 2025 OpenDiscover. Designed & Built by
                     <Link to="/profile" style={{ color: 'var(--accent-base)', textDecoration: 'none', fontWeight: 600, marginLeft: '5px' }}>
                         Krishna
                     </Link>

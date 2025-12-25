@@ -7,8 +7,9 @@ export const Header: React.FC = () => {
       <div className="container" style={{ height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <Link to="/" style={{ textDecoration: 'none' }}>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.03em', background: 'linear-gradient(to right, #fff, var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              Krishna
+            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.03em', background: 'linear-gradient(to right, #fff, var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'flex', alignItems: 'baseline', gap: '0.3rem' }}>
+              OpenDiscover
+              <span style={{ fontSize: '0.8rem', fontWeight: 400, opacity: 0.7 }}>with krishna</span>
             </h1>
           </Link>
           <span className="badge badge-legal" title="We only index openly licensed software">Open Source Only</span>

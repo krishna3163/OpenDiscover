@@ -1,8 +1,8 @@
-# Krishna Platform 🛡️✨
+# OpenDiscover <sub>with krishna</sub> 🛡️✨
 
 ![OpenDiscover Banner](public/banner.png)
 
-**Krishna** is a next-generation platform designed to help users find, verify, and trust open-source applications. We solve the problem of discovery by curating high-quality tools, AI models, and privacy-focused apps in a modern, beautiful interface.
+**OpenDiscover** is a next-generation platform designed to help users find, verify, and trust open-source applications. We solve the problem of discovery by curating high-quality tools, AI models, and privacy-focused apps in a modern, beautiful interface.
 
 > "Discover the code that powers the future."
 
@@ -86,4 +86,4 @@ Have questions or suggestions?
 
 ---
 
-*© 2025 Krishna. Built with ❤️ for the Open Source Community.*
+*© 2025 OpenDiscover. Built with ❤️ for the Open Source Community.*
