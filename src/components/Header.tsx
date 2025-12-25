@@ -7,18 +7,18 @@ export const Header: React.FC = () => {
   return (
     <header className="glass-header">
       <div className="container" style={{ height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', whiteSpace: 'nowrap' }}>
           <Link to="/" style={{ textDecoration: 'none' }} onClick={() => setIsMenuOpen(false)}>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.03em', background: 'linear-gradient(to right, #fff, var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'flex', alignItems: 'baseline', gap: '0.3rem' }}>
+            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.03em', background: 'linear-gradient(to right, #fff, var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'flex', alignItems: 'baseline', gap: '0.4rem', flexWrap: 'nowrap' }}>
               OpenDiscover
-              <span style={{ fontSize: '0.8rem', fontWeight: 400, opacity: 0.7 }}>with krishna</span>
+              <span style={{ fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-primary)', opacity: 1, WebkitTextFillColor: 'var(--text-primary)' }}>with krishna</span>
             </h1>
           </Link>
           <span className="badge badge-legal" title="We only index openly licensed software">Open Source Only</span>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="desktop-nav" style={{ display: 'flex', gap: '3rem' }}>
+        <nav className="desktop-nav" style={{ display: 'flex', gap: '3rem', whiteSpace: 'nowrap' }}>
           <Link to="/" style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Discover</Link>
           <Link to="/ai-models" className="nav-link">AI Models</Link>
           <Link to="/open-source-apps" className="nav-link">Open Source Apps</Link>

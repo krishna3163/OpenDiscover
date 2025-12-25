@@ -56,6 +56,8 @@ a {
   color: var(--accent-base);
   text-decoration: none;
   transition: opacity 0.2s;
+  white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 a:hover {
