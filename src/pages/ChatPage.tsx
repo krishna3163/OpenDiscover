@@ -20,21 +20,74 @@ export const ChatPage: React.FC = () => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     const isBot = username === 'Bot';
+    const isAdmin = ['Krishna', 'Piyush Mishra', 'Md Kaif'].includes(user?.name || '');
+
+    // Request Notification Permission
+    useEffect(() => {
+        if ('Notification' in window && Notification.permission !== 'granted') {
+            Notification.requestPermission();
+        }
+    }, []);
 
     // Initial mock messages
     useEffect(() => {
-        setMessages([
-            {
-                id: 1,
-                sender: username || 'Staff',
-                text: isBot
-                    ? `Hello! I'm the OpenDiscover AI. Ask me about apps, privacy tools, or recommendations!`
-                    : `Hello! How can I help you today?`,
+        const initialMsg: Message = {
+            id: 1,
+            sender: username || 'Staff',
+            text: isBot
+                ? `Hello! I'm the OpenDiscover AI. Ask me about apps, privacy tools, or recommendations!`
+                : (isAdmin ? "System: You are logged in as Admin. Incoming user messages will appear here." : `Hello! How can I help you today?`),
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            isUser: false
+        };
+        setMessages([initialMsg]);
+    }, [username, isBot, isAdmin]);
+
+    // Admin Simulation: Incoming Guest Messages
+    useEffect(() => {
+        if (!isAdmin || isBot) return;
+
+        const interval = setInterval(() => {
+            // 30% chance to receive a message every 15 seconds to not be annoying
+            if (Math.random() > 0.7) return;
+
+            const guestNames = ['Guest_102', 'Dev_User', 'Newbie_Coder', 'ReactFan'];
+            const queries = [
+                'Hi, how do I submit a project?',
+                'Is the API documentation updated?',
+                'I found a bug in the login page.',
+                'Can I get verified?',
+                'Love the new design!'
+            ];
+
+            const randomName = guestNames[Math.floor(Math.random() * guestNames.length)];
+            const randomText = queries[Math.floor(Math.random() * queries.length)];
+
+            const newMsg: Message = {
+                id: Date.now(),
+                sender: randomName,
+                text: randomText,
                 time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                // In admin view, "User" is me (right side), "Others" are left side (isUser=false)
+                // But wait, existing logic says `isUser=false` means "Left Side".
+                // So incoming guest messages should be `isUser: false`.
                 isUser: false
+            };
+
+            setMessages(prev => [...prev, newMsg]);
+
+            // specialized notification
+            if (Notification.permission === 'granted') {
+                new Notification(`New message from ${randomName}`, {
+                    body: randomText,
+                    icon: '/vite.svg' // Fallback icon
+                });
             }
-        ]);
-    }, [username, isBot]);
+
+        }, 10000); // Check every 10 seconds
+
+        return () => clearInterval(interval);
+    }, [isAdmin, isBot]);
 
     // Scroll to bottom
     useEffect(() => {
@@ -50,7 +103,7 @@ export const ChatPage: React.FC = () => {
             sender: user?.name || 'You',
             text: newMessage,
             time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            isUser: true
+            isUser: true // Always right side for "Me"
         };
 
         setMessages(prev => [...prev, userMsg]);
@@ -74,8 +127,10 @@ export const ChatPage: React.FC = () => {
             } finally {
                 setIsTyping(false);
             }
-        } else {
-            // Simulated reply for human staff
+        }
+        // If Admin, we don't auto-reply, we just sent the message manually.
+        // If NOT Admin (Client), simulating Staff Reply
+        else if (!isAdmin) {
             setTimeout(() => {
                 const replyMsg: Message = {
                     id: Date.now() + 1,
@@ -112,10 +167,10 @@ export const ChatPage: React.FC = () => {
                     {messages.map(msg => (
                         <div key={msg.id} style={{
                             alignSelf: msg.isUser ? 'flex-end' : 'flex-start',
-                            maxWidth: '85%', // Slightly wider for AI responses
+                            maxWidth: '85%',
                             background: msg.isUser
-                                ? 'linear-gradient(135deg, var(--accent-base), #9333ea)' // User: Gradient
-                                : (isBot && !msg.isUser ? 'var(--bg-card)' : 'var(--bg-dark)'), // Bot: Dark Card
+                                ? 'linear-gradient(135deg, var(--accent-base), #9333ea)'
+                                : (isBot && !msg.isUser ? 'var(--bg-card)' : 'var(--bg-dark)'),
                             color: msg.isUser ? '#fff' : 'var(--text-primary)',
                             padding: '1rem',
                             borderRadius: '1rem',
@@ -124,14 +179,20 @@ export const ChatPage: React.FC = () => {
                             position: 'relative',
                             border: msg.isUser ? 'none' : '1px solid var(--border-color)',
                             boxShadow: msg.isUser ? '0 4px 12px rgba(124, 58, 237, 0.3)' : 'none',
-                            whiteSpace: 'pre-wrap' // Preserve line breaks from AI
+                            whiteSpace: 'pre-wrap'
                         }}>
+                            {/* Show Sender Name if it's an incoming message (Left Side) */}
+                            {!msg.isUser && (
+                                <div style={{ fontSize: '0.7rem', fontWeight: 700, marginBottom: '0.25rem', color: isBot ? 'var(--accent-base)' : '#34d399' }}>
+                                    {msg.sender}
+                                </div>
+                            )}
+
                             {/* Bot Icon for AI messages */}
                             {!msg.isUser && isBot && (
                                 <div style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>🤖</div>
                             )}
                             <div style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
-                                {/* Basic Markdown Support (Bold only for simplicity, can expand) */}
                                 {msg.text.split('**').map((part, i) =>
                                     i % 2 === 1 ? <strong key={i}>{part}</strong> : part
                                 )}
@@ -155,7 +216,7 @@ export const ChatPage: React.FC = () => {
                         type="text"
                         value={newMessage}
                         onChange={e => setNewMessage(e.target.value)}
-                        placeholder={isBot ? "Ask the AI..." : "Type a message..."}
+                        placeholder={isBot ? "Ask the AI..." : (isAdmin ? "Reply to user..." : "Type a message...")}
                         disabled={isTyping}
                         style={{ flex: 1, padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--bg-darkest)', color: '#fff' }}
                     />
