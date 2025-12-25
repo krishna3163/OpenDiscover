@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const DevelopersPage: React.FC = () => {
     return (
@@ -11,11 +12,14 @@ export const DevelopersPage: React.FC = () => {
                 <div className="grid-cols-auto" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
 
                     {/* Krishna */}
-                    <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>
-                        <div style={{ width: '80px', height: '80px', background: 'var(--accent-base)', borderRadius: '50%', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', color: '#fff', fontWeight: 700 }}>K</div>
-                        <h4 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Krishna</h4>
-                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Lead Developer & Maintainer</p>
-                    </div>
+                    <Link to="/profile" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <div className="card" style={{ textAlign: 'center', padding: '2rem', cursor: 'pointer', transition: 'transform 0.2s', border: '1px solid var(--accent-base)' }}>
+                            <div style={{ width: '80px', height: '80px', background: 'var(--accent-base)', borderRadius: '50%', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', color: '#fff', fontWeight: 700 }}>K</div>
+                            <h4 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Krishna</h4>
+                            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Lead Developer & Maintainer</p>
+                            <span style={{ fontSize: '0.8rem', color: 'var(--accent-base)', marginTop: '0.5rem', display: 'block' }}>View Profile →</span>
+                        </div>
+                    </Link>
 
                     {/* Piyush Mishra */}
                     <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>

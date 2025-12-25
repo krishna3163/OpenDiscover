@@ -24,7 +24,6 @@ export const Header: React.FC = () => {
           <Link to="/ai-models" className="nav-link">AI Models</Link>
           <Link to="/open-source-apps" className="nav-link">Open Source Apps</Link>
           <Link to="/community" className="nav-link">Community</Link>
-          <Link to="/profile" className="nav-link">About Krishna</Link>
           <Link to="/developers" className="nav-link">Developers</Link>
         </nav>
 
@@ -57,7 +56,6 @@ export const Header: React.FC = () => {
             <Link to="/ai-models" onClick={() => setIsMenuOpen(false)}>AI Models</Link>
             <Link to="/open-source-apps" onClick={() => setIsMenuOpen(false)}>Open Source Apps</Link>
             <Link to="/community" onClick={() => setIsMenuOpen(false)}>Community</Link>
-            <Link to="/profile" onClick={() => setIsMenuOpen(false)}>About Krishna</Link>
             <Link to="/developers" onClick={() => setIsMenuOpen(false)}>Developers</Link>
             <div style={{ borderTop: '1px solid var(--border-color)', margin: '0.5rem 0' }}></div>
             {isAuthenticated ? (
