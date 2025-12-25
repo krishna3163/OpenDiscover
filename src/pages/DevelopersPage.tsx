@@ -2,10 +2,39 @@ import React from 'react';
 
 export const DevelopersPage: React.FC = () => {
     return (
-        <div className="container" style={{ padding: '4rem 1.5rem', maxWidth: '800px' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '2rem' }}>For Developers</h2>
+        <div className="container" style={{ padding: '4rem 1.5rem' }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '2rem', textAlign: 'center' }}>For Developers</h2>
 
-            <div className="card" style={{ marginBottom: '2rem' }}>
+            {/* Team Section */}
+            <div style={{ marginBottom: '4rem' }}>
+                <h3 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1.5rem', textAlign: 'center' }}>Meet the Team</h3>
+                <div className="grid-cols-auto" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+
+                    {/* Krishna */}
+                    <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>
+                        <div style={{ width: '80px', height: '80px', background: 'var(--accent-base)', borderRadius: '50%', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', color: '#fff', fontWeight: 700 }}>K</div>
+                        <h4 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Krishna</h4>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Lead Developer & Maintainer</p>
+                    </div>
+
+                    {/* Piyush Mishra */}
+                    <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>
+                        <div style={{ width: '80px', height: '80px', background: 'var(--bg-dark)', border: '1px solid var(--border-color)', borderRadius: '50%', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', color: 'var(--text-secondary)', fontWeight: 700 }}>P</div>
+                        <h4 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Piyush Mishra</h4>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Developer</p>
+                    </div>
+
+                    {/* Md kaif */}
+                    <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>
+                        <div style={{ width: '80px', height: '80px', background: 'var(--bg-dark)', border: '1px solid var(--border-color)', borderRadius: '50%', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', color: 'var(--text-secondary)', fontWeight: 700 }}>M</div>
+                        <h4 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Md kaif</h4>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Developer</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div className="card" style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Submit Your Project</h3>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>
                     We welcome submissions from the community. Projects must meet the following criteria:
@@ -18,7 +47,7 @@ export const DevelopersPage: React.FC = () => {
                 <a href="/submit" className="btn btn-primary">Submit Now</a>
             </div>
 
-            <div className="card">
+            <div className="card" style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>OpenDiscover API</h3>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>
                     Building a tool? Access our index programmatically.
