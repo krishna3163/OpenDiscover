@@ -311,9 +311,10 @@ a:hover {
 
 @media (max-width: 1024px) {
   .project-detail-layout {
-    grid-template-columns: 1fr;
-    padding: 2rem 1rem;
-    gap: 2rem;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 2rem 1rem !important;
+    gap: 2rem !important;
   }
 }
 
