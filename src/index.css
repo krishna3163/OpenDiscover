@@ -281,14 +281,64 @@ a:hover {
   }
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+/* Community Layout */
+.community-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-base);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  background: var(--bg-card);
+}
+
+/* Mobile Overrides */
+@media (max-width: 1024px) {
+  .community-layout {
+    grid-template-columns: 1fr;
+    padding: 1rem;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  /* Login Page Mobile specific */
+  .login-container {
+    padding: 2rem 1rem !important;
   }
 }

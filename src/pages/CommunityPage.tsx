@@ -11,7 +11,7 @@ export const CommunityPage: React.FC = () => {
     ];
 
     return (
-        <div className="container" style={{ padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 300px', gap: '2rem' }}>
+        <div className="container community-layout">
 
             {/* Main Forum Content */}
             <div>
