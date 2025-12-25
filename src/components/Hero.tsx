@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface HeroProps {
     onSearch?: (query: string) => void;
@@ -6,14 +7,25 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onSearch }) => {
     const [query, setQuery] = React.useState('');
+    const navigate = useNavigate();
 
     const handleSearch = () => {
         if (onSearch) onSearch(query);
+        // Optional: Scroll to results
+        const projectList = document.getElementById('project-list');
+        if (projectList) projectList.scrollIntoView({ behavior: 'smooth' });
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') handleSearch();
     };
+
+    const categories = [
+        { name: 'Privacy & Security', path: '/privacy' },
+        { name: 'AI / ML Models', path: '/ai-models' },
+        { name: 'Productivity', path: '/productivity' },
+        { name: 'Dev Tools', path: '/dev-tools' }
+    ];
 
     return (
         <section style={{ padding: '6rem 0', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
@@ -51,9 +63,16 @@ export const Hero: React.FC<HeroProps> = ({ onSearch }) => {
                 </div>
 
                 <div className="grid-cols-auto" style={{ maxWidth: '900px', margin: '0 auto', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
-                    {['Privacy & Security', 'AI / ML Models', 'Productivity', 'Dev Tools'].map((cat) => (
-                        <div key={cat} className="card" style={{ padding: '1rem', textAlign: 'center', cursor: 'pointer' }}>
-                            <span style={{ fontWeight: 600 }}>{cat}</span>
+                    {categories.map((cat) => (
+                        <div
+                            key={cat.name}
+                            className="card"
+                            style={{ padding: '1rem', textAlign: 'center', cursor: 'pointer', transition: 'all 0.2s' }}
+                            onClick={() => navigate(cat.path)}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                        >
+                            <span style={{ fontWeight: 600 }}>{cat.name}</span>
                         </div>
                     ))}
                 </div>

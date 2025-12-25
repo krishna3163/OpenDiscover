@@ -39,6 +39,16 @@ function App() {
               }
             />
             <Route
+              path="/privacy"
+              element={
+                <CategoryPage
+                  title="Privacy & Security Tools"
+                  description="Protect your digital rights with these essential privacy-first tools."
+                  filterCategory="Privacy & Security"
+                />
+              }
+            />
+            <Route
               path="/productivity"
               element={
                 <CategoryPage

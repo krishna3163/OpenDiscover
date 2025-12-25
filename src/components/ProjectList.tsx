@@ -27,7 +27,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ filter, searchQuery })
     });
 
     return (
-        <section className="container" style={{ paddingBottom: '4rem' }}>
+        <section id="project-list" className="container" style={{ paddingBottom: '4rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
                 <h3 style={{ fontSize: '1.75rem', fontWeight: 700 }}>
                     {filter ? `${filter}` : searchQuery ? `Results for "${searchQuery}"` : 'Trending Projects'}
