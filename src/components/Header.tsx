@@ -18,6 +18,7 @@ export const Header: React.FC = () => {
           <Link to="/" style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Discover</Link>
           <Link to="/ai-models" className="nav-link">AI Models</Link>
           <Link to="/open-source-apps" className="nav-link">Open Source Apps</Link>
+          <Link to="/profile" className="nav-link">About Krishna</Link>
           <Link to="/developers" className="nav-link">Developers</Link>
         </nav>
 

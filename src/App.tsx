@@ -7,6 +7,9 @@ import { LoginPage } from './pages/LoginPage';
 import { SubmitProjectPage } from './pages/SubmitProjectPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
 
+import { Footer } from './components/Footer';
+import { ProfilePage } from './pages/ProfilePage';
+
 function App() {
   return (
     <Router>
@@ -69,30 +72,11 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/submit" element={<SubmitProjectPage />} />
             <Route path="/project/:id" element={<ProjectDetailPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </main>
 
-        <footer style={{ borderTop: '1px solid var(--border-color)', padding: '4rem 0', marginTop: 'auto', background: 'var(--bg-card)' }}>
-          <div className="container" style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-            <div style={{ marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-              <p style={{ fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>LEGAL DISCLAIMER</p>
-              <p>
-                OpenDiscover does not host, distribute, or modify any software binaries.
-                All projects are indexed links to official sources (GitHub, F-Droid, Hugging Face, etc.).
-                We are a discovery metadata engine only.
-              </p>
-            </div>
-
-            <p>© 2024 OpenDiscover. Connecting you to open innovation.</p>
-            <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '1rem' }}>
-              <a href="#">About</a>
-              <a href="#">Licenses Explained</a>
-              <a href="#">Privacy Policy</a>
-              <a href="#">DMCA / Copyright Report</a>
-              <a href="#">GitHub Repo</a>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Router>
   );
