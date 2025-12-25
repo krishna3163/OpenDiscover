@@ -1,10 +1,15 @@
 :root {
   /* HSL Color Palette - Premium Dark Theme */
-  --hue-primary: 220; /* Deep Blue/Slate */
-  --hue-accent: 260; /* Royal Purple/Neon */
-  --hue-success: 150; /* Emerald Green */
-  --hue-warning: 45; /* Gold */
-  --hue-danger: 350; /* Crimson */
+  --hue-primary: 220;
+  /* Deep Blue/Slate */
+  --hue-accent: 260;
+  /* Royal Purple/Neon */
+  --hue-success: 150;
+  /* Emerald Green */
+  --hue-warning: 45;
+  /* Gold */
+  --hue-danger: 350;
+  /* Crimson */
 
   --bg-darkest: hsl(var(--hue-primary), 30%, 4%);
   --bg-dark: hsl(var(--hue-primary), 25%, 8%);
@@ -19,19 +24,21 @@
   --accent-glow: hsl(var(--hue-accent), 90%, 65%, 0.4);
 
   --border-color: hsl(var(--hue-primary), 20%, 20%);
-  
+
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.2);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   --shadow-glow: 0 0 15px var(--accent-glow);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -148,4 +155,74 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 50;
+}
+
+/* Header Response Styles */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* Mobile Badge Fix */
+@media (max-width: 768px) {
+
+  .desktop-nav,
+  .desktop-actions {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .badge-legal {
+    display: none;
+    /* Hide badge on mobile to save space */
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-darkest);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem;
+    gap: 1rem;
+    animation: slideDown 0.3s ease;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .mobile-menu a:hover {
+    background: var(--bg-card);
+    text-decoration: none;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
