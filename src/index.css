@@ -172,8 +172,8 @@ a:hover {
   display: none;
 }
 
-/* Mobile Badge Fix */
-@media (max-width: 768px) {
+/* Mobile Badge Fix & Responsive Trigger */
+@media (max-width: 1024px) {
 
   .desktop-nav,
   .desktop-actions {

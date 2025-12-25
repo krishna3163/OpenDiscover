@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="desktop-nav" style={{ display: 'flex', gap: '2rem' }}>
+        <nav className="desktop-nav" style={{ display: 'flex', gap: '3rem' }}>
           <Link to="/" style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Discover</Link>
           <Link to="/ai-models" className="nav-link">AI Models</Link>
           <Link to="/open-source-apps" className="nav-link">Open Source Apps</Link>
