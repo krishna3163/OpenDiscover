@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { user, isAuthenticated, logout } = useAuth();
 
   return (
     <header className="glass-header">
@@ -27,7 +29,14 @@ export const Header: React.FC = () => {
 
         {/* Desktop Actions */}
         <div className="desktop-actions" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <Link to="/login" className="btn btn-outline">Log In</Link>
+          {isAuthenticated && user ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Hi, {user.name}</span>
+              <button onClick={logout} className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}>Log Out</button>
+            </div>
+          ) : (
+            <Link to="/login" className="btn btn-outline">Log In</Link>
+          )}
           <Link to="/submit" className="btn btn-primary">Submit Project</Link>
         </div>
 
@@ -49,7 +58,11 @@ export const Header: React.FC = () => {
             <Link to="/profile" onClick={() => setIsMenuOpen(false)}>About Krishna</Link>
             <Link to="/developers" onClick={() => setIsMenuOpen(false)}>Developers</Link>
             <div style={{ borderTop: '1px solid var(--border-color)', margin: '0.5rem 0' }}></div>
-            <Link to="/login" onClick={() => setIsMenuOpen(false)}>Log In</Link>
+            {isAuthenticated ? (
+              <button onClick={() => { logout(); setIsMenuOpen(false); }} style={{ background: 'none', border: 'none', color: 'var(--text-primary)', padding: '0.5rem 0', textAlign: 'left', fontSize: '1.1rem' }}>Log Out</button>
+            ) : (
+              <Link to="/login" onClick={() => setIsMenuOpen(false)}>Log In</Link>
+            )}
             <Link to="/submit" className="btn btn-primary" onClick={() => setIsMenuOpen(false)} style={{ textAlign: 'center' }}>Submit Project</Link>
           </div>
         )}
