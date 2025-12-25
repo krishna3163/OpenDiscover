@@ -301,6 +301,22 @@ a:hover {
   padding: 2rem 1.5rem;
 }
 
+/* Project Detail Layout */
+.project-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 3rem;
+  padding: 4rem 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .project-detail-layout {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+}
+
 /* Enhanced Form Inputs */
 .form-input {
   width: 100%;

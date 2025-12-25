@@ -24,7 +24,8 @@ export const LoginPage: React.FC = () => {
 
         // Specific Admin Credentials Check
         if ((email === 'krishna0858' && password === '@krishna') ||
-            (email === 'Piyush_Mishra' && password === 'piyushmishra')) {
+            (email === 'Piyush_Mishra' && password === 'piyushmishra') ||
+            (email === 'md_kaif' && password === '@mdkaif')) {
             setStep(2);
             // Simulated "Sent" toast
             return;
@@ -47,6 +48,8 @@ export const LoginPage: React.FC = () => {
                 userData = { name: 'Krishna', email: 'krishna0858@opendiscover.com' };
             } else if (email === 'Piyush_Mishra') {
                 userData = { name: 'Piyush Mishra', email: 'piyush@opendiscover.com' };
+            } else if (email === 'md_kaif') {
+                userData = { name: 'Md Kaif', email: 'mdkaif@opendiscover.com' };
             } else if (isSignUp) {
                 userData = { name: name, email: email };
             } else {

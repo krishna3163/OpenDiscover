@@ -98,7 +98,7 @@ export const ProjectDetailPage: React.FC = () => {
     const scoreColor = trustScore > 90 ? '#10b981' : trustScore > 70 ? '#f59e0b' : '#ef4444';
 
     return (
-        <div className="container" style={{ padding: '4rem 1.5rem', display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 350px', gap: '3rem' }}>
+        <div className="container project-detail-layout">
 
             {/* Main Content */}
             <div>
