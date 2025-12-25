@@ -7,7 +7,7 @@ interface User {
 
 interface AuthContextType {
     user: User | null;
-    login: (name: string, email: string) => void;
+    login: (user: User) => void;
     logout: () => void;
     isAuthenticated: boolean;
 }
@@ -25,8 +25,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     }, []);
 
-    const login = (name: string, email: string) => {
-        const newUser = { name, email };
+    const login = (newUser: User) => {
         setUser(newUser);
         localStorage.setItem('opendiscover_user', JSON.stringify(newUser));
     };

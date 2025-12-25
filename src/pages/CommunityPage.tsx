@@ -10,13 +10,6 @@ export const CommunityPage: React.FC = () => {
         { id: 5, title: 'Modding & Customization', description: 'Deep dive into tweaking and modding apps.', topics: 201, posts: 980, icon: '🔧' },
     ];
 
-    const staff = [
-        { name: 'Krishna', role: 'Administrator', color: '#ef4444', avatar: 'K' },
-        { name: 'Piyush', role: 'Moderator', color: '#10b981', avatar: 'P' },
-        { name: 'Kaif', role: 'Moderator', color: '#10b981', avatar: 'M' },
-        { name: 'Bot', role: 'Bot', color: '#3b82f6', avatar: '🤖' },
-    ];
-
     return (
         <div className="container" style={{ padding: '2rem 1.5rem', display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 300px', gap: '2rem' }}>
 
@@ -70,22 +63,23 @@ export const CommunityPage: React.FC = () => {
             {/* Sidebar */}
             <aside>
                 <div className="card" style={{ marginBottom: '2rem' }}>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--border-color)' }}>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ width: '10px', height: '10px', background: '#10b981', borderRadius: '50%', display: 'inline-block' }}></span>
                         Staff Online
-                    </h4>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                        {staff.map(member => (
-                            <div key={member.name} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--bg-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.8rem', border: `2px solid ${member.color}` }}>
-                                    {member.avatar}
+                    </h3>
+                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                        {['Krishna', 'Piyush', 'Kaif', 'Bot'].map(staff => (
+                            <li key={staff} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                <div style={{ width: '32px', height: '32px', background: 'var(--accent-base)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#fff', fontSize: '0.8rem' }}>
+                                    {staff[0]}
                                 </div>
-                                <div>
-                                    <div style={{ fontWeight: 600, color: member.color, fontSize: '0.95rem' }}>{member.name}</div>
-                                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{member.role}</div>
-                                </div>
-                            </div>
+                                <span style={{ flex: 1 }}>{staff}</span>
+                                <Link to={`/chat/${staff}`} style={{ fontSize: '0.8rem', color: 'var(--accent-base)', textDecoration: 'none', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: 'var(--radius-sm)' }}>
+                                    Chat
+                                </Link>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
 
                 <div className="card">

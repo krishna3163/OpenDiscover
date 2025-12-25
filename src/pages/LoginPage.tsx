@@ -7,46 +7,69 @@ export const LoginPage: React.FC = () => {
     const { login } = useAuth();
 
     // UI State
-    const [isLogin, setIsLogin] = useState(true);
-    const [step, setStep] = useState<'credentials' | 'otp'>('credentials');
+    const [isSignUp, setIsSignUp] = useState(false);
+    const [step, setStep] = useState<1 | 2>(1);
 
     // Form State
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [otp, setOtp] = useState('');
 
-    // handleCredentialSubmit: Simulate sending OTP
-    const handleCredentialSubmit = (e: React.FormEvent) => {
+    // Step 1: Handle Credentials
+    const handleCredentialsSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulation: In a real app, this would call an API to send email/SMS.
-        // For demo, we just alert the code.
-        alert(`Authentication Code Sent to ${email}\n\nYour OTP is: 123456`);
-        setStep('otp');
+
+        // Specific Admin Credentials Check
+        if ((email === 'krishna0858' && password === '@krishna') ||
+            (email === 'Piyush_Mishra' && password === 'piyushmishra')) {
+            setStep(2);
+            alert('OTP sent to your device: 123456');
+            return;
+        }
+
+        // Generic Validations
+        if (email && password) {
+            setStep(2);
+            alert('OTP sent to your device: 123456');
+        }
     };
 
-    // handleOtpSubmit: Verify code and log in
-    const handleOtpSubmit = (e: React.FormEvent) => {
+    // Step 2: Handle OTP & Login
+    const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
+
         if (otp === '123456') {
-            // Success!
-            const userName = name || email.split('@')[0]; // Use name or part of email
-            login(userName, email);
-            navigate('/profile'); // Redirect to profile after login
+            let userData = { name: 'User', email: email };
+
+            // Set User Data based on credentials
+            if (email === 'krishna0858') {
+                userData = { name: 'Krishna', email: 'krishna0858@opendiscover.com' };
+            } else if (email === 'Piyush_Mishra') {
+                userData = { name: 'Piyush Mishra', email: 'piyush@opendiscover.com' };
+            } else if (isSignUp) {
+                userData = { name: name, email: email };
+            } else {
+                userData = { name: email.split('@')[0], email: email };
+            }
+
+            login(userData);
+            navigate('/profile');
         } else {
-            alert('Invalid OTP. Please try again (Hint: 123456)');
+            alert('Invalid OTP');
         }
     };
 
     return (
-        <div className="container" style={{ padding: '6rem 1.5rem', display: 'flex', justifyContent: 'center' }}>
+        <div className="container" style={{ padding: '4rem 1.5rem', display: 'flex', justifyContent: 'center' }}>
             <div className="card" style={{ width: '100%', maxWidth: '400px' }}>
                 <h2 style={{ fontSize: '2rem', fontWeight: 700, textAlign: 'center', marginBottom: '2rem' }}>
-                    {step === 'otp' ? 'Two-Step Verification' : (isLogin ? 'Welcome Back' : 'Create Account')}
+                    {step === 2 ? 'Two-Step Verification' : (isSignUp ? 'Create Account' : 'Welcome Back')}
                 </h2>
 
-                {step === 'credentials' ? (
-                    <form onSubmit={handleCredentialSubmit}>
-                        {!isLogin && (
+                {step === 1 ? (
+                    <form onSubmit={handleCredentialsSubmit}>
+                        {isSignUp && (
                             <div style={{ marginBottom: '1rem' }}>
                                 <label style={{ display: 'block', marginBottom: '0.5rem' }}>Full Name</label>
                                 <input
@@ -54,20 +77,18 @@ export const LoginPage: React.FC = () => {
                                     required
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    className="form-input"
                                     style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-dark)', color: 'var(--text-primary)' }}
                                 />
                             </div>
                         )}
 
                         <div style={{ marginBottom: '1rem' }}>
-                            <label style={{ display: 'block', marginBottom: '0.5rem' }}>Email</label>
+                            <label style={{ display: 'block', marginBottom: '0.5rem' }}>Email or Username</label>
                             <input
-                                type="email"
+                                type="text"
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="form-input"
                                 style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-dark)', color: 'var(--text-primary)' }}
                             />
                         </div>
@@ -77,20 +98,21 @@ export const LoginPage: React.FC = () => {
                             <input
                                 type="password"
                                 required
-                                className="form-input"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-dark)', color: 'var(--text-primary)' }}
                             />
                         </div>
 
                         <button className="btn btn-primary" style={{ width: '100%' }}>
-                            {isLogin ? 'Log In' : 'Sign Up'}
+                            {isSignUp ? 'Sign Up' : 'Log In'}
                         </button>
                     </form>
                 ) : (
-                    <form onSubmit={handleOtpSubmit}>
+                    <form onSubmit={handleLogin}>
                         <div style={{ marginBottom: '1rem', textAlign: 'center' }}>
                             <p style={{ marginBottom: '1rem', color: 'var(--text-secondary)' }}>
-                                Please enter the verification code sent to <strong>{email}</strong>
+                                Please enter the verification code sent to your device.
                             </p>
                             <input
                                 type="text"
@@ -98,14 +120,13 @@ export const LoginPage: React.FC = () => {
                                 placeholder="Enter 6-digit OTP"
                                 value={otp}
                                 onChange={(e) => setOtp(e.target.value)}
-                                className="form-input"
                                 style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-dark)', color: 'var(--text-primary)', textAlign: 'center', fontSize: '1.2rem', letterSpacing: '0.2rem' }}
                             />
                         </div>
                         <button className="btn btn-primary" style={{ width: '100%' }}>Verify & Login</button>
                         <button
                             type="button"
-                            onClick={() => setStep('credentials')}
+                            onClick={() => setStep(1)}
                             style={{ width: '100%', marginTop: '1rem', background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }}
                         >
                             Back
@@ -113,14 +134,14 @@ export const LoginPage: React.FC = () => {
                     </form>
                 )}
 
-                {step === 'credentials' && (
+                {step === 1 && (
                     <p style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                        {isLogin ? "Don't have an account?" : "Already have an account?"}{' '}
+                        {isSignUp ? "Already have an account?" : "Don't have an account?"}{' '}
                         <button
-                            onClick={() => setIsLogin(!isLogin)}
+                            onClick={() => setIsSignUp(!isSignUp)}
                             style={{ background: 'none', border: 'none', color: 'var(--accent-base)', cursor: 'pointer', textDecoration: 'underline' }}
                         >
-                            {isLogin ? 'Sign up' : 'Log in'}
+                            {isSignUp ? 'Log in' : 'Sign up'}
                         </button>
                     </p>
                 )}
