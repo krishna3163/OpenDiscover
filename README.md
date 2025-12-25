@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+# OpenDiscover Platform 🛡️✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![OpenDiscover Banner](public/banner.png)
 
-Currently, two official plugins are available:
+**OpenDiscover** is a next-generation platform designed to help users find, verify, and trust open-source applications. We solve the problem of discovery by curating high-quality tools, AI models, and privacy-focused apps in a modern, beautiful interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> "Discover the code that powers the future."
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Key Features
 
-## Expanding the ESLint configuration
+### 🔍 Smart Discovery
+-   **Advanced Search**: Instantly find apps like "Signal", "Tor", or "Llama 3" with fuzzy search logic.
+-   **Categorized Hubs**: Dedicated sections for **Open Source Apps** (Privacy), **AI/ML Models**, **Dev Tools**, and **Productivity**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛡️ Trust & Security
+-   **Trust Score™**: A transparent scoring system (0-100) based on license type, update frequency, and community health.
+-   **Verified Badges**: Easily spot projects with verified source code and OSI-approved licenses.
+-   **License Explainer**: Interactive tooltips that translate complex legal jargon ("MIT", "GPL") into plain English.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🤝 Community Driven
+-   **Submission System**: Users can submit new projects directly via our integrated Google Form.
+-   **Community Links**: Direct access to project discussions, issues, and funding pages.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### ⚡ Modern UI/UX
+-   **Glassmorphism Design**: A premium dark-mode aesthetic with neon accents and blur effects.
+-   **Responsive Stats**: SVG visualizations for download trends and activity.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ What We Use (Tech Stack)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project is built with a modern, performance-first stack:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+-   **Frontend**: [React 18](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/) for robust type-safe code.
+-   **Build Tool**: [Vite](https://vitejs.dev/) for lightning-fast HMR and bundling.
+-   **Styling**: **Vanilla CSS & CSS Modules** with a custom design system (Variables for HSL colors, glass effects). No heavy UI frameworks.
+-   **Routing**: [React Router DOM](https://reactrouter.com/) for seamless single-page navigation.
+-   **Icons**: Emoji-based iconography for lightweight performance.
+-   **Deployment**: Ready for **GitHub Pages** and **Firebase Hosting**.
+
+---
+
+## 📸 Screenshots
+
+![Banner](public/banner.png)
+*The main dashboard featuring curated open source applications.*
+
+---
+
+## 🏁 Getting Started
+
+### Prerequisites
+-   Node.js (v18+)
+-   npm
+
+### Installation
+
+1.  **Clone the repo**
+    ```bash
+    git clone https://github.com/krishna3163/new-project.git
+    cd new-project
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+    Open `http://localhost:5173` to view it in the browser.
+
+---
+
+## 📨 Contact
+
+Have questions or suggestions?
+
+-   **Maintainer**: Krishna
+-   **Email**: [kk3163019@gmail.com](mailto:kk3163019@gmail.com)
+-   **Submit a Project**: [Use our Submission Form](/submit)
+
+---
+
+*© 2025 OpenDiscover. Built with ❤️ for the Open Source Community.*
