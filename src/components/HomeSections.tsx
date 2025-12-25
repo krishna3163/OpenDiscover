@@ -51,7 +51,7 @@ export const HowItWorks: React.FC = () => {
 export const CategoryGrid: React.FC = () => {
     const categories = [
         { name: 'AI & ML', icon: '🤖', link: '/ai-models' },
-        { name: 'Privacy Tools', icon: '🔐', link: '/privacy-tools' },
+        { name: 'Open Source Apps', icon: '🔐', link: '/open-source-apps' },
         { name: 'Productivity', icon: '⚡', link: '/productivity' },
         { name: 'Dev Tools', icon: '🧑‍💻', link: '/dev-tools' },
         { name: 'Mobile Apps', icon: '📱', link: '/mobile-apps' },

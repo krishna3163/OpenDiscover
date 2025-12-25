@@ -16,9 +16,9 @@ export const Header: React.FC = () => {
 
         <nav style={{ display: 'flex', gap: '2rem' }}>
           <Link to="/" style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Discover</Link>
-          <Link to="/ai-models" style={{ color: 'var(--text-secondary)' }}>AI Models</Link>
-          <Link to="/privacy-tools" style={{ color: 'var(--text-secondary)' }}>Privacy Tools</Link>
-          <Link to="/developers" style={{ color: 'var(--text-secondary)' }}>Developers</Link>
+          <Link to="/ai-models" className="nav-link">AI Models</Link>
+          <Link to="/open-source-apps" className="nav-link">Open Source Apps</Link>
+          <Link to="/developers" className="nav-link">Developers</Link>
         </nav>
 
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>

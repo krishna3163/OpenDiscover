@@ -26,12 +26,12 @@ function App() {
               }
             />
             <Route
-              path="/privacy-tools"
+              path="/open-source-apps"
               element={
                 <CategoryPage
-                  title="Privacy & Security"
-                  description="Tools to protect your digital footprint. Encrypted messengers, password managers, and more."
-                  filterCategory="Privacy & Security"
+                  title="Open Source Applications"
+                  description="Curated collection of the best open source apps for privacy, productivity, and creativity."
+                  filterCategory="Open Source Apps"
                 />
               }
             />

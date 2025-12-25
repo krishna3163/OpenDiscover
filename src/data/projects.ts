@@ -249,7 +249,7 @@ export const PROJECTS_DB: Project[] = [
         id: 5,
         title: "Signal Desktop",
         description: "Private Messenger for Windows, Mac, and Linux. End-to-end encryption standard.",
-        category: "Privacy & Security",
+        category: "Open Source Apps",
         license: "GPL-3.0",
         source: "GitHub",
         stars: "50k",
