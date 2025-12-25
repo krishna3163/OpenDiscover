@@ -145,7 +145,7 @@ export const LoginPage: React.FC = () => {
                             <div style={{ background: '#10b981', borderRadius: '50%', padding: '0.25rem' }}>✓</div>
                             <div style={{ textAlign: 'left' }}>
                                 <div style={{ fontWeight: 700 }}>OTP Sent!</div>
-                                <div style={{ fontSize: '0.8rem' }}>Check your device for the code (123456)</div>
+                                <div style={{ fontSize: '0.8rem' }}>Check your device for the code</div>
                             </div>
                         </div>
 
