@@ -1,7 +1,77 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { PROJECTS_DB } from '../data/projects';
 import { AdSpace } from '../components/AdSpace';
+import { useAuth } from '../context/AuthContext';
+
+const DiscussionSection: React.FC = () => {
+    const { user, isAuthenticated } = useAuth();
+    const [comments, setComments] = useState([
+        { id: 1, user: 'Alex', text: 'Has anyone tried this with the new API update?', time: '2 hours ago', avatar: 'A' },
+        { id: 2, user: 'Sarah', text: 'Works great! The dark mode in v2 is amazing.', time: '5 hours ago', avatar: 'S' }
+    ]);
+    const [newComment, setNewComment] = useState('');
+
+    const handlePost = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!newComment.trim()) return;
+
+        const comment = {
+            id: Date.now(),
+            user: user?.name || 'Guest',
+            text: newComment,
+            time: 'Just now',
+            avatar: user?.name?.[0] || '?'
+        };
+
+        setComments([comment, ...comments]);
+        setNewComment('');
+    };
+
+    return (
+        <div>
+            {/* Comment List */}
+            <div style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {comments.map(c => (
+                    <div key={c.id} style={{ display: 'flex', gap: '1rem' }}>
+                        <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--bg-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, border: '1px solid var(--border-color)' }}>
+                            {c.avatar}
+                        </div>
+                        <div>
+                            <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>
+                                {c.user} <span style={{ fontWeight: 400, color: 'var(--text-secondary)', fontSize: '0.85rem' }}>• {c.time}</span>
+                            </div>
+                            <p style={{ lineHeight: 1.5, color: 'var(--text-primary)' }}>{c.text}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Post Form */}
+            {isAuthenticated ? (
+                <form onSubmit={handlePost} style={{ display: 'flex', gap: '1rem' }}>
+                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-base)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#fff' }}>
+                        {user?.name?.[0]}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                        <textarea
+                            value={newComment}
+                            onChange={(e) => setNewComment(e.target.value)}
+                            placeholder="Add to the discussion..."
+                            style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-dark)', color: 'var(--text-primary)', minHeight: '100px', marginBottom: '0.5rem' }}
+                        />
+                        <button className="btn btn-primary">Post Comment</button>
+                    </div>
+                </form>
+            ) : (
+                <div style={{ padding: '1.5rem', background: 'var(--bg-dark)', borderRadius: 'var(--radius-sm)', textAlign: 'center', border: '1px solid var(--border-color)' }}>
+                    <p style={{ marginBottom: '1rem' }}>Log in to join the conversation.</p>
+                    <Link to="/login" className="btn btn-outline">Log In / Sign Up</Link>
+                </div>
+            )}
+        </div>
+    );
+};
 
 // Helper to explain licenses in plain English
 const getLicenseExplanation = (license: string) => {
@@ -100,6 +170,13 @@ export const ProjectDetailPage: React.FC = () => {
                             ))}
                         </div>
                     </div>
+                </div>
+                {/* Discussion Section */}
+                <div className="card" style={{ marginTop: '2rem', padding: '2rem' }}>
+                    <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span>💬</span> Commmunity Discussion
+                    </h3>
+                    <DiscussionSection />
                 </div>
             </div>
 

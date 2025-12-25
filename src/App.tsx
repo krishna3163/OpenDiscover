@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { DiscoverPage } from './pages/DiscoverPage';
 import { CategoryPage } from './pages/CategoryPage';
 import { DevelopersPage } from './pages/DevelopersPage';
+import { CommunityPage } from './pages/CommunityPage';
 import { LoginPage } from './pages/LoginPage';
 import { SubmitProjectPage } from './pages/SubmitProjectPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
@@ -80,6 +81,7 @@ function App() {
                   />
                 }
               />
+              <Route path="/community" element={<CommunityPage />} />
               <Route path="/developers" element={<DevelopersPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/submit" element={<SubmitProjectPage />} />
