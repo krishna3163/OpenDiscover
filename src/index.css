@@ -149,12 +149,26 @@ a:hover {
 
 /* Glassmorphism Header */
 .glass-header {
-  background: rgba(10, 15, 30, 0.7);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 15, 30, 0.6);
+  /* Slightly more transparent */
+  backdrop-filter: blur(16px);
+  /* Stronger blur */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Full border */
   position: sticky;
-  top: 0;
+  top: 1rem;
+  /* Float from top */
   z-index: 50;
+
+  /* Floating Island Style */
+  width: 95%;
+  max-width: 1280px;
+  margin: 0 auto 2rem;
+  /* Center horizontally and add bottom space */
+  border-radius: 1rem;
+  /* Rounded corners */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  /* Deep shadow for depth */
 }
 
 /* Header Response Styles */
