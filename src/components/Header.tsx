@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isProfileOpen, setIsProfileOpen] = React.useState(false);
   const { user, isAuthenticated, logout } = useAuth();
 
   return (
@@ -30,9 +31,32 @@ export const Header: React.FC = () => {
         {/* Desktop Actions */}
         <div className="desktop-actions" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           {isAuthenticated && user ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Hi, {user.name}</span>
-              <button onClick={logout} className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}>Log Out</button>
+            <div style={{ position: 'relative' }}>
+              <button
+                onClick={() => setIsProfileOpen(!isProfileOpen)}
+                style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-base)', color: '#fff', border: 'none', fontWeight: 700, fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                title="Account"
+              >
+                {user.name.charAt(0).toUpperCase()}
+              </button>
+
+              {isProfileOpen && (
+                <div style={{ position: 'absolute', top: '120%', right: 0, width: '200px', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '0.5rem', boxShadow: 'var(--shadow-md)', animation: 'slideDown 0.2s ease', zIndex: 100 }}>
+                  <div style={{ padding: '0.75rem', borderBottom: '1px solid var(--border-color)', marginBottom: '0.5rem' }}>
+                    <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{user.name}</div>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{user.email}</div>
+                  </div>
+                  <Link to="/profile" className="nav-link" style={{ display: 'block', padding: '0.75rem', borderRadius: 'var(--radius-sm)', color: 'var(--text-primary)' }} onClick={() => setIsProfileOpen(false)}>
+                    Your Profile
+                  </Link>
+                  <button
+                    onClick={() => { logout(); setIsProfileOpen(false); }}
+                    style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', padding: '0.75rem', color: 'var(--hue-danger)', cursor: 'pointer', fontSize: '1rem' }}
+                  >
+                    Log Out
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <Link to="/login" className="btn btn-outline">Log In</Link>

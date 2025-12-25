@@ -38,7 +38,7 @@ export const CommunityPage: React.FC = () => {
                             </div>
                             <div style={{ flex: 1 }}>
                                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>
-                                    <Link to="#" style={{ textDecoration: 'none', color: 'inherit' }}>{cat.title}</Link>
+                                    <Link to={`/community/${cat.title.toLowerCase().replace(/ /g, '-')}`} style={{ textDecoration: 'none', color: 'inherit' }}>{cat.title}</Link>
                                 </h3>
                                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{cat.description}</p>
                             </div>

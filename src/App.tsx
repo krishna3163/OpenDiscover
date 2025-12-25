@@ -6,6 +6,7 @@ import { DiscoverPage } from './pages/DiscoverPage';
 import { CategoryPage } from './pages/CategoryPage';
 import { DevelopersPage } from './pages/DevelopersPage';
 import { CommunityPage } from './pages/CommunityPage';
+import { CommunityCategoryPage } from './pages/CommunityCategoryPage';
 import { LoginPage } from './pages/LoginPage';
 import { SubmitProjectPage } from './pages/SubmitProjectPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
@@ -96,6 +97,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route path="/community" element={<PageTransition><CommunityPage /></PageTransition>} />
+        <Route path="/community/:categoryId" element={<PageTransition><CommunityCategoryPage /></PageTransition>} />
         <Route path="/developers" element={<PageTransition><DevelopersPage /></PageTransition>} />
         <Route path="/login" element={<PageTransition><LoginPage /></PageTransition>} />
         <Route path="/submit" element={<PageTransition><SubmitProjectPage /></PageTransition>} />
