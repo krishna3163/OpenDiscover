@@ -11,7 +11,6 @@ export const Header: React.FC = () => {
           <Link to="/" style={{ textDecoration: 'none' }} onClick={() => setIsMenuOpen(false)}>
             <h1 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.03em', background: 'linear-gradient(to right, #fff, var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'flex', alignItems: 'baseline', gap: '0.4rem', flexWrap: 'nowrap' }}>
               OpenDiscover
-              <span style={{ fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-primary)', opacity: 1, WebkitTextFillColor: 'var(--text-primary)' }}>with krishna</span>
             </h1>
           </Link>
           <span className="badge badge-legal" title="We only index openly licensed software">Open Source Only</span>
@@ -28,17 +27,6 @@ export const Header: React.FC = () => {
 
         {/* Desktop Actions */}
         <div className="desktop-actions" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <button
-            className="btn btn-outline"
-            title="Toggle Accessibility Options"
-            onClick={() => {
-              document.body.classList.toggle('a11y-high-contrast');
-              alert("Toggled High Contrast Mode (Demo)");
-            }}
-            style={{ padding: '0.5rem', fontSize: '1.2rem' }}
-          >
-            ♿
-          </button>
           <Link to="/login" className="btn btn-outline">Log In</Link>
           <Link to="/submit" className="btn btn-primary">Submit Project</Link>
         </div>

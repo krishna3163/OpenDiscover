@@ -149,6 +149,37 @@ a:hover {
   gap: 1.5rem;
 }
 
+/* Animations */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes gentle-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.btn:hover,
+.nav-link:hover,
+.card:hover {
+  animation: bounce 0.4s ease;
+}
+
 /* Glassmorphism Header */
 .glass-header {
   background: rgba(10, 15, 30, 0.6);
