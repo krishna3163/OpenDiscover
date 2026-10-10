@@ -1,7 +1,15 @@
-import type { Project } from '../components/ProjectCard';
+/**
+ * The curated OpenDiscover catalogue.
+ *
+ * Adding an entry? See CONTRIBUTING.md — link to the *official* upstream source
+ * only, keep `trustScore` honest, and the search tags will be derived for you
+ * by `src/lib/tags.ts` (add an explicit `tags: [...]` to override).
+ */
+import { withDerivedTags } from '../lib/tags';
+import type { Project } from '../types';
 
-// Database with extended fields
-export const PROJECTS_DB: Project[] = [
+/** Hand-curated facts about each project. */
+const RAW_PROJECTS: Project[] = [
     // --- AI & ML Models (Hugging Face / Open Weight) ---
     {
         id: 1,
@@ -406,7 +414,7 @@ export const PROJECTS_DB: Project[] = [
     {
         id: 501,
         title: "Obsidian",
-        description: "A powerful knowledge base (Note: Free for personal use, but NOT Open Source. Indexed for awareness, marked unverfied license).",
+        description: "A powerful knowledge base (Note: Free for personal use, but NOT Open Source. Indexed for awareness, listed with a low Trust Score and flagged as not open source).",
         category: "Productivity",
         license: "Proprietary",
         source: "Official",
@@ -601,3 +609,11 @@ export const PROJECTS_DB: Project[] = [
         lastUpdated: "1 month ago"
     }
 ];
+
+/**
+ * The catalogue the whole app reads from: raw entries enriched with derived
+ * search tags so "vpn", "notes", "llm" and friends resolve to real projects.
+ */
+export const PROJECTS_DB: Project[] = RAW_PROJECTS.map(withDerivedTags);
+
+export default PROJECTS_DB;

@@ -1,246 +1,324 @@
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { PROJECTS_DB } from '../data/projects';
-import { AdSpace } from '../components/AdSpace';
-import { useAuth } from '../context/AuthContext';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { DiscussionSection } from '../components/DiscussionSection';
+import { FavoriteButton } from '../components/FavoriteButton';
+import { ProjectList } from '../components/ProjectList';
+import { TrustRing } from '../components/TrustRing';
+import { useToast } from '../context/toast';
+import {
+  CATEGORY_BY_NAME,
+  getLicenseInfo,
+  getProjectById,
+  getRelatedProjects,
+  isOpenSourceLicense,
+  LICENSE_KIND_LABEL,
+} from '../lib/catalog';
+import { ISSUE_URL } from '../lib/routes';
+import { formatStars, parseStars, recencyDays, trustTier } from '../lib/search';
 
-const DiscussionSection: React.FC = () => {
-    const { user, isAuthenticated } = useAuth();
-    const [comments, setComments] = useState([
-        { id: 1, user: 'Alex', text: 'Has anyone tried this with the new API update?', time: '2 hours ago', avatar: 'A' },
-        { id: 2, user: 'Sarah', text: 'Works great! The dark mode in v2 is amazing.', time: '5 hours ago', avatar: 'S' }
-    ]);
-    const [newComment, setNewComment] = useState('');
-
-    const handlePost = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!newComment.trim()) return;
-
-        const comment = {
-            id: Date.now(),
-            user: user?.name || 'Guest',
-            text: newComment,
-            time: 'Just now',
-            avatar: user?.name?.[0] || '?'
-        };
-
-        setComments([comment, ...comments]);
-        setNewComment('');
-    };
-
-    return (
-        <div>
-            {/* Comment List */}
-            <div style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {comments.map(c => (
-                    <div key={c.id} style={{ display: 'flex', gap: '1rem' }}>
-                        <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--bg-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, border: '1px solid var(--border-color)' }}>
-                            {c.avatar}
-                        </div>
-                        <div>
-                            <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>
-                                {c.user} <span style={{ fontWeight: 400, color: 'var(--text-secondary)', fontSize: '0.85rem' }}>• {c.time}</span>
-                            </div>
-                            <p style={{ lineHeight: 1.5, color: 'var(--text-primary)' }}>{c.text}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            {/* Post Form */}
-            {isAuthenticated ? (
-                <form onSubmit={handlePost} style={{ display: 'flex', gap: '1rem' }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-base)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#fff' }}>
-                        {user?.name?.[0]}
-                    </div>
-                    <div style={{ flex: 1 }}>
-                        <textarea
-                            value={newComment}
-                            onChange={(e) => setNewComment(e.target.value)}
-                            placeholder="Add to the discussion..."
-                            style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', background: 'var(--bg-dark)', color: 'var(--text-primary)', minHeight: '100px', marginBottom: '0.5rem' }}
-                        />
-                        <button className="btn btn-primary">Post Comment</button>
-                    </div>
-                </form>
-            ) : (
-                <div style={{ padding: '1.5rem', background: 'var(--bg-dark)', borderRadius: 'var(--radius-sm)', textAlign: 'center', border: '1px solid var(--border-color)' }}>
-                    <p style={{ marginBottom: '1rem' }}>Log in to join the conversation.</p>
-                    <Link to="/login" className="btn btn-outline">Log In / Sign Up</Link>
-                </div>
-            )}
-        </div>
-    );
-};
-
-// Helper to explain licenses in plain English
-const getLicenseExplanation = (license: string) => {
-    if (license.includes('MIT')) return "You can use, modify, and distribute this software freely, even commercially, with attribution.";
-    if (license.includes('GPL')) return "You can use and modify this freely, but if you distribute changes, they must also be open source.";
-    if (license.includes('Apache')) return "Permissive license similar to MIT, but providing an express grant of patent rights.";
-    if (license.includes('CreativeML')) return "Open model license suitable for AI. Use freely but respect ethical usage guidelines.";
-    return "This project has a recognized open-source license.";
-};
-
+/**
+ * Project detail page.
+ *
+ * Every claim on this page is derived from the dataset (licence family,
+ * maintenance age, community size) rather than hard-coded, because a directory
+ * that talks about trust cannot afford decorative fiction.
+ */
 export const ProjectDetailPage: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
-    const project = PROJECTS_DB.find(p => p.id === Number(id));
-    const [showLicenseInfo, setShowLicenseInfo] = useState(false);
+  const { id } = useParams<{ id: string }>();
+  const project = getProjectById(id);
+  const toast = useToast();
 
-    if (!project) {
-        return <div className="container" style={{ padding: '4rem' }}>Project not found.</div>;
-    }
-
-    const isAI = project.category === 'AI / ML Models';
-    const trustScore = project.trustScore || 85;
-
-    // Color coding for score
-    const scoreColor = trustScore > 90 ? '#10b981' : trustScore > 70 ? '#f59e0b' : '#ef4444';
-
+  if (!project) {
     return (
-        <div className="container project-detail-layout">
+      <div className="container page-narrow">
+        <div className="card empty-state">
+          <h1>Project not found</h1>
+          <p>
+            No listing has the id <code>{id}</code>. It may have been removed or the link is out of date.
+          </p>
+          <div className="btn-row">
+            <Link to="/" className="btn btn-primary">
+              ← Back to Discover
+            </Link>
+            <Link to="/submit" className="btn btn-outline">
+              Suggest this project
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-            {/* Main Content */}
+  const license = getLicenseInfo(project.license);
+  const score = project.trustScore ?? 0;
+  const tier = trustTier(score);
+  const category = CATEGORY_BY_NAME.get(project.category);
+  const related = getRelatedProjects(project, 3);
+  const daysSinceUpdate = recencyDays(project.lastUpdated);
+  const stars = parseStars(project.stars);
+  const shareUrl = `${window.location.origin}${window.location.pathname}`;
+
+  const signals = [
+    {
+      ok: project.verified,
+      label: 'Verified upstream source',
+      detail: project.verified
+        ? `Listed from the official ${project.source} page.`
+        : 'Upstream owner not yet confirmed — check the repository before relying on it.',
+    },
+    {
+      ok: isOpenSourceLicense(license.kind),
+      label: `${LICENSE_KIND_LABEL[license.kind]} licence`,
+      detail: license.summary,
+    },
+    {
+      ok: daysSinceUpdate <= 90,
+      label: daysSinceUpdate <= 90 ? 'Actively maintained' : 'Maintenance unclear',
+      detail:
+        daysSinceUpdate <= 90
+          ? `Updated ${project.lastUpdated} — within the last 3 months.`
+          : `Last recorded update: ${project.lastUpdated ?? 'unknown'}.`,
+    },
+    {
+      ok: stars >= 1000,
+      label: `Community size · ${formatStars(stars)} stars`,
+      detail: stars >= 1000 ? 'A large user base usually means faster security fixes.' : 'Smaller community — review the issue tracker activity yourself.',
+    },
+  ];
+
+  // https://github.com/owner/repo -> https://github.com/sponsors/owner
+  const sponsorUrl = (() => {
+    const match = /^https:\/\/github\.com\/([^/]+)/.exec(project.link);
+    return match ? `https://github.com/sponsors/${match[1]}` : null;
+  })();
+
+  const reportUrl = `${ISSUE_URL}?template=bad_listing.md&title=${encodeURIComponent(
+    `[listing] ${project.title}`,
+  )}`;
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      toast.success('Link copied', shareUrl);
+    } catch {
+      toast.error('Could not copy the link', 'Your browser blocked clipboard access.');
+    }
+  };
+
+  return (
+    <div className="container project-detail-layout">
+      <div>
+        <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <Link to="/">Discover</Link>
+          <span aria-hidden="true">/</span>
+          <Link to={category?.path ?? '/'}>{project.category}</Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{project.title}</span>
+        </nav>
+
+        <header className="detail-head">
+          <div>
+            <h1>
+              {project.title}
+              {project.verified && (
+                <span className="verified-tick" title="Verified project" aria-label="Verified project">
+                  ✓
+                </span>
+              )}
+            </h1>
+            <p className="detail-sub">
+              {project.category} · {project.source} · updated {project.lastUpdated ?? 'recently'}
+            </p>
+          </div>
+          <div className="btn-row">
+            <FavoriteButton projectId={project.id} variant="full" />
+            <button type="button" className="btn btn-outline" onClick={copyLink}>
+              🔗 Share
+            </button>
+          </div>
+        </header>
+
+        <section className="card licence-card" aria-labelledby="licence-heading">
+          <h2 id="licence-heading" className="section-title">
+            🏁 Licence: {project.license}
+            <span className="badge badge-muted">{LICENSE_KIND_LABEL[license.kind]}</span>
+          </h2>
+          <p className="licence-summary">{license.summary}</p>
+          <dl className="licence-facts">
             <div>
-                {/* Header */}
-                <div style={{ marginBottom: '2rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
-                        <h1 style={{ fontSize: '2.5rem', fontWeight: 800 }}>{project.title}</h1>
-                        {project.verified && <span title="Verified" style={{ color: '#38bdf8', fontSize: '1.5rem' }}>✓</span>}
-                    </div>
-                    <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>
-                        {project.category} • Last updated {project.lastUpdated || 'recently'}
-                    </p>
-                </div>
+              <dt>Commercial use</dt>
+              <dd>{license.commercialUse ? '✅ Allowed' : '⚠️ Restricted'}</dd>
+            </div>
+            <div>
+              <dt>Derivatives must stay open</dt>
+              <dd>{license.shareAlike ? 'Yes (copyleft)' : 'No'}</dd>
+            </div>
+            {license.url && (
+              <div>
+                <dt>Full text</dt>
+                <dd>
+                  <a href={license.url} target="_blank" rel="noopener noreferrer">
+                    Read the licence ↗
+                  </a>
+                </dd>
+              </div>
+            )}
+          </dl>
+          <p className="licence-note">Plain-English summary for convenience — not legal advice.</p>
+        </section>
 
-                {/* License Explainer Section (Priority 2) */}
-                <div
-                    className="card"
-                    style={{
-                        marginBottom: '2rem',
-                        background: 'linear-gradient(to right, rgba(56, 189, 248, 0.1), transparent)',
-                        border: '1px solid rgba(56, 189, 248, 0.2)',
-                        cursor: 'pointer'
-                    }}
-                    onClick={() => setShowLicenseInfo(!showLicenseInfo)}
-                >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#38bdf8', fontWeight: 600, marginBottom: '0.5rem' }}>
-                        <span>🏁</span> License: {project.license}
-                        <span style={{ fontSize: '0.8rem', opacity: 0.8 }}>(Click to explain)</span>
-                    </div>
-                    {showLicenseInfo && (
-                        <p style={{ fontSize: '1rem', padding: '0.5rem', background: 'rgba(0,0,0,0.2)', borderRadius: '4px' }}>
-                            ℹ <strong>What this means:</strong> {getLicenseExplanation(project.license)}
-                        </p>
-                    )}
+        <section className="detail-block" aria-labelledby="trust-heading">
+          <h2 id="trust-heading" className="section-title">
+            Why this project is trusted
+          </h2>
+          <ul className="signal-list">
+            {signals.map((signal) => (
+              <li key={signal.label} className={`signal ${signal.ok ? 'signal-ok' : 'signal-warn'}`}>
+                <span className="signal-icon" aria-hidden="true">
+                  {signal.ok ? '✔' : '!'}
+                </span>
+                <div>
+                  <strong>{signal.label}</strong>
+                  <p>{signal.detail}</p>
                 </div>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-                {/* Why Trusted Checklist (Priority 1) */}
-                <div style={{ marginBottom: '2rem' }}>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem' }}>Why this project is trusted</h3>
-                    <div className="grid-cols-auto" style={{ gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                        {[
-                            'Verified Source Code',
-                            'OSI Approved License',
-                            'Active Maintainers',
-                            isAI ? 'Model Card Available' : 'No Taking Data'
-                        ].map((item, i) => (
-                            <div key={i} style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                                <span style={{ color: '#10b981' }}>✔</span> {item}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+        <section className="card detail-block" aria-labelledby="overview-heading">
+          <h2 id="overview-heading" className="section-title">
+            Project overview
+          </h2>
+          <p className="detail-description">{project.description}</p>
 
-                {/* Description */}
-                <div className="card" style={{ padding: '2rem' }}>
-                    <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.5rem' }}>Project Overview</h3>
-                    <p style={{ lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                        {project.description}
-                    </p>
-                    <p style={{ lineHeight: 1.7 }}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-
-                    <div style={{ marginTop: '2rem' }}>
-                        <h4 style={{ fontWeight: 600, marginBottom: '0.5rem' }}>Supported Platforms</h4>
-                        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                            {project.platforms?.map(p => (
-                                <span key={p} className="badge" style={{ border: '1px solid var(--border-color)' }}>{p}</span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                {/* Discussion Section */}
-                <div className="card" style={{ marginTop: '2rem', padding: '2rem' }}>
-                    <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <span>💬</span> Commmunity Discussion
-                    </h3>
-                    <DiscussionSection />
-                </div>
+          <div className="detail-facts">
+            <div>
+              <h3>Supported platforms</h3>
+              <div className="chip-row">
+                {(project.platforms ?? ['Not specified']).map((platform) => (
+                  <span key={platform} className="badge badge-muted">
+                    {platform}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Sidebar */}
-            <aside>
-                {/* Trust Score (Priority 4) */}
-                <div className="card" style={{ padding: '2rem', textAlign: 'center', marginBottom: '2rem', borderTop: `4px solid ${scoreColor}` }}>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>OPEN SOURCE TRUST SCORE</div>
-                    <div style={{ fontSize: '3rem', fontWeight: 800, color: scoreColor, lineHeight: 1 }}>{trustScore}</div>
-                    <div style={{ fontSize: '0.9rem', color: scoreColor }}>Excellent</div>
-                    <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                        score based on license, age, and stars
-                    </div>
+            {project.tags?.length ? (
+              <div>
+                <h3>Findable as</h3>
+                <div className="chip-row">
+                  {project.tags.slice(0, 14).map((tag) => (
+                    <Link key={tag} to={`/?q=${encodeURIComponent(tag)}`} className="chip">
+                      #{tag}
+                    </Link>
+                  ))}
                 </div>
+              </div>
+            ) : null}
+          </div>
+        </section>
 
-                {/* Action Button */}
-                <div style={{ marginBottom: '2rem' }}>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%', marginBottom: '0.5rem' }}>
-                        View on {project.source} ↗
-                    </a>
-                    <button className="btn btn-outline" style={{ width: '100%' }}>
-                        ❤ Sponsor Maintainer
-                    </button>
-                    <a href={`${project.link}${project.source === 'GitHub' ? '/discussions' : ''}`} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ width: '100%', marginTop: '0.5rem' }}>
-                        💬 Join Community
-                    </a>
-                </div>
+        {related.length > 0 && (
+          <section className="detail-block">
+            <ProjectList projects={related} title="More like this" />
+          </section>
+        )}
 
-                {/* Downloads Chart Mock */}
-                <div style={{ marginBottom: '2rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
-                        <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Activity (30 days)</span>
-                        <span style={{ fontSize: '1.25rem', fontWeight: 700 }}>High</span>
-                    </div>
-                    {/* SVG Line Graph (Sparkline) */}
-                    <div style={{ height: '60px', width: '100%', overflow: 'hidden' }}>
-                        <svg viewBox="0 0 300 60" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
-                            <defs>
-                                <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
-                                    <stop offset="0%" stopColor="var(--accent-base)" stopOpacity="0.4" />
-                                    <stop offset="100%" stopColor="var(--accent-base)" stopOpacity="0" />
-                                </linearGradient>
-                            </defs>
-                            {/* Fill Area */}
-                            <path
-                                d="M0,60 L0,35 L20,30 L40,45 L60,25 L80,35 L100,20 L120,25 L140,15 L160,25 L180,40 L200,30 L220,50 L240,45 L260,55 L280,40 L300,20 L300,60 Z"
-                                fill="url(#gradient)"
-                            />
-                            {/* Line Stroke */}
-                            <polyline
-                                points="0,35 20,30 40,45 60,25 80,35 100,20 120,25 140,15 160,25 180,40 200,30 220,50 240,45 260,55 280,40 300,20"
-                                fill="none"
-                                stroke="var(--accent-base)"
-                                strokeWidth="2.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    </div>
-                </div>
-            </aside>
+        <section className="card detail-block">
+          <DiscussionSection projectId={project.id} projectTitle={project.title} />
+        </section>
+      </div>
 
-            {/* Ad Space (Sidebar) */}
-            <AdSpace type="sidebar" />
+      <aside className="detail-sidebar">
+        <div className="card trust-card" style={{ borderTopColor: tier.color }}>
+          <span className="trust-card-label">OpenDiscover Trust Score</span>
+          <TrustRing score={score} />
+          <p className="trust-card-note">
+            Licence family, maintenance age, community size and upstream verification — the rubric is documented in{' '}
+            <a
+              href="https://github.com/krishna3163/OpenDiscover/blob/main/CONTRIBUTING.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CONTRIBUTING.md
+            </a>
+            .
+          </p>
         </div>
-    );
+
+        <div className="sidebar-actions">
+          <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-block">
+            View on {project.source} ↗
+          </a>
+          {project.source === 'GitHub' && (
+            <>
+              <a href={`${project.link}/discussions`} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-block">
+                💬 Join the discussion
+              </a>
+              <a href={`${project.link}/issues`} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-block">
+                🐞 Issue tracker
+              </a>
+              {sponsorUrl && (
+                <a href={sponsorUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-block">
+                  ❤ Sponsor the maintainer
+                </a>
+              )}
+            </>
+          )}
+        </div>
+
+        <div className="card fact-list">
+          <h3 className="section-title">Quick facts</h3>
+          <dl>
+            <div>
+              <dt>Category</dt>
+              <dd>
+                <Link to={category?.path ?? '/'}>{project.category}</Link>
+              </dd>
+            </div>
+            <div>
+              <dt>Source</dt>
+              <dd>{project.source}</dd>
+            </div>
+            <div>
+              <dt>Community</dt>
+              <dd>★ {formatStars(stars)}</dd>
+            </div>
+            <div>
+              <dt>Last update</dt>
+              <dd>{project.lastUpdated ?? 'unknown'}</dd>
+            </div>
+            <div>
+              <dt>Maintenance</dt>
+              <dd>
+                <span className="meter" aria-hidden="true">
+                  <span
+                    className="meter-fill"
+                    style={{
+                      width: `${Math.max(6, 100 - Math.min(100, (daysSinceUpdate / 365) * 100))}%`,
+                      background: daysSinceUpdate <= 90 ? '#10b981' : daysSinceUpdate <= 365 ? '#f59e0b' : '#ef4444',
+                    }}
+                  />
+                </span>
+                {daysSinceUpdate <= 90 ? 'Fresh' : daysSinceUpdate <= 365 ? 'Slowing' : 'Stale'}
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div className="card report-card">
+          <h3 className="section-title">Something wrong?</h3>
+          <p>
+            If this listing is mis-licensed, dead, or not really open source, tell us — data quality is the product.
+          </p>
+          <a href={reportUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-block">
+            🚩 Report this listing
+          </a>
+        </div>
+      </aside>
+    </div>
+  );
 };
+
+export default ProjectDetailPage;

@@ -1,103 +1,154 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { STAFF_ROSTER } from '../config/demo';
+import { useAuth } from '../context/auth';
+import { COMMUNITY_STATS, FORUM_CATEGORIES, recentActivity, threadsForCategory } from '../data/community';
+import { DISCUSSIONS_URL } from '../lib/routes';
 
+/**
+ * Community hub.
+ *
+ * Forum content is simulated (see `src/data/community.ts`), so the page links
+ * out to GitHub Discussions for anything that needs to be real.
+ */
 export const CommunityPage: React.FC = () => {
-    const categories = [
-        { id: 1, title: 'Announcements & News', description: 'Official updates from the OpenDiscover team.', topics: 12, posts: 45, icon: '📢' },
-        { id: 2, title: 'General Discussion', description: 'Talk about anything related to open source and tech.', topics: 340, posts: 1205, icon: '💬' },
-        { id: 3, title: 'Project Showcase', description: 'Show off your own projects or findings.', topics: 89, posts: 412, icon: '🚀' },
-        { id: 4, title: 'Help & Support', description: 'Need help? Ask the community.', topics: 156, posts: 678, icon: '❓' },
-        { id: 5, title: 'Modding & Customization', description: 'Deep dive into tweaking and modding apps.', topics: 201, posts: 980, icon: '🔧' },
-    ];
+  const { isAuthenticated, user } = useAuth();
+  const activity = recentActivity(4);
 
-    return (
-        <div className="container community-layout">
+  return (
+    <div className="container community-layout">
+      <div>
+        <header className="page-banner">
+          <h1>Community Hub</h1>
+          <p>
+            Welcome to the OpenDiscover forums{user ? `, ${user.name}` : ''}. Be kind, cite upstream sources, and keep
+            licence talk factual.
+          </p>
+          <p className="notice notice-warning">
+            Forum threads below are <strong>demo data</strong> — there is no backend yet. Real conversation happens on{' '}
+            <a href={DISCUSSIONS_URL} target="_blank" rel="noopener noreferrer">
+              GitHub Discussions
+            </a>
+            .
+          </p>
+        </header>
 
-            {/* Main Forum Content */}
-            <div>
-                <div style={{ marginBottom: '2rem', padding: '1.5rem', background: 'linear-gradient(to right, var(--accent-base), transparent)', borderRadius: 'var(--radius-md)', border: '1px solid var(--accent-base)' }}>
-                    <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.5rem' }}>Community Hub</h1>
-                    <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>Welcome to the official OpenDiscover forums. Be kind and helpful!</p>
-                </div>
-
-                <div className="card" style={{ padding: '0', overflow: 'hidden' }}>
-                    <div style={{ padding: '1rem', background: 'var(--bg-dark)', borderBottom: '1px solid var(--border-color)', fontWeight: 700 }}>
-                        Forums
-                    </div>
-                    {categories.map((cat, index) => (
-                        <div key={cat.id} style={{ display: 'flex', alignItems: 'center', padding: '1.5rem', borderBottom: index !== categories.length - 1 ? '1px solid var(--border-color)' : 'none' }}>
-                            <div style={{ fontSize: '2rem', marginRight: '1.5rem', background: 'var(--bg-dark)', width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}>
-                                {cat.icon}
-                            </div>
-                            <div style={{ flex: 1 }}>
-                                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>
-                                    <Link to={`/community/${cat.title.toLowerCase().replace(/ /g, '-')}`} style={{ textDecoration: 'none', color: 'inherit' }}>{cat.title}</Link>
-                                </h3>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{cat.description}</p>
-                            </div>
-                            <div style={{ textAlign: 'right', minWidth: '100px' }}>
-                                <div style={{ fontWeight: 700 }}>{cat.topics}</div>
-                                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Topics</div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div style={{ marginTop: '2rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                        <h3 style={{ fontSize: '1.5rem', fontWeight: 700 }}>Recent Activity</h3>
-                        <button className="btn btn-outline">View All</button>
-                    </div>
-                    {[1, 2, 3].map(i => (
-                        <div key={i} className="card" style={{ marginBottom: '1rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                            <div style={{ width: '40px', height: '40px', background: 'var(--border-color)', borderRadius: '50%' }}></div>
-                            <div>
-                                <div style={{ fontWeight: 600 }}>New AI Model Released: DeepSeek-V3</div>
-                                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Started by Krishna • 2 hours ago</div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Sidebar */}
-            <aside>
-                <div className="card" style={{ marginBottom: '2rem' }}>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <span style={{ width: '10px', height: '10px', background: '#10b981', borderRadius: '50%', display: 'inline-block' }}></span>
-                        Staff Online
+        <div className="card forum-card">
+          <h2 className="forum-card-head">Forums</h2>
+          <ul className="forum-list">
+            {FORUM_CATEGORIES.map((category) => {
+              const threads = threadsForCategory(category.slug);
+              return (
+                <li key={category.slug} className="forum-row">
+                  <span className="forum-icon" aria-hidden="true">
+                    {category.icon}
+                  </span>
+                  <div className="forum-main">
+                    <h3>
+                      <Link to={`/community/${category.slug}`}>{category.title}</Link>
                     </h3>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                        {['Krishna', 'Piyush', 'Kaif', 'Bot'].map(staff => (
-                            <li key={staff} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                                <div style={{ width: '32px', height: '32px', background: 'var(--accent-base)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#fff', fontSize: '0.8rem' }}>
-                                    {staff[0]}
-                                </div>
-                                <span style={{ flex: 1 }}>{staff}</span>
-                                <Link to={`/chat/${staff}`} style={{ fontSize: '0.8rem', color: 'var(--accent-base)', textDecoration: 'none', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: 'var(--radius-sm)' }}>
-                                    Chat
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <div className="card">
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem' }}>Forum Stats</h4>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                        <span style={{ color: 'var(--text-secondary)' }}>Total Threads:</span>
-                        <span style={{ fontWeight: 600 }}>8,912</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                        <span style={{ color: 'var(--text-secondary)' }}>Total Posts:</span>
-                        <span style={{ fontWeight: 600 }}>142,503</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span style={{ color: 'var(--text-secondary)' }}>Members:</span>
-                        <span style={{ fontWeight: 600 }}>25,401</span>
-                    </div>
-                </div>
-            </aside>
+                    <p>{category.description}</p>
+                  </div>
+                  <div className="forum-counts">
+                    <strong>{threads.length}</strong>
+                    <span>threads</span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-    );
+
+        <section className="detail-block" aria-labelledby="activity-heading">
+          <div className="section-head-row">
+            <h2 id="activity-heading" className="section-title">
+              Recently updated in the index
+            </h2>
+            <Link to="/?sort=updated" className="btn btn-outline">
+              View all
+            </Link>
+          </div>
+          <ul className="activity-list">
+            {activity.map((item) => (
+              <li key={item.id} className="card activity-row">
+                <span className="activity-dot" aria-hidden="true" />
+                <div>
+                  <Link to={`/project/${item.id}`}>{item.title}</Link>
+                  <span className="activity-meta">
+                    {item.category} · updated {item.when}
+                  </span>
+                </div>
+                <a href={item.link} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+                  Upstream ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <aside className="community-sidebar">
+        <div className="card">
+          <h3 className="section-title">
+            <span className="status-dot" aria-hidden="true" /> Staff online
+          </h3>
+          <ul className="staff-list">
+            {STAFF_ROSTER.map((member) => (
+              <li key={member.handle}>
+                <span className="avatar" aria-hidden="true">
+                  {member.name.charAt(0)}
+                </span>
+                <span className="staff-meta">
+                  <strong>{member.name}</strong>
+                  <small>{member.role}</small>
+                </span>
+                <Link to={`/chat/${encodeURIComponent(member.name)}`} className="btn btn-outline btn-sm">
+                  Chat
+                </Link>
+              </li>
+            ))}
+          </ul>
+          {!isAuthenticated && (
+            <p className="notice">
+              <Link to="/login">Log in</Link> to open a chat (demo auth, no real account needed).
+            </p>
+          )}
+        </div>
+
+        <div className="card">
+          <h3 className="section-title">Index stats</h3>
+          <dl className="stat-list">
+            <div>
+              <dt>Projects listed</dt>
+              <dd>{COMMUNITY_STATS.projects}</dd>
+            </div>
+            <div>
+              <dt>Verified listings</dt>
+              <dd>{COMMUNITY_STATS.verified}</dd>
+            </div>
+            <div>
+              <dt>Forum categories</dt>
+              <dd>{COMMUNITY_STATS.categories}</dd>
+            </div>
+            <div>
+              <dt>Demo threads</dt>
+              <dd>{COMMUNITY_STATS.threads}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div className="card">
+          <h3 className="section-title">House rules</h3>
+          <ol className="rules-list">
+            <li>Link to official upstream sources, never mirrors.</li>
+            <li>No piracy, cracked builds or licence circumvention.</li>
+            <li>Critique the code, not the person.</li>
+            <li>Flag bad listings — accuracy is the whole product.</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  );
 };
+
+export default CommunityPage;

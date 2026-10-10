@@ -1,96 +1,180 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/auth';
+import { useFavorites } from '../context/favorites';
+import { PRIMARY_NAV } from '../lib/routes';
 
+/**
+ * Site header: primary navigation, favourites shortcut, and the account menu.
+ *
+ * Menus close on `Escape` and on outside clicks, and every control exposes its
+ * expanded state to assistive technology.
+ */
 export const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isProfileOpen, setIsProfileOpen] = React.useState(false);
-  const { user, isAuthenticated, logout } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const { user, isAuthenticated, isStaff, logout } = useAuth();
+  const { count } = useFavorites();
+  const navigate = useNavigate();
+  const profileRef = useRef<HTMLDivElement>(null);
+
+  // Close the account menu on outside click / Escape.
+  useEffect(() => {
+    if (!isProfileOpen) return;
+
+    const onPointerDown = (event: MouseEvent) => {
+      if (!profileRef.current?.contains(event.target as Node)) setIsProfileOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsProfileOpen(false);
+    };
+
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isProfileOpen]);
+
+  const handleLogout = () => {
+    logout();
+    setIsProfileOpen(false);
+    setIsMenuOpen(false);
+    navigate('/');
+  };
+
+  const initial = user?.name?.charAt(0).toUpperCase() ?? '?';
 
   return (
     <header className="glass-header">
-      <div className="container" style={{ height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', whiteSpace: 'nowrap' }}>
-          <Link to="/" style={{ textDecoration: 'none' }} onClick={() => setIsMenuOpen(false)}>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.03em', background: 'linear-gradient(to right, #fff, var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'flex', alignItems: 'baseline', gap: '0.4rem', flexWrap: 'nowrap' }}>
-              OpenDiscover
-            </h1>
+      <div className="container header-inner">
+        <div className="header-brand">
+          <Link to="/" className="logo" onClick={() => setIsMenuOpen(false)}>
+            <span className="logo-mark" aria-hidden="true">
+              ◎
+            </span>
+            OpenDiscover
           </Link>
-          <span className="badge badge-legal" title="We only index openly licensed software">Open Source Only</span>
+          <span className="badge badge-legal" title="We only index openly licensed software">
+            Open Source Only
+          </span>
+          {isStaff && (
+            <span className="badge badge-staff" title="Demo staff view">
+              Staff
+            </span>
+          )}
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="desktop-nav" style={{ display: 'flex', gap: '3rem', whiteSpace: 'nowrap' }}>
-          <Link to="/" style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Discover</Link>
-          <Link to="/ai-models" className="nav-link">AI Models</Link>
-          <Link to="/open-source-apps" className="nav-link">Open Source Apps</Link>
-          <Link to="/community" className="nav-link">Community</Link>
-          <Link to="/developers" className="nav-link">Developers</Link>
+        {/* Desktop navigation */}
+        <nav className="desktop-nav" aria-label="Primary">
+          {PRIMARY_NAV.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              end={item.path === '/'}
+              className={({ isActive }) => `nav-link${isActive ? ' nav-link-active' : ''}`}
+            >
+              {item.label}
+              {item.path === '/favorites' && count > 0 && <span className="nav-count">{count}</span>}
+            </NavLink>
+          ))}
+          <NavLink to="/chat/Bot" className={({ isActive }) => `nav-link nav-ai${isActive ? ' nav-link-active' : ''}`}>
+            🤖 AI
+          </NavLink>
         </nav>
 
-        {/* Desktop Actions */}
-        <div className="desktop-actions" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        {/* Desktop actions */}
+        <div className="desktop-actions">
           {isAuthenticated && user ? (
-            <div style={{ position: 'relative' }}>
+            <div className="profile-menu" ref={profileRef}>
               <button
-                onClick={() => setIsProfileOpen(!isProfileOpen)}
-                style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-base)', color: '#fff', border: 'none', fontWeight: 700, fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                type="button"
+                className="avatar-button"
+                onClick={() => setIsProfileOpen((open) => !open)}
+                aria-haspopup="menu"
+                aria-expanded={isProfileOpen}
                 title="Account"
               >
-                {user.name.charAt(0).toUpperCase()}
+                {initial}
               </button>
 
               {isProfileOpen && (
-                <div style={{ position: 'absolute', top: '120%', right: 0, width: '200px', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '0.5rem', boxShadow: 'var(--shadow-md)', animation: 'slideDown 0.2s ease', zIndex: 100 }}>
-                  <div style={{ padding: '0.75rem', borderBottom: '1px solid var(--border-color)', marginBottom: '0.5rem' }}>
-                    <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{user.name}</div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{user.email}</div>
+                <div className="profile-dropdown" role="menu">
+                  <div className="profile-dropdown-head">
+                    <strong>{user.name}</strong>
+                    <span>{user.email}</span>
+                    {isStaff && <em>Demo staff account · not real auth</em>}
                   </div>
-                  <Link to="/profile" className="nav-link" style={{ display: 'block', padding: '0.75rem', borderRadius: 'var(--radius-sm)', color: 'var(--text-primary)' }} onClick={() => setIsProfileOpen(false)}>
-                    Your Profile
+                  <Link to="/profile" role="menuitem" className="profile-dropdown-item" onClick={() => setIsProfileOpen(false)}>
+                    Your profile
                   </Link>
-                  <button
-                    onClick={() => { logout(); setIsProfileOpen(false); }}
-                    style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', padding: '0.75rem', color: 'var(--hue-danger)', cursor: 'pointer', fontSize: '1rem' }}
-                  >
-                    Log Out
+                  <Link to="/favorites" role="menuitem" className="profile-dropdown-item" onClick={() => setIsProfileOpen(false)}>
+                    Favourites {count > 0 ? `(${count})` : ''}
+                  </Link>
+                  <button type="button" role="menuitem" className="profile-dropdown-item danger" onClick={handleLogout}>
+                    Log out
                   </button>
                 </div>
               )}
             </div>
           ) : (
-            <Link to="/login" className="btn btn-outline">Log In</Link>
+            <Link to="/login" className="btn btn-outline">
+              Log in
+            </Link>
           )}
-          <Link to="/submit" className="btn btn-primary">Submit Project</Link>
+          <Link to="/submit" className="btn btn-primary">
+            Submit Project
+          </Link>
         </div>
 
-        {/* Mobile Toggle Button */}
+        {/* Mobile toggle */}
         <button
+          type="button"
           className="mobile-toggle"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle Menu"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMenuOpen ? '✕' : '☰'}
         </button>
 
-        {/* Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="mobile-menu">
-            <Link to="/" onClick={() => setIsMenuOpen(false)}>Discover</Link>
-            <Link to="/ai-models" onClick={() => setIsMenuOpen(false)}>AI Models</Link>
-            <Link to="/open-source-apps" onClick={() => setIsMenuOpen(false)}>Open Source Apps</Link>
-            <Link to="/community" onClick={() => setIsMenuOpen(false)}>Community</Link>
-            <Link to="/developers" onClick={() => setIsMenuOpen(false)}>Developers</Link>
-            <div style={{ borderTop: '1px solid var(--border-color)', margin: '0.5rem 0' }}></div>
+          <nav className="mobile-menu" id="mobile-menu" aria-label="Mobile">
+            {PRIMARY_NAV.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                end={item.path === '/'}
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) => (isActive ? 'nav-link-active' : undefined)}
+              >
+                {item.label}
+                {item.path === '/favorites' && count > 0 ? ` (${count})` : ''}
+              </NavLink>
+            ))}
+            <Link to="/chat/Bot" onClick={() => setIsMenuOpen(false)}>
+              🤖 AI Assistant
+            </Link>
+            <div className="mobile-menu-divider" />
             {isAuthenticated ? (
-              <button onClick={() => { logout(); setIsMenuOpen(false); }} style={{ background: 'none', border: 'none', color: 'var(--text-primary)', padding: '0.5rem 0', textAlign: 'left', fontSize: '1.1rem' }}>Log Out</button>
+              <button type="button" className="mobile-menu-button" onClick={handleLogout}>
+                Log out
+              </button>
             ) : (
-              <Link to="/login" onClick={() => setIsMenuOpen(false)}>Log In</Link>
+              <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                Log in
+              </Link>
             )}
-            <Link to="/submit" className="btn btn-primary" onClick={() => setIsMenuOpen(false)} style={{ textAlign: 'center' }}>Submit Project</Link>
-          </div>
+            <Link to="/submit" className="btn btn-primary" onClick={() => setIsMenuOpen(false)} style={{ textAlign: 'center' }}>
+              Submit Project
+            </Link>
+          </nav>
         )}
       </div>
     </header>
   );
 };
+
+export default Header;

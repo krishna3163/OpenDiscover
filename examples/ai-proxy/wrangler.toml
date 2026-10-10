@@ -1,0 +1,13 @@
+name = "opendiscover-ai-proxy"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Only the key belongs in a secret:
+#   npx wrangler secret put GEMINI_API_KEY
+#
+# Optional: restrict which browser origins may call the proxy.
+# [vars]
+# ALLOWED_ORIGINS_ENV = "https://krishna3163.github.io,http://localhost:5173"
+
+[observability]
+enabled = true

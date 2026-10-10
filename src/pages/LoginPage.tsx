@@ -1,199 +1,224 @@
-
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/auth';
+import { useToast } from '../context/toast';
+import { DEMO_OTP_HINT, isDemoStaff, resolveDemoName } from '../config/demo';
 
+/**
+ * Demo authentication screen.
+ *
+ * ⚠️ There is no backend: no password is verified, no OTP is sent, and the
+ * resulting session lives in `localStorage`. Credentials are deliberately
+ * **not** checked against anything — see SECURITY.md for why hard-coding them
+ * here would be a real vulnerability.
+ */
 export const LoginPage: React.FC = () => {
-    const navigate = useNavigate();
-    const { login } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { login } = useAuth();
+  const toast = useToast();
 
-    // UI State
-    const [isSignUp, setIsSignUp] = useState(false);
-    const [authMethod, setAuthMethod] = useState<'username' | 'phone'>('username');
-    const [step, setStep] = useState<1 | 2>(1);
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [authMethod, setAuthMethod] = useState<'username' | 'phone'>('username');
+  const [step, setStep] = useState<1 | 2>(1);
 
-    // Form State
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    const [otp, setOtp] = useState('');
+  const [identifier, setIdentifier] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [otp, setOtp] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-    // Step 1: Handle Credentials
-    const handleCredentialsSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+  const redirectTo = (location.state as { from?: string } | null)?.from ?? '/';
 
-        // Specific Admin Credentials Check
-        if ((email === 'krishna0858' && password === '@krishna') ||
-            (email === 'Piyush_Mishra' && password === 'piyushmishra') ||
-            (email === 'md_kaif' && password === '@mdkaif')) {
-            setStep(2);
-            // Simulated "Sent" toast
-            return;
-        }
+  const handleCredentialsSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setError(null);
 
-        // Generic Validations
-        if (email && password) {
-            setStep(2);
-        }
-    };
+    if (identifier.trim().length < 3) {
+      setError(authMethod === 'username' ? 'Enter a username or email (3+ characters).' : 'Enter a valid phone number.');
+      return;
+    }
+    if (password.length < 4) {
+      setError('Password must be at least 4 characters (demo only — nothing is verified).');
+      return;
+    }
+    if (isSignUp && name.trim().length < 2) {
+      setError('Please tell us what to call you.');
+      return;
+    }
 
-    // Step 2: Handle OTP & Login
-    const handleLogin = (e: React.FormEvent) => {
-        e.preventDefault();
+    setOtp('');
+    setStep(2);
+    toast.info('Demo OTP step', DEMO_OTP_HINT);
+  };
 
-        if (otp === '123456') { // Mock OTP
-            let userData = { name: 'User', email: email };
+  const handleVerify = (event: React.FormEvent) => {
+    event.preventDefault();
 
-            if (email === 'krishna0858') {
-                userData = { name: 'Krishna', email: 'krishna0858@opendiscover.com' };
-            } else if (email === 'Piyush_Mishra') {
-                userData = { name: 'Piyush Mishra', email: 'piyush@opendiscover.com' };
-            } else if (email === 'md_kaif') {
-                userData = { name: 'Md Kaif', email: 'mdkaif@opendiscover.com' };
-            } else if (isSignUp) {
-                userData = { name: name, email: email };
-            } else {
-                userData = { name: email.split('@')[0], email: email };
-            }
+    if (!/^\d{6}$/.test(otp.trim())) {
+      setError('Enter the 6-digit demo code.');
+      return;
+    }
 
-            login(userData);
-            navigate('/profile');
-        } else {
-            alert('Invalid OTP');
-        }
-    };
+    const resolvedName = isSignUp && name.trim() ? name.trim() : resolveDemoName(identifier);
+    const email = identifier.includes('@')
+      ? identifier
+      : `${identifier.toLowerCase().replace(/[^a-z0-9]/g, '')}@demo.opendiscover.local`;
 
-    return (
-        <div className="login-container" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+    login({ name: resolvedName, email });
 
-            {/* Logo Area */}
-            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-                <h1 style={{ fontSize: '2.5rem', fontWeight: 800, background: 'linear-gradient(to right, #fff, var(--text-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                    OpenDiscover
-                </h1>
+    if (isDemoStaff(resolvedName)) {
+      toast.success(`Welcome back, ${resolvedName}`, 'Demo staff view enabled — try the community chat.');
+    } else {
+      toast.success(`Signed in as ${resolvedName}`, 'Session stored locally in this browser.');
+    }
+
+    navigate(redirectTo === '/login' ? '/profile' : redirectTo);
+  };
+
+  return (
+    <div className="container page-narrow login-page">
+      <header className="login-brand">
+        <span className="logo-mark" aria-hidden="true">
+          ◎
+        </span>
+        <h1>OpenDiscover</h1>
+        <p className="badge badge-warning">Demo sign-in · no real accounts</p>
+      </header>
+
+      <div className="card login-card">
+        <h2>{step === 2 ? 'Security verification' : isSignUp ? 'Create your profile' : 'Welcome back'}</h2>
+
+        {error && (
+          <p className="notice notice-error" role="alert">
+            {error}
+          </p>
+        )}
+
+        {step === 1 ? (
+          <>
+            {!isSignUp && (
+              <div className="segmented" role="tablist" aria-label="Sign-in method">
+                {(['username', 'phone'] as const).map((method) => (
+                  <button
+                    key={method}
+                    type="button"
+                    role="tab"
+                    aria-selected={authMethod === method}
+                    className={`segmented-button${authMethod === method ? ' segmented-active' : ''}`}
+                    onClick={() => setAuthMethod(method)}
+                  >
+                    {method === 'username' ? 'Username' : 'Phone'}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <form className="form-stack" onSubmit={handleCredentialsSubmit} noValidate>
+              {isSignUp && (
+                <div className="field">
+                  <label htmlFor="signup-name">Full name</label>
+                  <input
+                    id="signup-name"
+                    className="form-input"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                    placeholder="Ada Lovelace"
+                    autoComplete="name"
+                    required
+                  />
+                </div>
+              )}
+
+              <div className="field">
+                <label htmlFor="identifier">{authMethod === 'username' ? 'Username or email' : 'Phone number'}</label>
+                <input
+                  id="identifier"
+                  className="form-input"
+                  value={identifier}
+                  onChange={(event) => setIdentifier(event.target.value)}
+                  placeholder={authMethod === 'username' ? 'yourname or you@example.com' : '+91 90000 00000'}
+                  autoComplete={authMethod === 'username' ? 'username' : 'tel'}
+                  inputMode={authMethod === 'phone' ? 'tel' : 'text'}
+                  aria-invalid={!!error}
+                  required
+                />
+              </div>
+
+              <div className="field">
+                <label htmlFor="password">Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  className="form-input"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  placeholder="Anything — this demo does not check it"
+                  autoComplete={isSignUp ? 'new-password' : 'current-password'}
+                  aria-invalid={!!error}
+                  required
+                />
+                <span className="field-hint">Not verified. Never reuse a real password in a demo.</span>
+              </div>
+
+              <button type="submit" className="btn btn-primary btn-block btn-lg">
+                {isSignUp ? 'Create profile' : 'Continue'}
+              </button>
+            </form>
+
+            <p className="login-switch">
+              {isSignUp ? 'Already have a profile?' : 'New here?'}{' '}
+              <button type="button" className="link-button" onClick={() => setIsSignUp(!isSignUp)}>
+                {isSignUp ? 'Log in' : 'Sign up'}
+              </button>
+            </p>
+          </>
+        ) : (
+          <form className="form-stack" onSubmit={handleVerify} noValidate>
+            <p className="notice notice-success">
+              <strong>Demo code sent!</strong> In a real deployment this would arrive by SMS or an authenticator app.
+              Here, {DEMO_OTP_HINT.toLowerCase()}.
+            </p>
+
+            <div className="field">
+              <label htmlFor="otp">6-digit code</label>
+              <input
+                id="otp"
+                className="form-input otp-input"
+                value={otp}
+                onChange={(event) => setOtp(event.target.value.replace(/\D/g, '').slice(0, 6))}
+                placeholder="123456"
+                inputMode="numeric"
+                autoComplete="one-time-code"
+                maxLength={6}
+                aria-invalid={!!error}
+                required
+              />
             </div>
 
-            <div className="card" style={{ width: '100%', maxWidth: '420px', padding: '2rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '1.5rem', boxShadow: 'var(--shadow-lg)' }}>
-                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, textAlign: 'center', marginBottom: '1.5rem' }}>
-                    {step === 2 ? 'Security Verification' : (isSignUp ? 'Create Account' : 'Welcome Back')}
-                </h2>
+            <button type="submit" className="btn btn-primary btn-block btn-lg">
+              Verify & continue
+            </button>
+            <button type="button" className="link-button" onClick={() => setStep(1)}>
+              ← Back to login
+            </button>
+          </form>
+        )}
+      </div>
 
-                {step === 1 ? (
-                    <>
-                        {/* Toggle Tabs (Visual) */}
-                        {!isSignUp && (
-                            <div style={{ display: 'flex', background: 'var(--bg-dark)', padding: '0.25rem', borderRadius: '0.75rem', marginBottom: '1.5rem' }}>
-                                <button
-                                    onClick={() => setAuthMethod('username')}
-                                    style={{ flex: 1, padding: '0.5rem', borderRadius: '0.5rem', border: 'none', background: authMethod === 'username' ? 'var(--bg-card)' : 'transparent', color: authMethod === 'username' ? 'var(--text-primary)' : 'var(--text-secondary)', fontWeight: 600, cursor: 'pointer', boxShadow: authMethod === 'username' ? 'var(--shadow-sm)' : 'none', transition: 'all 0.2s' }}
-                                >
-                                    Username
-                                </button>
-                                <button
-                                    onClick={() => setAuthMethod('phone')}
-                                    style={{ flex: 1, padding: '0.5rem', borderRadius: '0.5rem', border: 'none', background: authMethod === 'phone' ? 'var(--bg-card)' : 'transparent', color: authMethod === 'phone' ? 'var(--text-primary)' : 'var(--text-secondary)', fontWeight: 600, cursor: 'pointer', boxShadow: authMethod === 'phone' ? 'var(--shadow-sm)' : 'none', transition: 'all 0.2s' }}
-                                >
-                                    Phone
-                                </button>
-                            </div>
-                        )}
-
-                        <form onSubmit={handleCredentialsSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                            {isSignUp && (
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem' }}>Full Name</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        className="form-input"
-                                        placeholder="Enter your full name"
-                                    />
-                                </div>
-                            )}
-
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem' }}>{authMethod === 'username' ? 'Username or Email' : 'Phone Number'}</label>
-                                <input
-                                    type="text"
-                                    required
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="form-input"
-                                    placeholder={authMethod === 'username' ? "Enter your username" : "Enter your phone number"}
-                                />
-                            </div>
-
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem' }}>Password</label>
-                                <input
-                                    type="password"
-                                    required
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className="form-input"
-                                    placeholder="Enter your password"
-                                />
-                            </div>
-
-                            <button className="btn btn-primary" style={{ width: '100%', padding: '0.875rem', fontSize: '1rem', marginTop: '0.5rem' }}>
-                                {isSignUp ? 'Sign Up' : 'Log In'}
-                            </button>
-                        </form>
-                    </>
-                ) : (
-                    <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', textAlign: 'center' }}>
-                        <div style={{ background: 'rgba(16, 185, 129, 0.1)', color: '#34d399', padding: '1rem', borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                            <div style={{ background: '#10b981', borderRadius: '50%', padding: '0.25rem' }}>✓</div>
-                            <div style={{ textAlign: 'left' }}>
-                                <div style={{ fontWeight: 700 }}>OTP Sent!</div>
-                                <div style={{ fontSize: '0.8rem' }}>Check your device for the code</div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <input
-                                type="text"
-                                required
-                                placeholder="Enter 6-digit OTP"
-                                value={otp}
-                                onChange={(e) => setOtp(e.target.value)}
-                                className="form-input"
-                                style={{ textAlign: 'center', fontSize: '1.5rem', letterSpacing: '0.5rem', fontWeight: 700 }}
-                                maxLength={6}
-                            />
-                        </div>
-                        <button className="btn btn-primary" style={{ width: '100%', padding: '0.875rem' }}>Verify & Login</button>
-                        <button
-                            type="button"
-                            onClick={() => setStep(1)}
-                            style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.9rem' }}
-                        >
-                            Back to Login
-                        </button>
-                    </form>
-                )}
-
-                {step === 1 && (
-                    <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                            {isSignUp ? "Already have an account?" : "Don't have an account?"}{' '}
-                            <button
-                                onClick={() => setIsSignUp(!isSignUp)}
-                                style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 600, cursor: 'pointer' }}
-                            >
-                                {isSignUp ? 'Log In' : 'Sign Up'}
-                            </button>
-                        </p>
-                        {!isSignUp && (
-                            <button style={{ marginTop: '1rem', background: 'none', border: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', textDecoration: 'underline', cursor: 'pointer' }}>
-                                Forgot Password?
-                            </button>
-                        )}
-                    </div>
-                )}
-            </div>
-        </div>
-    );
+      <p className="login-footnote">
+        Auth in this build is a client-side simulation for the community demo. Read{' '}
+        <a
+          href="https://github.com/krishna3163/OpenDiscover/blob/main/SECURITY.md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SECURITY.md
+        </a>{' '}
+        before wiring it to anything real — or <Link to="/">skip the login and keep browsing</Link>.
+      </p>
+    </div>
+  );
 };
+
+export default LoginPage;
