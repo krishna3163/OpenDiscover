@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>OpenDiscover — loading…</title>
+  <meta name="robots" content="noindex" />
+  <script>
+    // GitHub Pages has no rewrite rules, so it serves this file for every deep
+    // link. Re-pack the real path into a query string and bounce to the SPA,
+    // where `src/lib/ghPages.ts` restores it before React renders.
+    //   /OpenDiscover/project/42  ->  /OpenDiscover/?/project/42
+    var path = window.location.pathname;
+    var parts = path.split('/').filter(Boolean);
+    var isProjectSite = parts.length > 0 && !parts[0].endsWith('.github.io');
+    var baseSegments = isProjectSite ? 1 : 0;
+    var base = '/' + parts.slice(0, baseSegments).join('/') + (baseSegments ? '/' : '');
+    var rest = parts.slice(baseSegments).join('/').replace(/&/g, '~and~');
+    var search = window.location.search ? '&' + window.location.search.slice(1).replace(/&/g, '~and~') : '';
+
+    window.location.replace(base + '?/' + rest + search + window.location.hash);
+  </script>
+</head>
+
+<body>
+  <p>Loading OpenDiscover…</p>
+</body>
+
+</html>

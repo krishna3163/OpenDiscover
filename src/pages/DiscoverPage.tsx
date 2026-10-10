@@ -1,28 +1,29 @@
 import React from 'react';
-import { Hero } from '../components/Hero';
-import { ProjectList } from '../components/ProjectList';
 import { AdSpace } from '../components/AdSpace';
-import { TrustSignals, HowItWorks, CategoryGrid, ComparisonTable, MaintainerCTA } from '../components/HomeSections';
+import { Hero } from '../components/Hero';
+import { CategoryGrid, ComparisonTable, HowItWorks, MaintainerCTA, TrustSignals } from '../components/HomeSections';
+import { ProjectExplorer } from '../components/ProjectExplorer';
 
-export const DiscoverPage: React.FC = () => {
-    const [searchQuery, setSearchQuery] = React.useState('');
+/**
+ * Landing page. Search state lives in the URL, so the hero box and the
+ * explorer below stay in sync and results can be shared as a link.
+ */
+export const DiscoverPage: React.FC = () => (
+  <>
+    <Hero />
+    <TrustSignals />
 
-    return (
-        <>
-            <Hero onSearch={setSearchQuery} />
-            <TrustSignals />
-            <HowItWorks />
+    <ProjectExplorer title="Trending projects" pageSize={12} />
 
-            {/* Featured Projects Section */}
-            <ProjectList searchQuery={searchQuery} />
+    <div className="container">
+      <AdSpace type="banner" />
+    </div>
 
-            <div className="container">
-                <AdSpace type="banner" />
-            </div>
+    <HowItWorks />
+    <CategoryGrid />
+    <ComparisonTable />
+    <MaintainerCTA />
+  </>
+);
 
-            <CategoryGrid />
-            <ComparisonTable />
-            <MaintainerCTA />
-        </>
-    );
-};
+export default DiscoverPage;

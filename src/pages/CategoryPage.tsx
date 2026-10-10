@@ -1,26 +1,42 @@
 import React from 'react';
-
-import { ProjectList } from '../components/ProjectList';
-
-// To avoid complex refactoring in this step, I will use ProjectList and add a filter prop to it in the next step.
-// For now, I'll create the wrapper.
+import { ProjectExplorer } from '../components/ProjectExplorer';
+import { getProjectsByCategory } from '../lib/catalog';
+import type { CategoryName } from '../types';
 
 interface CategoryPageProps {
-    title: string;
-    description: string;
-    filterCategory: string; // "AI / ML Models" or "Privacy & Security"
+  title: string;
+  description: string;
+  filterCategory: CategoryName;
+  icon?: string;
 }
 
-export const CategoryPage: React.FC<CategoryPageProps> = ({ title, description, filterCategory }) => {
-    return (
-        <div className="container" style={{ padding: '4rem 1.5rem', minHeight: '60vh' }}>
-            <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>{title}</h2>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>{description}</p>
-            </div>
+/**
+ * Category listing page. All six category routes render this component with a
+ * different `filterCategory` (see `CATEGORY_ROUTES` in `src/lib/routes.ts`).
+ */
+export const CategoryPage: React.FC<CategoryPageProps> = ({ title, description, filterCategory, icon }) => {
+  const total = getProjectsByCategory(filterCategory).length;
 
-            {/* We will need to update ProjectList to accept a filter. */}
-            <ProjectList filter={filterCategory} />
+  return (
+    <div className="category-page">
+      <header className="container page-head">
+        <div>
+          {icon && (
+            <span className="page-icon" aria-hidden="true">
+              {icon}
+            </span>
+          )}
+          <h1>{title}</h1>
+          <p className="page-subtitle">{description}</p>
+          <p className="page-count">
+            {total} curated {total === 1 ? 'project' : 'projects'} · official sources only
+          </p>
         </div>
-    );
+      </header>
+
+      <ProjectExplorer category={filterCategory} pageSize={12} />
+    </div>
+  );
 };
+
+export default CategoryPage;

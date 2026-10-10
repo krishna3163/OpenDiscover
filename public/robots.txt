@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Client-only demo routes with no indexable content
+Disallow: /login
+Disallow: /chat/
+Disallow: /profile
+
+Sitemap: https://krishna3163.github.io/OpenDiscover/sitemap.xml

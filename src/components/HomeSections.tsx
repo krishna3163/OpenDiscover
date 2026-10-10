@@ -1,133 +1,189 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CATALOGUE_STATS, CATEGORIES, getProjectsByCategory } from '../lib/catalog';
+import { CONTRIBUTING_URL, REPO_URL } from '../lib/routes';
 
-export const TrustSignals: React.FC = () => {
-    return (
-        <section style={{ background: 'var(--bg-card)', borderBottom: '1px solid var(--border-color)', padding: '1.5rem 0' }}>
-            <div className="container">
-                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', textAlign: 'center' }}>
-                    {[
-                        { icon: '✅', text: 'License Verified' },
-                        { icon: '🔐', text: 'No APKs Hosted' },
-                        { icon: '🌍', text: 'Official Sources Only' },
-                        { icon: '👩‍💻', text: 'Maintainer Friendly' },
-                    ].map((item, i) => (
-                        <div key={i} style={{ flex: '1 1 200px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-                            <span style={{ fontSize: '1.25rem' }}>{item.icon}</span>
-                            {item.text}
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
+/** Strip of guarantees shown right under the hero. */
+export const TrustSignals: React.FC = () => (
+  <section className="trust-strip" aria-label="What OpenDiscover guarantees">
+    <div className="container trust-strip-inner">
+      {[
+        { icon: '✅', text: 'Licence verified' },
+        { icon: '🔐', text: 'No APKs hosted' },
+        { icon: '🌍', text: 'Official sources only' },
+        { icon: '👩‍💻', text: 'Maintainer friendly' },
+        { icon: '🧮', text: 'Transparent Trust Score' },
+      ].map((item) => (
+        <p key={item.text} className="trust-signal">
+          <span aria-hidden="true">{item.icon}</span>
+          {item.text}
+        </p>
+      ))}
+    </div>
+  </section>
+);
 
-export const HowItWorks: React.FC = () => {
-    return (
-        <section className="container" style={{ padding: '6rem 0' }}>
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>How OpenDiscover Works</h2>
-                <p style={{ color: 'var(--text-secondary)' }}>Transparency at every step.</p>
-            </div>
+/** Four-step explainer of how a listing gets published. */
+export const HowItWorks: React.FC = () => (
+  <section className="container section">
+    <header className="section-head">
+      <h2>How OpenDiscover works</h2>
+      <p>Transparency at every step — and every claim is checkable.</p>
+    </header>
 
-            <div className="grid-cols-auto" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-                {[
-                    { title: '1. We Scan', icon: '🔍', desc: 'We aggregate projects from trusted platforms like GitHub, Hugging Face, and F-Droid.' },
-                    { title: '2. We Verify', icon: '📜', desc: 'We check for valid OSI-approved licenses (MIT, Apache, GPL) to ensure freedom.' },
-                    { title: '3. We Link', icon: '🔗', desc: 'We redirect you to the official source. No repackaged binaries. No malware risk.' },
-                ].map((step, i) => (
-                    <div key={i} className="card" style={{ textAlign: 'center', padding: '2.5rem 1.5rem' }}>
-                        <div style={{ fontSize: '3rem', marginBottom: '1.5rem', background: 'var(--bg-dark)', width: '80px', height: '80px', lineHeight: '80px', borderRadius: '50%', margin: '0 auto' }}>{step.icon}</div>
-                        <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>{step.title}</h3>
-                        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>{step.desc}</p>
-                    </div>
-                ))}
-            </div>
-        </section>
-    );
-};
+    <ol className="steps-grid">
+      {[
+        {
+          title: 'We scan',
+          icon: '🔍',
+          desc: 'Projects are aggregated from trusted platforms: GitHub, GitLab, Codeberg, Hugging Face and F-Droid.',
+        },
+        {
+          title: 'We verify',
+          icon: '📜',
+          desc: 'We check for a valid OSI-approved licence (or a documented model licence) and confirm the upstream owner.',
+        },
+        {
+          title: 'We score',
+          icon: '🧮',
+          desc: 'A public rubric turns licence, maintenance, community size and release signing into one 0–100 Trust Score.',
+        },
+        {
+          title: 'We link',
+          icon: '🔗',
+          desc: 'You are sent to the official source. No repackaged binaries, no mirrors, no malware risk.',
+        },
+      ].map((step) => (
+        <li key={step.title} className="card step-card">
+          <span className="step-icon" aria-hidden="true">
+            {step.icon}
+          </span>
+          <h3>{step.title}</h3>
+          <p>{step.desc}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+);
 
-export const CategoryGrid: React.FC = () => {
-    const categories = [
-        { name: 'AI & ML', icon: '🤖', link: '/ai-models' },
-        { name: 'Open Source Apps', icon: '🔐', link: '/open-source-apps' },
-        { name: 'Productivity', icon: '⚡', link: '/productivity' },
-        { name: 'Dev Tools', icon: '🧑‍💻', link: '/dev-tools' },
-        { name: 'Mobile Apps', icon: '📱', link: '/mobile-apps' },
-        { name: 'Web Apps', icon: '🌐', link: '/productivity' }, // Fallback for Web Apps to Productivity for now
-    ];
+/** Category shortcuts with live counts. */
+export const CategoryGrid: React.FC = () => (
+  <section className="container section">
+    <header className="section-head">
+      <h2>Explore categories</h2>
+      <p>{CATALOGUE_STATS.projects} curated projects across {CATALOGUE_STATS.categories} categories.</p>
+    </header>
 
-    return (
-        <section className="container" style={{ paddingBottom: '6rem' }}>
-            <h3 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '2rem' }}>Explore Categories</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1.5rem' }}>
-                {categories.map((cat, i) => (
-                    <Link key={i} to={cat.link} className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', textDecoration: 'none', color: 'var(--text-primary)', gap: '1rem' }}>
-                        <span style={{ fontSize: '2.5rem' }}>{cat.icon}</span>
-                        <span style={{ fontWeight: 600 }}>{cat.name}</span>
-                    </Link>
-                ))}
-            </div>
-        </section>
-    );
-};
+    <div className="category-grid">
+      {CATEGORIES.map((category) => (
+        <Link key={category.name} to={category.path} className="card category-card">
+          <span className="category-icon" aria-hidden="true">
+            {category.icon}
+          </span>
+          <strong>{category.name}</strong>
+          <span className="category-blurb">{category.blurb}</span>
+          <span className="category-count">{getProjectsByCategory(category.name).length} projects</span>
+        </Link>
+      ))}
+    </div>
+  </section>
+);
 
+/** Honest comparison against the alternatives people actually use. */
 export const ComparisonTable: React.FC = () => {
-    return (
-        <section style={{ background: 'var(--bg-card)', padding: '6rem 0' }}>
-            <div className="container">
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: '4rem' }}>Why This Is Different</h2>
+  const rows = [
+    {
+      platform: 'Random APK / download sites',
+      hosts: '❌ Repackaged binaries',
+      licence: '❌ Rarely stated',
+      openOnly: '❌ Mixed with paid software',
+      score: '❌ None',
+      highlight: false,
+    },
+    {
+      platform: 'GitHub / GitLab search',
+      hosts: '✅ Source code',
+      licence: '⚠️ Varies per repo',
+      openOnly: '⚠️ Mixed',
+      score: '❌ Stars only',
+      highlight: false,
+    },
+    {
+      platform: 'App stores',
+      hosts: '✅ Binaries',
+      licence: '❌ Usually proprietary',
+      openOnly: '❌ No',
+      score: '⚠️ Ratings',
+      highlight: false,
+    },
+    {
+      platform: 'OpenDiscover',
+      hosts: '✅ Links only, never hosts',
+      licence: '✅ Verified + explained',
+      openOnly: '✅ Open source only',
+      score: '✅ Trust Score 0–100',
+      highlight: true,
+    },
+  ];
 
-                <div style={{ overflowX: 'auto' }}>
-                    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center' }}>
-                        <thead>
-                            <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
-                                <th style={{ padding: '1.5rem', textAlign: 'left', fontSize: '1.2rem' }}>Platform</th>
-                                <th style={{ padding: '1.5rem', fontSize: '1.1rem' }}>Hosts Files</th>
-                                <th style={{ padding: '1.5rem', fontSize: '1.1rem' }}>License Clear</th>
-                                <th style={{ padding: '1.5rem', fontSize: '1.1rem' }}>Open-Source Only</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                                <td style={{ padding: '1.5rem', textAlign: 'left', color: 'var(--text-secondary)' }}>Random APK Sites</td>
-                                <td style={{ padding: '1.5rem' }}>❌ (Risky)</td>
-                                <td style={{ padding: '1.5rem' }}>❌</td>
-                                <td style={{ padding: '1.5rem' }}>❌</td>
-                            </tr>
-                            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                                <td style={{ padding: '1.5rem', textAlign: 'left', color: 'var(--text-secondary)' }}>GitHub</td>
-                                <td style={{ padding: '1.5rem' }}>❌ (Safe)</td>
-                                <td style={{ padding: '1.5rem' }}>⚠️ (Variable)</td>
-                                <td style={{ padding: '1.5rem' }}>⚠️ (Mixed)</td>
-                            </tr>
-                            <tr style={{ background: 'rgba(var(--hue-accent), 0.1)' }}>
-                                <td style={{ padding: '1.5rem', textAlign: 'left', fontWeight: 700, color: 'var(--accent-base)' }}>OpenDiscover</td>
-                                <td style={{ padding: '1.5rem' }}>✅ (No Hosting)</td>
-                                <td style={{ padding: '1.5rem' }}>✅ (Verified)</td>
-                                <td style={{ padding: '1.5rem' }}>✅ (Guaranteed)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="comparison-section">
+      <div className="container section">
+        <header className="section-head">
+          <h2>Why this is different</h2>
+          <p>Discovery without the download risk.</p>
+        </header>
+
+        <div className="table-scroll">
+          <table className="comparison-table">
+            <caption className="sr-only">Comparison of software discovery platforms</caption>
+            <thead>
+              <tr>
+                <th scope="col">Platform</th>
+                <th scope="col">What it hosts</th>
+                <th scope="col">Licence clarity</th>
+                <th scope="col">Open source only</th>
+                <th scope="col">Trust signal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row.platform} className={row.highlight ? 'row-highlight' : undefined}>
+                  <th scope="row">{row.platform}</th>
+                  <td>{row.hosts}</td>
+                  <td>{row.licence}</td>
+                  <td>{row.openOnly}</td>
+                  <td>{row.score}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
 };
 
-export const MaintainerCTA: React.FC = () => {
-    return (
-        <section className="container" style={{ padding: '6rem 0' }}>
-            <div className="card" style={{ background: 'linear-gradient(135deg, var(--bg-card) 0%, rgba(var(--hue-accent), 0.1) 100%)', border: '1px solid var(--accent-glow)', padding: '4rem', textAlign: 'center' }}>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>Are you an open-source maintainer?</h2>
-                <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
-                    Get discovered by thousands of ethical users. We help you attract contributors and grow your community without the piracy risk.
-                </p>
-                <Link to="/submit" className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
-                    Submit Your Project
-                </Link>
-            </div>
-        </section>
-    );
-};
+/** Call to action for maintainers who want their project listed. */
+export const MaintainerCTA: React.FC = () => (
+  <section className="container section">
+    <div className="card cta-card">
+      <h2>Are you an open-source maintainer?</h2>
+      <p>
+        Get discovered by people who care about licences and privacy. We send traffic straight to your repository — no
+        repackaging, no ads around your download button.
+      </p>
+      <div className="btn-row">
+        <Link to="/submit" className="btn btn-primary">
+          Submit your project
+        </Link>
+        <a href={CONTRIBUTING_URL} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          Read the listing criteria
+        </a>
+        <a href={REPO_URL} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          ★ Star the repo
+        </a>
+      </div>
+    </div>
+  </section>
+);
