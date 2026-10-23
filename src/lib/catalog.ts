@@ -53,6 +53,12 @@ export const CATEGORIES: CategoryMeta[] = [
     icon: '📱',
     blurb: 'Open Android apps, including F-Droid and Shizuku-friendly picks.',
   },
+  {
+    name: 'Morphe Patches',
+    path: '/morphe',
+    icon: '⚡',
+    blurb: 'Community patch bundles, ad-free mods and automated builds.',
+  },
 ];
 
 export const CATEGORY_BY_PATH = new Map(CATEGORIES.map((c) => [c.path, c]));

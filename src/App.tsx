@@ -28,9 +28,10 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
 const SubmitProjectPage = lazy(() => import('./pages/SubmitProjectPage'));
+const MorphePage = lazy(() => import('./pages/MorphePage'));
 
 /** Route table: one entry per category keeps App.tsx from repeating itself. */
-const categoryRoutes = CATEGORY_ROUTES.map((route) => (
+const categoryRoutes = CATEGORY_ROUTES.filter((route) => route.path !== '/morphe').map((route) => (
   <Route
     key={route.path}
     path={route.path}
@@ -58,6 +59,14 @@ const AnimatedRoutes: React.FC = () => {
           element={
             <PageTransition>
               <DiscoverPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/morphe"
+          element={
+            <PageTransition>
+              <MorphePage />
             </PageTransition>
           }
         />

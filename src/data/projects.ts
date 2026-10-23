@@ -607,6 +607,91 @@ const RAW_PROJECTS: Project[] = [
         trustScore: 97,
         platforms: ["Android"],
         lastUpdated: "1 month ago"
+    },
+    // --- Morphe Community Patches & Builders ---
+    {
+        id: 701,
+        title: "Morphe Patches",
+        description: "Official Morphe bytecode patches for YouTube, YouTube Music, Reddit, and Android apps with ad blocking and sponsor skipping.",
+        category: "Morphe Patches",
+        license: "GPL-3.0",
+        source: "GitHub",
+        stars: "1.4k",
+        verified: true,
+        link: "https://github.com/MorpheApp/morphe-patches",
+        trustScore: 98,
+        platforms: ["Android"],
+        lastUpdated: "Today"
+    },
+    {
+        id: 702,
+        title: "Morphe Desktop & CLI",
+        description: "Cross-platform desktop application and command line companion tool for building Morphe patched APKs and modules.",
+        category: "Morphe Patches",
+        license: "GPL-3.0",
+        source: "GitHub",
+        stars: "820",
+        verified: true,
+        link: "https://github.com/MorpheApp/morphe-desktop",
+        trustScore: 96,
+        platforms: ["Linux", "Windows", "Mac"],
+        lastUpdated: "3 days ago"
+    },
+    {
+        id: 703,
+        title: "Morphe Manager",
+        description: "Modern Android manager app for discovering patch bundles, configuring features, and building modified APKs directly on device.",
+        category: "Morphe Patches",
+        license: "GPL-3.0",
+        source: "GitHub",
+        stars: "1.9k",
+        verified: true,
+        link: "https://github.com/MorpheApp/morphe-manager",
+        trustScore: 97,
+        platforms: ["Android"],
+        lastUpdated: "1 week ago"
+    },
+    {
+        id: 704,
+        title: "Oxbow Instagram Patches",
+        description: "Community Morphe patch bundle providing ghost mode, story privacy, telemetry removal, and media downloading for Instagram.",
+        category: "Morphe Patches",
+        license: "GPL-3.0",
+        source: "GitHub",
+        stars: "730",
+        verified: true,
+        link: "https://github.com/aic0d3r/oxbow",
+        trustScore: 90,
+        platforms: ["Android"],
+        lastUpdated: "2 days ago"
+    },
+    {
+        id: 705,
+        title: "0x0day-0wl Morphe Patches",
+        description: "Morphe community patches for Twitter ad blocking, Chefkoch PLUS ad removal, and telemetry neutralization across Android apps.",
+        category: "Morphe Patches",
+        license: "MIT",
+        source: "GitHub",
+        stars: "340",
+        verified: true,
+        link: "https://github.com/0x0day-0wl/morphe-patches",
+        trustScore: 92,
+        platforms: ["Android"],
+        lastUpdated: "1 day ago"
+    },
+    {
+        id: 706,
+        title: "Google Photos Unlimited Patches",
+        description: "Morphe patch bundle unlocking lifetime original quality Google Photos cloud backup and exclusive editing tools via device spoofing.",
+        category: "Morphe Patches",
+        license: "GPL-3.0",
+        source: "GitHub",
+        stars: "920",
+        verified: true,
+        link: "https://github.com/Akash-Sriram/morphe-google-photos",
+        trustScore: 94,
+        platforms: ["Android"],
+        lastUpdated: "3 days ago"
     }
 ];
 

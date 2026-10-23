@@ -68,11 +68,19 @@ export const CATEGORY_ROUTES: CategoryRoute[] = [
     description: 'Open source Android apps, including Shizuku-optimised tools.',
     icon: '📱',
   },
+  {
+    path: '/morphe',
+    category: 'Morphe Patches',
+    title: 'Morphe Patches & AutoBuilds',
+    description: 'Explore community patch bundles, ad-blocking mods, and auto-generated APKs with release, beta, and prerelease tags.',
+    icon: '⚡',
+  },
 ];
 
 /** Links rendered in the desktop header. */
 export const PRIMARY_NAV = [
   { path: '/', label: 'Discover' },
+  { path: '/morphe', label: '⚡ Morphe' },
   { path: '/ai-models', label: 'AI Models' },
   { path: '/open-source-apps', label: 'Apps' },
   { path: '/favorites', label: 'Favourites' },
@@ -82,6 +90,7 @@ export const PRIMARY_NAV = [
 
 export const ROUTE_TITLES: Record<string, string> = {
   '/': SITE_TAGLINE,
+  '/morphe': 'Morphe Patches & AutoBuilds',
   '/community': 'Community Hub',
   '/developers': 'For Developers',
   '/login': 'Log in',

@@ -13,6 +13,7 @@ export const CATEGORY_NAMES = [
   'Productivity',
   'Dev Tools',
   'Mobile Apps',
+  'Morphe Patches',
 ] as const;
 
 export type CategoryName = (typeof CATEGORY_NAMES)[number];
