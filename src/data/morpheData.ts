@@ -1,8 +1,8 @@
 /**
- * Morphe Community Patches & Auto-Generated APKs Dataset for OpenDiscover.
- *
+ * Morphe Community Patches, Auto-Generated APKs & Bundles Dataset for OpenDiscover.
  * Sourced from https://morphe-patches.software/#apps and https://morphe-patches.software/#bundles
- * Contains metadata for patch bundles, compatible targets, status tags, and direct releases.
+ *
+ * Auto-generated with live synchronization support, auto-replace on update, and release channels.
  */
 
 export interface MorpheAppItem {
@@ -29,343 +29,8146 @@ export interface MorpheAppItem {
   type: 'root' | 'non-root';
 }
 
+export interface MorpheBundleItem {
+  repo: string;
+  name: string;
+  author: string;
+  source: 'github' | 'gitlab';
+  patchCount: number;
+  stars: number;
+  deepLink: string;
+  repoDescription: string;
+  avatarUrl: string;
+  targetApps: string[];
+  samplePatches: string[];
+}
+
 export const MORPHE_APPS_DB: MorpheAppItem[] = [
   {
-    id: 'morphe-youtube',
-    name: 'YouTube (Morphe Patched)',
-    slug: 'morphe-youtube',
-    packageName: 'com.google.android.youtube',
-    category: 'Video',
-    buildType: 'autobuild',
-    channel: 'stable',
-    version: '19.16.39',
-    bundleRepo: 'MorpheApp/morphe-patches',
-    bundleName: 'Official Morphe Patches',
-    author: 'MorpheApp',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/youtube.png',
-    description: 'Ad-free YouTube with background playback, SponsorBlock segment skipping, Return YouTube Dislike, and AMOLED dark mode.',
-    patches: [
-      'Hide ads',
-      'Background playback',
-      'SponsorBlock',
-      'Return YouTube Dislike',
-      'AMOLED black theme',
-      'Minimized playback',
-      'Swipe controls',
-      'GmsCore support'
+    "id": "morphe-youtube",
+    "name": "YouTube (Morphe Patched)",
+    "slug": "morphe-youtube",
+    "packageName": "com.google.android.youtube",
+    "category": "Video",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "19.16.39",
+    "bundleRepo": "MorpheApp/morphe-patches",
+    "bundleName": "morphe-patches",
+    "author": "MorpheApp",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/morphe-youtube.png",
+    "description": "Patched build of YouTube (Morphe Patched) using community bundle morphe-patches.",
+    "patches": [
+      "Ad-Free",
+      "Background Playback",
+      "SponsorBlock",
+      "Return Dislike",
+      "AMOLED Black"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-youtube-19.16.39',
-    sha256: '27bb9d72459e8f498c5ea933b49911e3895e68b31a31adba75b287515cf643f1',
-    stars: '1.4k',
-    updatedAt: 'Today',
-    trustScore: 98,
-    features: ['Ad Blocker', 'Background Play', 'SponsorBlock', 'Dislike Counter', 'AMOLED'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-youtube-19.16.39",
+    "sha256": "5f9c43c98c20c36388868e93389b37bb56f7ec61a45c2c1eaba2fd42237bf907",
+    "stars": "120",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Ad-Free",
+      "Background Playback",
+      "SponsorBlock",
+      "Return Dislike"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-youtube-music',
-    name: 'YouTube Music (Morphe)',
-    slug: 'morphe-youtube-music',
-    packageName: 'com.google.android.apps.youtube.music',
-    category: 'Music & Audio',
-    buildType: 'autobuild',
-    channel: 'stable',
-    version: '7.02.52',
-    bundleRepo: 'MorpheApp/morphe-patches',
-    bundleName: 'Official Morphe Patches',
-    author: 'MorpheApp',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/youtube-music.png',
-    description: 'Ad-free music streaming with screen-off background playback, unrestricted high audio quality, and offline audio caching.',
-    patches: [
-      'Background playback',
-      'Hide audio ads',
-      'Audio quality unlock',
-      'Exclusive audio mode',
-      'GmsCore support'
+    "id": "morphe-youtube-music",
+    "name": "YouTube Music (Morphe)",
+    "slug": "morphe-youtube-music",
+    "packageName": "com.google.android.apps.youtube.music",
+    "category": "Music & Audio",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "7.02.52",
+    "bundleRepo": "MorpheApp/morphe-patches",
+    "bundleName": "morphe-patches",
+    "author": "MorpheApp",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/morphe-youtube-music.png",
+    "description": "Patched build of YouTube Music (Morphe) using community bundle morphe-patches.",
+    "patches": [
+      "Background Audio",
+      "No Audio Ads",
+      "High Quality Unlock",
+      "Audio-Only Mode"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-youtube-music-7.02.52',
-    sha256: 'b9f7c3e461b6e41b27f2c8d28a3f898ad06b6ebdf9059fba85f7bbd4546bf069',
-    stars: '850',
-    updatedAt: 'Today',
-    trustScore: 97,
-    features: ['No Audio Ads', 'Screen Off Play', 'High Quality Audio', 'Background Play'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-youtube-music-7.02.52",
+    "sha256": "f152fffbe5baa273eb04239a4f963e285a9fc0f227909156f54bd83986f38da2",
+    "stars": "120",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Background Audio",
+      "No Audio Ads",
+      "High Quality Unlock",
+      "Audio-Only Mode"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-reddit',
-    name: 'Reddit (Morphe)',
-    slug: 'morphe-reddit',
-    packageName: 'com.reddit.frontpage',
-    category: 'Social & Communication',
-    buildType: 'autogenerated',
-    channel: 'stable',
-    version: '2024.17.0',
-    bundleRepo: 'MorpheApp/morphe-patches',
-    bundleName: 'Official Morphe Patches',
-    author: 'MorpheApp',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/reddit.png',
-    description: 'Neuters sponsored feeds, hides banner ads, sanitizes tracking query parameters on copied links, and restores smooth video playback.',
-    patches: [
-      'Disable promoted ads',
-      'Sanitize shared URLs',
-      'Hide banner ads',
-      'Fix video playback stutter'
+    "id": "morphe-reddit",
+    "name": "Reddit (Morphe)",
+    "slug": "morphe-reddit",
+    "packageName": "com.reddit.frontpage",
+    "category": "Social & Communication",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "2024.17.0",
+    "bundleRepo": "MorpheApp/morphe-patches",
+    "bundleName": "morphe-patches",
+    "author": "MorpheApp",
+    "iconUrl": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY=s128-rw",
+    "description": "Discover why people are the best - through real &amp; authentic conversations.",
+    "patches": [
+      "Ad-Free Feed",
+      "Sanitize URLs",
+      "Unlock Premium Icons"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-reddit-2024.17.0',
-    sha256: 'dd75c276ce8b73a216dbda5cfb116743c3d51eb8c9194ec71f9fbe27f9836932',
-    stars: '620',
-    updatedAt: 'Today',
-    trustScore: 94,
-    features: ['No Promoted Ads', 'Clean URLs', 'Fast Video', 'Privacy Shield'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-reddit-2024.17.0",
+    "sha256": "c3a5827661bcc34ca1ab8114137db671775d9f33adbdd62cfe6ca675bdb46792",
+    "stars": "120",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Ad-Free Feed",
+      "Sanitize URLs",
+      "Unlock Premium Icons"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-twitter',
-    name: 'Twitter / X (Morphe)',
-    slug: 'morphe-twitter',
-    packageName: 'com.twitter.android',
-    category: 'Social & Communication',
-    buildType: 'autobuild',
-    channel: 'beta',
-    version: '10.38.0-release.0',
-    bundleRepo: '0x0day-0wl/morphe-patches',
-    bundleName: '0x0day-0wl Patches',
-    author: '0x0day-0wl',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/twitter.png',
-    description: 'Eliminates promoted tweets and sponsored trends, suppresses analytics telemetry, and allows one-click inline video and GIF downloads.',
-    patches: [
-      'Hide promoted tweets',
-      'Download media',
-      'Disable telemetry',
-      'Remove Grok prompts'
+    "id": "morphe-spotify",
+    "name": "Spotify (Morphe)",
+    "slug": "morphe-spotify",
+    "packageName": "com.spotify.music",
+    "category": "Music & Audio",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "8.9.18.512",
+    "bundleRepo": "MorpheApp/morphe-patches",
+    "bundleName": "morphe-patches",
+    "author": "MorpheApp",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/morphe-spotify.png",
+    "description": "Patched build of Spotify (Morphe) using community bundle morphe-patches.",
+    "patches": [
+      "Unlimited Skips",
+      "No Audio Ads",
+      "Canvas Enabled",
+      "Extreme Audio Quality"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-twitter-10.38.0-release.0-beta',
-    sha256: 'ca1bb1276a6cf0c29a8a92440333346b763ec7433246ebc604b39178ad309503',
-    stars: '410',
-    updatedAt: 'Today',
-    trustScore: 91,
-    features: ['No Timeline Ads', 'Media Downloader', 'Telemetry Off', 'Grok Removed'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-spotify-8.9.18.512",
+    "sha256": "d1dd1eb7a93f09b1904d8f8d94203e7157bf2eb477f87913da14399870d3fbdf",
+    "stars": "120",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Unlimited Skips",
+      "No Audio Ads",
+      "Canvas Enabled",
+      "Extreme Audio Quality"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-instagram',
-    name: 'Instagram (Oxbow)',
-    slug: 'morphe-instagram',
-    packageName: 'com.instagram.android',
-    category: 'Photography & Design',
-    buildType: 'autobuild',
-    channel: 'prerelease',
-    version: '328.0.0.42.90',
-    bundleRepo: 'aic0d3r/oxbow',
-    bundleName: 'Oxbow Patches',
-    author: 'aic0d3r',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/instagram.png',
-    description: 'Stealth mode for Instagram: removes feed ads and sponsored stories, enables ghost viewing (no seen receipts), and downloads high-res reels.',
-    patches: [
-      'Hide feed ads',
-      'Ghost mode',
-      'Story ad blocker',
-      'Media downloader',
-      'Disable typing indicators'
+    "id": "piko-instagram",
+    "name": "Instagram (Piko)",
+    "slug": "piko-instagram",
+    "packageName": "com.instagram.android",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "beta",
+    "version": "328.0.0.42.90",
+    "bundleRepo": "crimera/piko",
+    "bundleName": "Piko",
+    "author": "crimera",
+    "iconUrl": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q=s128-rw",
+    "description": "Create &amp; share photos, stories, &amp; reels with friends you love",
+    "patches": [
+      "Copy Media Link",
+      "Ghost Story Viewer",
+      "No Feed Ads",
+      "Download Reels"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-instagram-328.0.0.42.90-prerelease',
-    sha256: 'c8e13ffb7d353ecfbbf1d0ec6b7f3b50c05fe9bf3ef86eb8c471c26b5c00e122',
-    stars: '730',
-    updatedAt: 'Today',
-    trustScore: 90,
-    features: ['Ghost Mode', 'Story Ad Blocker', 'Reel Downloader', 'Privacy Mode'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/piko-instagram-328.0.0.42.90",
+    "sha256": "b716e8ac572de0a29ca1d045ee9082441fac0a6003d5613845c66268cc446380",
+    "stars": "5733",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Copy Media Link",
+      "Ghost Story Viewer",
+      "No Feed Ads",
+      "Download Reels"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-google-photos',
-    name: 'Google Photos (Unlimited Backup)',
-    slug: 'morphe-google-photos',
-    packageName: 'com.google.android.apps.photos',
-    category: 'Photography & Design',
-    buildType: 'autogenerated',
-    channel: 'stable',
-    version: '6.85.0.637340026',
-    bundleRepo: 'Akash-Sriram/morphe-google-photos',
-    bundleName: 'Google Photos Unlimited',
-    author: 'Akash-Sriram',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/google-photos.png',
-    description: 'Pixel spoofing mod enabling lifetime free original quality Google Photos cloud backup and unblocking Pixel exclusive editing tools.',
-    patches: [
-      'Unlock original quality backup',
-      'Enable Pixel exclusive tools',
-      'Magic Editor unlock',
-      'Cinematic photo creator'
+    "id": "piko-twitter",
+    "name": "Twitter / X (Piko)",
+    "slug": "piko-twitter",
+    "packageName": "com.twitter.android",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "10.38.0-release.0",
+    "bundleRepo": "crimera/piko",
+    "bundleName": "Piko",
+    "author": "crimera",
+    "iconUrl": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w=s128-rw",
+    "description": "Breaking News &amp; Social Media | Fully Rebuilt for Android",
+    "patches": [
+      "Hide Promoted Posts",
+      "Video Downloader",
+      "No Analytics",
+      "Custom Accent"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-google-photos-6.85.0.637340026',
-    sha256: '5d57ff2496a79ee89cae61fec463661eb1a4773822efba53b479a0224ba64789',
-    stars: '920',
-    updatedAt: 'Today',
-    trustScore: 95,
-    features: ['Unlimited Cloud Backup', 'Original Quality', 'Magic Editor', 'Pixel Spoof'],
-    type: 'root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/piko-twitter-10.38.0-release.0",
+    "sha256": "49d7423772a942f25be430bc2dc89d3dac0ce8d6e227a47f541a4d0cc16ddf1c",
+    "stars": "5733",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Hide Promoted Posts",
+      "Video Downloader",
+      "No Analytics",
+      "Custom Accent"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-spotify',
-    name: 'Spotify (Morphe)',
-    slug: 'morphe-spotify',
-    packageName: 'com.spotify.music',
-    category: 'Music & Audio',
-    buildType: 'release',
-    channel: 'stable',
-    version: '8.9.18.512',
-    bundleRepo: 'MorpheApp/morphe-patches',
-    bundleName: 'Official Morphe Patches',
-    author: 'MorpheApp',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/spotify.png',
-    description: 'Removes audio and video ads, unlocks unlimited skips, enables track scrubbing, and disables forced shuffle on playlists.',
-    patches: [
-      'Block audio advertisements',
-      'Unlimited skips',
-      'Enable seeking and repeat',
-      'Remove audio forced shuffle'
+    "id": "hush-facebook",
+    "name": "Facebook (Hushfacebook)",
+    "slug": "hush-facebook",
+    "packageName": "com.facebook.katana",
+    "category": "Social & Communication",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "462.0.0.47.85",
+    "bundleRepo": "SysAdminDoc/Hushfacebook",
+    "bundleName": "Hushfacebook",
+    "author": "SysAdminDoc",
+    "iconUrl": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q=s128-rw",
+    "description": "A little connection can go a long way",
+    "patches": [
+      "AMOLED Black",
+      "Allow Screenshots",
+      "No Sponsored Posts",
+      "Accent Color"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-spotify-8.9.18.512',
-    sha256: '771fdfc5a9b9a6741ee435bb1bf7ae046cb86d795b8ee9ff8640bf05b68fca8b',
-    stars: '1.1k',
-    updatedAt: 'Today',
-    trustScore: 96,
-    features: ['No Audio Ads', 'Unlimited Skips', 'Track Seeking', 'On-Demand Play'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hush-facebook-462.0.0.47.85",
+    "sha256": "b32f026de44ac00ca7c99a599b7584f40ef9e28f28a646fc0f3dfe5e94a5e238",
+    "stars": "363",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "AMOLED Black",
+      "Allow Screenshots",
+      "No Sponsored Posts",
+      "Accent Color"
+    ],
+    "type": "non-root"
   },
   {
-    id: 'morphe-tiktok',
-    name: 'TikTok (Morphe)',
-    slug: 'morphe-tiktok',
-    packageName: 'com.zhiliaoapp.musically',
-    category: 'Video',
-    buildType: 'autobuild',
-    channel: 'stable',
-    version: '34.1.2',
-    bundleRepo: 'MorpheApp/morphe-patches',
-    bundleName: 'Official Morphe Patches',
-    author: 'MorpheApp',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/tiktok.png',
-    description: 'Removes sponsored feed ads, enables watermark-free video downloads, and bypasses regional restrictions and geoblocking.',
-    patches: [
-      'Remove ads',
-      'Watermark-free download',
-      'Bypass region lock',
-      'Disable live stream auto-scroll'
+    "id": "pixel-board",
+    "name": "Gboard (Pixel Board)",
+    "slug": "pixel-board",
+    "packageName": "com.google.android.inputmethod.latin",
+    "category": "Tools & Utilities",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "13.9.08.612084666",
+    "bundleRepo": "Akshayykadam/PixelBoard",
+    "bundleName": "Pixel Board",
+    "author": "Akshayykadam",
+    "iconUrl": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA=s128-rw",
+    "description": "Fast and smart typing with Emojis, GIFs, and more",
+    "patches": [
+      "Pixel 8 Theme Unlock",
+      "Material You Borders",
+      "Custom Font Support"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-tiktok-34.1.2',
-    sha256: '486713ffcc8bf03b0c8bf14470bc0e8890cb5343d2c673199b0c03432095fcfb',
-    stars: '580',
-    updatedAt: 'Today',
-    trustScore: 89,
-    features: ['No Feed Ads', 'Clean Video Save', 'Region Bypass', 'No Watermark'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/pixel-board-13.9.08.612084666",
+    "sha256": "7192d296b56584e6baa4a0fe04e3a7114144b3c669525fbd23097adbfe099dc7",
+    "stars": "1140",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Pixel 8 Theme Unlock",
+      "Material You Borders",
+      "Custom Font Support"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-twitch',
-    name: 'Twitch (Morphe TV & Mobile)',
-    slug: 'morphe-twitch',
-    packageName: 'tv.twitch.android.app',
-    category: 'Video',
-    buildType: 'autogenerated',
-    channel: 'beta',
-    version: '19.3.1',
-    bundleRepo: 'ajstrick81/morphe-androidtv-patches',
-    bundleName: 'AndroidTV & Mobile Patches',
-    author: 'ajstrick81',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/twitch.png',
-    description: 'Blocks mid-roll stream ads, unlocks chat emotes (7TV, BTTV, FFZ), and provides background audio for live streams.',
-    patches: [
-      'Block video stream ads',
-      'Unlock 7TV / BTTV emotes',
-      'Background audio play',
-      'Disable stream analytics'
+    "id": "jasonwu-gboard",
+    "name": "Gboard (JasonWu Patches)",
+    "slug": "jasonwu-gboard",
+    "packageName": "com.google.android.inputmethod.latin",
+    "category": "Tools & Utilities",
+    "buildType": "autobuild",
+    "channel": "prerelease",
+    "version": "14.1.04.624151241",
+    "bundleRepo": "jasonwu1994/Gboard-patches",
+    "bundleName": "Gboard",
+    "author": "jasonwu1994",
+    "iconUrl": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA=s128-rw",
+    "description": "Fast and smart typing with Emojis, GIFs, and more",
+    "patches": [
+      "Immersive Navigation",
+      "No Keyboard Lag",
+      "Deep Customization"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-twitch-19.3.1-beta',
-    sha256: 'd6eacd373305d263fe507c70c04f983637c37fa9ca2f82ba1ca145ce6c98ea98',
-    stars: '340',
-    updatedAt: 'Today',
-    trustScore: 92,
-    features: ['No Stream Ads', '7TV Emotes', 'Background Stream', 'Chat Badges'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/jasonwu-gboard-14.1.04.624151241",
+    "sha256": "a154955c73cfdbdb737a0427c22ddae23f1b30d0ef02acba5c7da5c0e034ddb8",
+    "stars": "889",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Immersive Navigation",
+      "No Keyboard Lag",
+      "Deep Customization"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-chefkoch',
-    name: 'Chefkoch (Morphe)',
-    slug: 'morphe-chefkoch',
-    packageName: 'de.pixelhouse',
-    category: 'Lifestyle, Fitness & Sports',
-    buildType: 'release',
-    channel: 'stable',
-    version: '8.4.0',
-    bundleRepo: '0x0day-0wl/morphe-patches',
-    bundleName: '0x0day-0wl Patches',
-    author: '0x0day-0wl',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/chefkoch.png',
-    description: 'Treats the user as a Chefkoch PLUS subscriber: skips CMP prompts, drops Firebase and Snowplow telemetry, and blocks all banners.',
-    patches: [
-      'Remove ads',
-      'Remove analytics',
-      'Remove tracking'
+    "id": "doom-cloudflare",
+    "name": "1.1.1.1 Cloudflare (Doom)",
+    "slug": "doom-cloudflare",
+    "packageName": "com.cloudflare.onedotonedotonedotone",
+    "category": "System, Tweaks & Root Tools",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "6.35",
+    "bundleRepo": "rushiranpise/morphe-patches",
+    "bundleName": "Doom",
+    "author": "rushiranpise",
+    "iconUrl": "https://play-lh.googleusercontent.com/PDwXxcvulfxi2bH4UjcMGJ7i0CQ7_QNypYohkhhg02zE7FdNTNRyF21-ikrLM5kyvcmNxtr77Va-7sS3NLbpNg=s128-rw",
+    "description": "A More Private Internet",
+    "patches": [
+      "WARP+ Unlimited",
+      "Zero Telemetry",
+      "Ultra Low Latency DNS"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-chefkoch-8.4.0',
-    sha256: '1eb1faf1d784a8c91d84877395ca6e44084f7283e390c50000a68d067645bf48',
-    stars: '190',
-    updatedAt: 'Today',
-    trustScore: 93,
-    features: ['PLUS Unlocked', 'No Tracking', 'No Ads', 'Privacy First'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/doom-cloudflare-6.35",
+    "sha256": "5a7f89075925e327900b0751e6653f6c74fa5590324866ccb587b5f4858222f7",
+    "stars": "911",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "WARP+ Unlimited",
+      "Zero Telemetry",
+      "Ultra Low Latency DNS"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-365scores',
-    name: '365Scores (Vibe Patches)',
-    slug: 'morphe-365scores',
-    packageName: 'com.scores365',
-    category: 'Lifestyle, Fitness & Sports',
-    buildType: 'autobuild',
-    channel: 'stable',
-    version: '12.8.2',
-    bundleRepo: '0xtalos/vibe-patches',
-    bundleName: 'Vibe Patches',
-    author: '0xtalos',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/365scores.png',
-    description: 'Blocks full-screen interstitial and banner advertisements from live sport scoreboards, stops forced update nag screens.',
-    patches: [
-      'Disable ads',
-      'Block update screen',
-      'Disable analytics'
+    "id": "doom-accubattery",
+    "name": "AccuBattery (Doom)",
+    "slug": "doom-accubattery",
+    "packageName": "com.digibites.accubattery",
+    "category": "System, Tweaks & Root Tools",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "2.1.5",
+    "bundleRepo": "rushiranpise/morphe-patches",
+    "bundleName": "Doom",
+    "author": "rushiranpise",
+    "iconUrl": "https://play-lh.googleusercontent.com/CO5EuNTM6QRlBDKvC6PKneqRTt_aKynOeLmL9wI0nOCpBmdayO5pYxxHvHBwV9611JPapWha0al9OySPurxd=s128-rw",
+    "description": "Accu\u200bBattery monitors battery health performance via science",
+    "patches": [
+      "Pro Unlocked",
+      "No Ads",
+      "Battery Health Telemetry Neutralized"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-365scores-12.8.2',
-    sha256: '74c5692d0702d7fe8bca19ba714e8674dcfca9bca0b938096bb799e048bbef65',
-    stars: '210',
-    updatedAt: 'Today',
-    trustScore: 88,
-    features: ['Ad-Free Scores', 'No Force Update', 'No Analytics'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/doom-accubattery-2.1.5",
+    "sha256": "9317e8aee126b3c7243afdcb165c911ce0aba9a77d8c1105b4258d6338776288",
+    "stars": "911",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Pro Unlocked",
+      "No Ads",
+      "Battery Health Telemetry Neutralized"
+    ],
+    "type": "root"
   },
   {
-    id: 'morphe-mixplorer',
-    name: 'MiXplorer (Morphe Patches)',
-    slug: 'morphe-mixplorer',
-    packageName: 'com.mixplorer',
-    category: 'Tools & Utilities',
-    buildType: 'release',
-    channel: 'stable',
-    version: '6.65.0',
-    bundleRepo: 'ak800i/mixplorer-patches-for-morphe',
-    bundleName: 'MiXplorer Morphe',
-    author: 'ak800i',
-    iconUrl: 'https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/mixplorer.png',
-    description: 'Unlocks custom visual skinning, enables enhanced cloud storage plugins, and removes developer donation reminders.',
-    patches: [
-      'Theme unlock',
-      'Cloud optimization'
+    "id": "hushfeed-tiktok",
+    "name": "TikTok (Hushfeed)",
+    "slug": "hushfeed-tiktok",
+    "packageName": "com.zhiliaoapp.musically",
+    "category": "Media & Video",
+    "buildType": "autobuild",
+    "channel": "beta",
+    "version": "34.1.2",
+    "bundleRepo": "SysAdminDoc/hushfeed",
+    "bundleName": "Hushfeed",
+    "author": "SysAdminDoc",
+    "iconUrl": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg=s128-rw",
+    "description": "Join your friends and discover videos you love, only on TikTok",
+    "patches": [
+      "No Watermark Downloads",
+      "Disable Live Feeds",
+      "No Sponsored Ads",
+      "AMOLED Dark"
     ],
-    downloadUrl: 'https://github.com/krishna3163/best-root-apps-for-android/releases/tag/morphe-mixplorer-6.65.0',
-    sha256: 'd4be6c35bb88a21bf7b5b7782ea2008adbbca8473822aaefb909549f697bf908',
-    stars: '290',
-    updatedAt: 'Today',
-    trustScore: 95,
-    features: ['Custom Themes', 'Cloud Storage', 'Speed Optimized'],
-    type: 'non-root'
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hushfeed-tiktok-34.1.2",
+    "sha256": "cc09fbbb257360b1d55ffd406dd2eff626ba5db3d0519b85b50ba368566550c6",
+    "stars": "288",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "No Watermark Downloads",
+      "Disable Live Feeds",
+      "No Sponsored Ads",
+      "AMOLED Dark"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "hxreborn-1weather",
+    "name": "1Weather (Hxreborn)",
+    "slug": "hxreborn-1weather",
+    "packageName": "com.handmark.expressweather",
+    "category": "Tools & Utilities",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "5.4.9.0",
+    "bundleRepo": "hxreborn/morphe-patches",
+    "bundleName": "Hxreborn",
+    "author": "hxreborn",
+    "iconUrl": "https://play-lh.googleusercontent.com/uHdfZxsh9F1eX54hzEP1uCN4aa7e-yPnmJKPwgZeh_w0yHJee9XjDuwqfXv3AZqY_ucSNwUaTAh0BsyWJ9C60_8=s128-rw",
+    "description": "Hyperlocal Forecasts, Live Radar, Severe Weather alerts &amp; Homescreen Widgets",
+    "patches": [
+      "Pro Features",
+      "Ad Removal",
+      "Radar Unlocked"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hxreborn-1weather-5.4.9.0",
+    "sha256": "5da360971bd731c352c7f23b4c0967f6d2abd46a76d966212298a20ca8acc4a9",
+    "stars": "203",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Pro Features",
+      "Ad Removal",
+      "Radar Unlocked"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "hush-gram",
+    "name": "Instagram (HushGram)",
+    "slug": "hush-gram",
+    "packageName": "com.instagram.android",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "328.0.0.42.90",
+    "bundleRepo": "SysAdminDoc/HushGram",
+    "bundleName": "HushGram",
+    "author": "SysAdminDoc",
+    "iconUrl": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q=s128-rw",
+    "description": "Create &amp; share photos, stories, &amp; reels with friends you love",
+    "patches": [
+      "Ask Before Call",
+      "Allow Screenshot",
+      "Accent Color",
+      "Disable Read Receipts"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hush-gram-328.0.0.42.90",
+    "sha256": "962a7fa4de0e31df476a9ba7871c060496c6aa6f025420fb9d50eb152b91f069",
+    "stars": "219",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Ask Before Call",
+      "Allow Screenshot",
+      "Accent Color",
+      "Disable Read Receipts"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "hoodles-adguard",
+    "name": "AdGuard (Hoodles)",
+    "slug": "hoodles-adguard",
+    "packageName": "com.adguard.android",
+    "category": "Privacy & Security",
+    "buildType": "autobuild",
+    "channel": "prerelease",
+    "version": "4.3.56",
+    "bundleRepo": "hoo-dles/morphe-patches",
+    "bundleName": "Hoodles",
+    "author": "hoo-dles",
+    "iconUrl": "https://play-lh.googleusercontent.com/7VjTB2PQUCJu0WjfujTscSewruuHPsdOfdEqnCo7w8S8sH_BL1w9_DG2m4orbVlubN8cRYchKTK-8KPHMdIx=s128-rw",
+    "description": "Ad Blocker App: Block All Online Ads in Samsung Internet and Yandex Browser",
+    "patches": [
+      "Lifetime License Unlock",
+      "HTTPS Filtering Bypass",
+      "Custom Filter Lists"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/hoodles-adguard-4.3.56",
+    "sha256": "d9069555fb3d7bc502867825b0043e6ee402e5cc54983321728159d2a37fa9b3",
+    "stars": "1253",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Lifetime License Unlock",
+      "HTTPS Filtering Bypass",
+      "Custom Filter Lists"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "bearinmind-waze",
+    "name": "Waze (Bearinmind)",
+    "slug": "bearinmind-waze",
+    "packageName": "com.waze",
+    "category": "Navigation & Travel",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "4.103.1.2",
+    "bundleRepo": "bearinmindcat/morphe-patches",
+    "bundleName": "Bearinmind",
+    "author": "bearinmindcat",
+    "iconUrl": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg=s128-rw",
+    "description": "Avoid delays. Get real-time GPS navigation, safety alerts and live traffic.",
+    "patches": [
+      "No Pop-up Ads",
+      "Custom Speed Camera Alerts",
+      "System TTS Voice"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/bearinmind-waze-4.103.1.2",
+    "sha256": "92a9af543c4c440f0e4389c3ce7a91159eb74a7a4d8bbf1dcc22db2fbb0f492c",
+    "stars": "211",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "No Pop-up Ads",
+      "Custom Speed Camera Alerts",
+      "System TTS Voice"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "devanced-amazon-music",
+    "name": "Amazon Music (De-Vanced)",
+    "slug": "devanced-amazon-music",
+    "packageName": "com.amazon.mp3",
+    "category": "Media & Photography",
+    "buildType": "autobuild",
+    "channel": "beta",
+    "version": "24.6.4",
+    "bundleRepo": "RookieEnough/De-Vanced",
+    "bundleName": "De-Vanced",
+    "author": "RookieEnough",
+    "iconUrl": "https://play-lh.googleusercontent.com/9v2z1-7g8pWbxek8IW3Q9gGsAqD-YkTvy_rmyd4Cfb-OkpVR2T6jt-Ev2eKDcvx72njhCQ_4fEd9qg8-T9AaDA=s128-rw",
+    "description": "Listen to podcasts, trending playlists, hit music and your favorite songs",
+    "patches": [
+      "No Audio Ads",
+      "Skip Limit Removed",
+      "HD Streaming Unlock"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/devanced-amazon-music-24.6.4",
+    "sha256": "a7896d75e3f736155b4aea5cd0fd8bca71c6e44cb03cbbebdad1f23ac33f6585",
+    "stars": "1322",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "No Audio Ads",
+      "Skip Limit Removed",
+      "HD Streaming Unlock"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "hush-messenger",
+    "name": "Messenger (HushMessenger)",
+    "slug": "hush-messenger",
+    "packageName": "com.facebook.orca",
+    "category": "Social & Communication",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "454.0.0.38.109",
+    "bundleRepo": "SysAdminDoc/HushMessenger",
+    "bundleName": "HushMessenger",
+    "author": "SysAdminDoc",
+    "iconUrl": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw=s128-rw",
+    "description": "Useful. Social. Expressive.",
+    "patches": [
+      "Allow Chat Bubbles",
+      "Allow Screenshots",
+      "Auto Reply",
+      "AMOLED Black"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hush-messenger-454.0.0.38.109",
+    "sha256": "c3cc32cc13d98a1c486fb7218c6f768ee20ac9849ac7221ca017717ee20eb33c",
+    "stars": "146",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Allow Chat Bubbles",
+      "Allow Screenshots",
+      "Auto Reply",
+      "AMOLED Black"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "metra-tiktok",
+    "name": "TikTok (Metra Patches)",
+    "slug": "metra-tiktok",
+    "packageName": "com.zhiliaoapp.musically",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "34.1.2",
+    "bundleRepo": "icysymmetra/tiktok-patches-for-morphe",
+    "bundleName": "Metra TikTok",
+    "author": "icysymmetra",
+    "iconUrl": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg=s128-rw",
+    "description": "Join your friends and discover videos you love, only on TikTok",
+    "patches": [
+      "Ad-Free For You Page",
+      "Clean Player UI",
+      "Fast Download Button"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/metra-tiktok-34.1.2",
+    "sha256": "95166f1ee93ec97ac0ec93a0777d5f4513954b253564a05ca014c62c8b0b257a",
+    "stars": "434",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Ad-Free For You Page",
+      "Clean Player UI",
+      "Fast Download Button"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "androidtv-disney",
+    "name": "Disney+ (Android TV Morphe)",
+    "slug": "androidtv-disney",
+    "packageName": "com.disney.disneyplus",
+    "category": "TV & Entertainment",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "3.8.0",
+    "bundleRepo": "ajstrick81/morphe-androidtv-patches",
+    "bundleName": "Android TV",
+    "author": "ajstrick81",
+    "iconUrl": "https://play-lh.googleusercontent.com/AEX_3Bk5_SEZfR4fUcJsWiyqW_RRVcLED9AM2HMUVHAPVTZhZHfP2q3M35mRe4LtCXlb712DtkKwkZa_nJ-0=s128-rw",
+    "description": "Stream and download your favorite movies, TV shows &amp; Originals on Disney+",
+    "patches": [
+      "Android TV Optimization",
+      "Skip Intro",
+      "Framerate Match"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/androidtv-disney-3.8.0",
+    "sha256": "83601137c84ea8f1562d0d7b688995044db25489bc235b4f8b6aa68c032c2694",
+    "stars": "250",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Android TV Optimization",
+      "Skip Intro",
+      "Framerate Match"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "kveld-brave",
+    "name": "Brave Browser (Kveld9)",
+    "slug": "kveld-brave",
+    "packageName": "com.brave.browser",
+    "category": "Web Browsers",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "1.65.126",
+    "bundleRepo": "kveld9/kveld-morphe-patches",
+    "bundleName": "Kveld9",
+    "author": "kveld9",
+    "iconUrl": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E=s128-rw",
+    "description": "Fast internet with AI, Adblock &amp; VPN. Browse on a safe, incognito web browser.",
+    "patches": [
+      "Remove Brave Rewards Nag",
+      "Bypass Bot Detection",
+      "Enhanced Adblock"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/kveld-brave-1.65.126",
+    "sha256": "64e13776ed11e711efa277b3258fd9fd7eba805dcb9b99c1ca8bcca433d1adf4",
+    "stars": "137",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Remove Brave Rewards Nag",
+      "Bypass Bot Detection",
+      "Enhanced Adblock"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "heval-365scores",
+    "name": "365Scores (Heval)",
+    "slug": "heval-365scores",
+    "packageName": "com.scores365",
+    "category": "Lifestyle, Fitness & Sports",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "12.8.2",
+    "bundleRepo": "heval99/Heval-Morphe-Patches",
+    "bundleName": "Heval",
+    "author": "heval99",
+    "iconUrl": "https://play-lh.googleusercontent.com/33TTGlcWsh5Jl7XAUp36Tj3hog3ICRAapLhj8glREVX-qYXQ7NqH3lMv0ntdHX4uMmtN1PBzoqlI33U0ORUvXQ=s128-rw",
+    "description": "Live Scores, News, Fixtures, Stats &amp; Results for Soccer, Football, NBA and more",
+    "patches": [
+      "Banner Removal",
+      "Fast Notification Engine",
+      "No Interstitials"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/heval-365scores-12.8.2",
+    "sha256": "05763115dac40032a221688123ff4b24d9cc2f533cdcc792dc7e3d3fafa898e6",
+    "stars": "68",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Banner Removal",
+      "Fast Notification Engine",
+      "No Interstitials"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "andrew-line",
+    "name": "LINE (AndrewLiang25)",
+    "slug": "andrew-line",
+    "packageName": "jp.naver.line.android",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "beta",
+    "version": "14.5.2",
+    "bundleRepo": "andrewliang25/morphe-patches",
+    "bundleName": "AndrewLiang25",
+    "author": "andrewliang25",
+    "iconUrl": "https://play-lh.googleusercontent.com/7PeaZXtTu7EuCuWzGpkXWAnT9pLs_Ly9MbVSeZUULlIc5H02wGWzvrbmqxj86UnkM9gjUaGSeAcKbYbfbegTJw=s128-rw",
+    "description": "Stay in touch with your friends and family using LINE!",
+    "patches": [
+      "No Timeline Ads",
+      "Save Expired Media",
+      "Chat Read Masking"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/andrew-line-14.5.2",
+    "sha256": "9a1d19b66614f2dfc3a1df4497112e9888c0478ebc126252935f4170f0e556b4",
+    "stars": "131",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "No Timeline Ads",
+      "Save Expired Media",
+      "Chat Read Masking"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "hush-telegram",
+    "name": "Telegram (HushTelegram)",
+    "slug": "hush-telegram",
+    "packageName": "org.telegram.messenger",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "10.12.0",
+    "bundleRepo": "SysAdminDoc/HushTelegram",
+    "bundleName": "HushTelegram",
+    "author": "SysAdminDoc",
+    "iconUrl": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0=s128-rw",
+    "description": "Telegram is a messaging app with a focus on speed and security.",
+    "patches": [
+      "Repeat in Menu",
+      "AMOLED Black",
+      "Blur on Low-end Devices",
+      "No Sponsored Ads"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/hush-telegram-10.12.0",
+    "sha256": "1e08b07678a36ab03057dd9aa4108379f94b7389e19a0f8a6fe8ca4b8784f433",
+    "stars": "76",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Repeat in Menu",
+      "AMOLED Black",
+      "Blur on Low-end Devices",
+      "No Sponsored Ads"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "venus-discord",
+    "name": "Discord (Venus Patches)",
+    "slug": "venus-discord",
+    "packageName": "com.discord",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "225.18",
+    "bundleRepo": "VenusIsJaded/Venus-Patches",
+    "bundleName": "VenusIsJaded",
+    "author": "VenusIsJaded",
+    "iconUrl": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP=s128-rw",
+    "description": "Group Chat That\u2019s Fun &amp; Games",
+    "patches": [
+      "Nitro Emojis Everywhere",
+      "Silent Typing",
+      "Custom Theme Client"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/venus-discord-225.18",
+    "sha256": "4d091e3bf6a4e8bbadc2cfbb48321af034dba43e53d7c9a2d1356055b79737b9",
+    "stars": "54",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Nitro Emojis Everywhere",
+      "Silent Typing",
+      "Custom Theme Client"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "wagg-carscanner",
+    "name": "Car Scanner ELM OBD2 (Wagg13)",
+    "slug": "wagg-carscanner",
+    "packageName": "com.ovz.carscanner",
+    "category": "Tools & Utilities",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "1.104.4",
+    "bundleRepo": "WaggBR/Wagg13Patch_Morphe",
+    "bundleName": "Wagg13Patch",
+    "author": "WaggBR",
+    "iconUrl": "https://play-lh.googleusercontent.com/4Tyd-Dy4Qm9curgqLs4CA_KRUDqIzqoGRp9FNO4rcFw2f5Dii_oLPvF0kCxIKJF57YMPrpdAZbmpW8D_kgLN=s128-rw",
+    "description": "Trip computer+car diagnostic tool with widest variety of features and dashboard!",
+    "patches": [
+      "Pro Unlocked",
+      "Unlimited Sensors",
+      "Custom ECU PIDs"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/wagg-carscanner-1.104.4",
+    "sha256": "cca3f7332310339d0e7bb25a6d14a7f837eca2f7f5cc87ffc2bd999e553addb9",
+    "stars": "84",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Pro Unlocked",
+      "Unlimited Sensors",
+      "Custom ECU PIDs"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "pixel-camera-mod",
+    "name": "Pixel Camera (Akshayy Patches)",
+    "slug": "pixel-camera-mod",
+    "packageName": "com.google.android.GoogleCamera",
+    "category": "Media & Photography",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "9.2.113.585804376.14",
+    "bundleRepo": "Akshayykadam/Pixel-Camera",
+    "bundleName": "Pixel Camera",
+    "author": "Akshayykadam",
+    "iconUrl": "https://play-lh.googleusercontent.com/boOY2KNmAAJVT_Rmiu-mg85qCyORmXDAng1pPZuAOnOpqqvBM3lBsVvpWOvrk0zjmkSUn9kpRutkcmSkv61E=s128-rw",
+    "description": "Camera app for Pixel",
+    "patches": [
+      "Device Check Bypass",
+      "Astrophotography Force Enable",
+      "HDR+ Enhanced"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/pixel-camera-mod-9.2.113.585804376.14",
+    "sha256": "c05eaee08dd8025565a6cd3c21b8a426895103b8c8e300cb24ad246af9fd738b",
+    "stars": "152",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Device Check Bypass",
+      "Astrophotography Force Enable",
+      "HDR+ Enhanced"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "byehi-20minutes",
+    "name": "20 Minutes Till Dawn (byehi98)",
+    "slug": "byehi-20minutes",
+    "packageName": "com.flannigan.twentyminutestilldawn",
+    "category": "Gaming",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "1.0.45",
+    "bundleRepo": "byehi98/okish-morphe-patches",
+    "bundleName": "byehi98",
+    "author": "byehi98",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/byehi-20minutes.png",
+    "description": "Patched build of 20 Minutes Till Dawn (byehi98) using community bundle byehi98.",
+    "patches": [
+      "Offline Mode",
+      "Ad Removal",
+      "FPS Unlock"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/byehi-20minutes-1.0.45",
+    "sha256": "f96617784724fae8aac8bd390cb00c74624fbf329631f8b7976bef28ef77a3a9",
+    "stars": "52",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Offline Mode",
+      "Ad Removal",
+      "FPS Unlock"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "adobo-9gag",
+    "name": "9GAG (Adobo)",
+    "slug": "adobo-9gag",
+    "packageName": "com.ninegag.android.app",
+    "category": "Social & Communication",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "7.30.01",
+    "bundleRepo": "jkennethcarino/adobo",
+    "bundleName": "Adobo",
+    "author": "jkennethcarino",
+    "iconUrl": "https://play-lh.googleusercontent.com/O3exMzvq4XfEBBr96KeMynd3E30tk4xPGcnYrQGrHtBZAVUgOIEHMqTA7hU_VHniqTO1wIZu5d7wPb4xxDA5F5U=s128-rw",
+    "description": "A community with unlimited funny pics, gifs, memes &amp; videos!",
+    "patches": [
+      "Promoted Posts Removed",
+      "Video Downloader",
+      "No Watermark"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/adobo-9gag-7.30.01",
+    "sha256": "c022a212c87d690e6f0278001e36ab8f78fce23b94ee108a2d7591de27f5a049",
+    "stars": "285",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Promoted Posts Removed",
+      "Video Downloader",
+      "No Watermark"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "akash-google-photos",
+    "name": "Google Photos (Unlimited Storage)",
+    "slug": "akash-google-photos",
+    "packageName": "com.google.android.apps.photos",
+    "category": "Media & Photography",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "6.85.0.637340026",
+    "bundleRepo": "Akash-Sriram/morphe-google-photos",
+    "bundleName": "Akash Sriram",
+    "author": "Akash-Sriram",
+    "iconUrl": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q=s128-rw",
+    "description": "The home for your memories. Relive, share, and organize your photos.",
+    "patches": [
+      "Pixel XL Spoofing",
+      "Original Quality Unlimited Backup",
+      "Magic Eraser Unlocked"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/akash-google-photos-6.85.0.637340026",
+    "sha256": "4088b5a8406f3c71e7b8907a89c20f43c2eb6368bf7b98d7c6c0aa28f2640470",
+    "stars": "83",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Pixel XL Spoofing",
+      "Original Quality Unlimited Backup",
+      "Magic Eraser Unlocked"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "hush-threads",
+    "name": "Threads (HushThreads)",
+    "slug": "hush-threads",
+    "packageName": "com.instagram.barcelona",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "beta",
+    "version": "332.0.0.32.109",
+    "bundleRepo": "SysAdminDoc/HushThreads",
+    "bundleName": "HushThreads",
+    "author": "SysAdminDoc",
+    "iconUrl": "https://play-lh.googleusercontent.com/6PzXaP0KaRU4DifAfsXKbWNVA3JPrP9uklvEh5EDhzPRdPfHV4tzszhAavQa4bq0YGdbnphBucz9vEUXiu1Ebg=s128-rw",
+    "description": "Connect and share ideas",
+    "patches": [
+      "Block Feed Refresh on Return",
+      "Disable Analytics",
+      "AMOLED Dark"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hush-threads-332.0.0.32.109",
+    "sha256": "d76e6e86a86d6fd7faf9ac3656b3a907eb267db65477deebf3e729e9f6d78271",
+    "stars": "53",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Block Feed Refresh on Return",
+      "Disable Analytics",
+      "AMOLED Dark"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "unipatches-hillclimb",
+    "name": "Hill Climb Racing (UniPatches)",
+    "slug": "unipatches-hillclimb",
+    "packageName": "com.fingersoft.hillclimb",
+    "category": "Gaming",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "1.61.1",
+    "bundleRepo": "Zanuaimi/UniPatches",
+    "bundleName": "UniPatches",
+    "author": "Zanuaimi",
+    "iconUrl": "https://play-lh.googleusercontent.com/7YJtBKClRTrPRIO-vm-_GoqAEwob4kQ-wJd0qmUMLdbor5Jxj-IKpsXOj6MQejf2XYN9YE0q6IUgYnu-fcAGIg=s128-rw",
+    "description": "Race uphill, perform stunts and upgrade cars. (Includes random-item purchases)",
+    "patches": [
+      "No Ads",
+      "Offline Play",
+      "Gas Meter Tweak"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/unipatches-hillclimb-1.61.1",
+    "sha256": "3960cb6c23fa79077d9a3f7c9e8639eed5171811118d9d523c501c02d2f46613",
+    "stars": "90",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "No Ads",
+      "Offline Play",
+      "Gas Meter Tweak"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "ample-kakaotalk",
+    "name": "Kakao Talk (Ample)",
+    "slug": "ample-kakaotalk",
+    "packageName": "com.kakao.talk",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "10.7.2",
+    "bundleRepo": "AmpleReVanced/revanced-patches",
+    "bundleName": "Ample",
+    "author": "naijun0403",
+    "iconUrl": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw=s128-rw",
+    "description": "For Better Conversations.",
+    "patches": [
+      "Ad-Free Chat List",
+      "Disable Read Receipt Prompt",
+      "Save Expired Photos"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/ample-kakaotalk-10.7.2",
+    "sha256": "a0ab329f355cd83856f74b099beb3f7c455c80e50ec12b48ea771d9279cddf1a",
+    "stars": "183",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Ad-Free Chat List",
+      "Disable Read Receipt Prompt",
+      "Save Expired Photos"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "browzomje-pinterest",
+    "name": "Pinterest (Browzomje)",
+    "slug": "browzomje-pinterest",
+    "packageName": "com.pinterest",
+    "category": "Social & Communication",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "11.23.0",
+    "bundleRepo": "browzomje/browzomje-patches",
+    "bundleName": "Browzomje",
+    "author": "browzomje",
+    "iconUrl": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA=s128-rw",
+    "description": "One destination for a world of inspiration.",
+    "patches": [
+      "Hide Sponsored Pins",
+      "One-Tap Full Resolution Download",
+      "Disable Analytics"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/browzomje-pinterest-11.23.0",
+    "sha256": "38a9fda44e85f35ef514f291f180a181680e31a167cbb632c9cfdf36b3f9f90a",
+    "stars": "72",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Hide Sponsored Pins",
+      "One-Tap Full Resolution Download",
+      "Disable Analytics"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "froggo-facebook",
+    "name": "Facebook (Froggo Patches)",
+    "slug": "froggo-facebook",
+    "packageName": "com.facebook.katana",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "462.0.0.47.85",
+    "bundleRepo": "SapitoSucio/FroggoMorphePatches",
+    "bundleName": "Froggo",
+    "author": "SapitoSucio",
+    "iconUrl": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q=s128-rw",
+    "description": "A little connection can go a long way",
+    "patches": [
+      "Reels Tab Toggle",
+      "Feed Ad Removal",
+      "Messenger Shortcut"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/froggo-facebook-462.0.0.47.85",
+    "sha256": "ca23b127cfa52909a73e9e30cff2745864789bfa83fb7a2a3d19a33d9cb648c8",
+    "stars": "93",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Reels Tab Toggle",
+      "Feed Ad Removal",
+      "Messenger Shortcut"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "ftl-ampere",
+    "name": "Ampere (FTL)",
+    "slug": "ftl-ampere",
+    "packageName": "com.gombosdev.ampere",
+    "category": "Tools & Utilities",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "3.58",
+    "bundleRepo": "BlazeFTL/FTL-Patches",
+    "bundleName": "FTL",
+    "author": "BlazeFTL",
+    "iconUrl": "https://play-lh.googleusercontent.com/lcX9_HYNjEpWRkE2YN5d_HLLmSXI80F_EjSv0TIZ7o7gzLlzCbvzJH6d4CckX2RrEZtK77Zs0aPJB0fVwjZgRg=s128-rw",
+    "description": "Measure the charging and discharging current of your battery.",
+    "patches": [
+      "Pro Unlocked",
+      "Real-time Notification",
+      "Ad Removal"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/ftl-ampere-3.58",
+    "sha256": "621188a6967f2467963a1806243b565d464b4d367f0db085c39c4c6d41804bff",
+    "stars": "47",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Pro Unlocked",
+      "Real-time Notification",
+      "Ad Removal"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "dh6k-brave",
+    "name": "Brave Browser (dh6k Patches)",
+    "slug": "dh6k-brave",
+    "packageName": "com.brave.browser",
+    "category": "Web Browsers",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "1.65.126",
+    "bundleRepo": "dh6k/morphe-patches",
+    "bundleName": "Brave",
+    "author": "dh6k",
+    "iconUrl": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E=s128-rw",
+    "description": "Fast internet with AI, Adblock &amp; VPN. Browse on a safe, incognito web browser.",
+    "patches": [
+      "Brave News Removed",
+      "Crypto Wallet Disabled",
+      "Aggressive Tracker Blocking"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/dh6k-brave-1.65.126",
+    "sha256": "b8717b737352190a1ae20b547994e27d105e572403ac37791e2d781530351b2d",
+    "stars": "75",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Brave News Removed",
+      "Crypto Wallet Disabled",
+      "Aggressive Tracker Blocking"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "hooman-adm",
+    "name": "ADM (aRandomHooman)",
+    "slug": "hooman-adm",
+    "packageName": "com.dv.adm",
+    "category": "Productivity & Utilities",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "14.0.31",
+    "bundleRepo": "arandomhooman/hoomans-morphe-patches",
+    "bundleName": "aRandomHooman",
+    "author": "arandomhooman",
+    "iconUrl": "https://play-lh.googleusercontent.com/E_HmG2bArUd4Ke1sVW7uUmFicY0UENJcVBAVqnHp_SLfF7qCuv_n_klf-Jl37KlWbE39J8Svc6lx4vUENt4ayBw=s128-rw",
+    "description": "ADM intercepts files from browsers and accelerates downloading by several times.",
+    "patches": [
+      "Pro Features",
+      "Multi-Thread Turbo",
+      "No Banners"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/hooman-adm-14.0.31",
+    "sha256": "6bfb38f16ececd40b826aac6feb1400cdf86fe24c49cb3ed1af355bd8a676939",
+    "stars": "251",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Pro Features",
+      "Multi-Thread Turbo",
+      "No Banners"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "xobot-avito",
+    "name": "Avito (xob0t)",
+    "slug": "xobot-avito",
+    "packageName": "ru.avito",
+    "category": "Shopping & Lifestyle",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "173.0",
+    "bundleRepo": "xob0t/morphe-patches",
+    "bundleName": "xob0t",
+    "author": "xob0t",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/xobot-avito.png",
+    "description": "Patched build of Avito (xob0t) using community bundle xob0t.",
+    "patches": [
+      "Banner Removal",
+      "Zero Telemetry",
+      "Clean UI"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/xobot-avito-173.0",
+    "sha256": "b1827c45a85c67f1a8e882d3d99320a4386548ce3627bc76520143fd86871808",
+    "stars": "55",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Banner Removal",
+      "Zero Telemetry",
+      "Clean UI"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "riky-capcut",
+    "name": "CapCut (Riky Patches)",
+    "slug": "riky-capcut",
+    "packageName": "com.lemon.lvoverseas",
+    "category": "Media & Photography",
+    "buildType": "autobuild",
+    "channel": "beta",
+    "version": "11.7.0",
+    "bundleRepo": "riky-dev/morphe-patches",
+    "bundleName": "Riky",
+    "author": "riky-dev",
+    "iconUrl": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ=s128-rw",
+    "description": "Capture the moment and Cut",
+    "patches": [
+      "PRO Filters Unlocked",
+      "No Watermark Export",
+      "4K 60FPS Support"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/riky-capcut-11.7.0",
+    "sha256": "cdad8661bd0bc04b13813c3c4dde037f3ecf802d021fcb6a73b3f91b295cff5b",
+    "stars": "28",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "PRO Filters Unlocked",
+      "No Watermark Export",
+      "4K 60FPS Support"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "chiggi-arrowpuzzle",
+    "name": "Arrow Puzzle (Chiggi)",
+    "slug": "chiggi-arrowpuzzle",
+    "packageName": "com.arrowpuzzle.game",
+    "category": "Gaming",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "1.2.0",
+    "bundleRepo": "durgesh0505/chiggi_morphe_patches",
+    "bundleName": "Chiggi",
+    "author": "durgesh0505",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/chiggi-arrowpuzzle.png",
+    "description": "Patched build of Arrow Puzzle (Chiggi) using community bundle Chiggi.",
+    "patches": [
+      "No Ads",
+      "Infinite Hints",
+      "Offline Mode"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/chiggi-arrowpuzzle-1.2.0",
+    "sha256": "057bad26c3375d03762c698d9cc8a17bf16e0a7ef40cf858d96d6c3ee2bde9dc",
+    "stars": "51",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "No Ads",
+      "Infinite Hints",
+      "Offline Mode"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "hush-pinterest",
+    "name": "Pinterest (HushPinterest)",
+    "slug": "hush-pinterest",
+    "packageName": "com.pinterest",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "11.23.0",
+    "bundleRepo": "SysAdminDoc/HushPinterest",
+    "bundleName": "HushPinterest",
+    "author": "SysAdminDoc",
+    "iconUrl": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA=s128-rw",
+    "description": "One destination for a world of inspiration.",
+    "patches": [
+      "Zero Ads",
+      "AMOLED Theme",
+      "Direct Image Download"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hush-pinterest-11.23.0",
+    "sha256": "6131e740f9b462bdda2b2a1810ea4cdd1409fa9f79b3761948f396b661289198",
+    "stars": "33",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Zero Ads",
+      "AMOLED Theme",
+      "Direct Image Download"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "stylus-bitwarden",
+    "name": "Bitwarden (Stylus Patches)",
+    "slug": "stylus-bitwarden",
+    "packageName": "com.x8bit.bitwarden",
+    "category": "Security & Tools",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "2024.4.1",
+    "bundleRepo": "ch3thanhs/stylus",
+    "bundleName": "Stylus",
+    "author": "ch3thanhs",
+    "iconUrl": "https://play-lh.googleusercontent.com/ezsPZ5JtRMkMd6DtbUOZghm4m-EbYcZSzXAIxJMumYOaDP9sI8o-DN8-tZpds0HJUXb-ur7F-oB9rFH78Jy2lA=s128-rw",
+    "description": "Bitwarden is a login and password manager that helps keep you safe while online.",
+    "patches": [
+      "Catppuccin Macchiato Theme",
+      "Custom Font Support",
+      "Biometric Speedup"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/stylus-bitwarden-2024.4.1",
+    "sha256": "4791c834117ace3bdd27f1e0c1675737f40969d1088ebf43879c8ca130776c61",
+    "stars": "26",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Catppuccin Macchiato Theme",
+      "Custom Font Support",
+      "Biometric Speedup"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "oxbow-instagram",
+    "name": "Instagram (Oxbow)",
+    "slug": "oxbow-instagram",
+    "packageName": "com.instagram.android",
+    "category": "Social & Communication",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "328.0.0.42.90",
+    "bundleRepo": "aic0d3r/oxbow",
+    "bundleName": "Aic0d3r",
+    "author": "aic0d3r",
+    "iconUrl": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q=s128-rw",
+    "description": "Create &amp; share photos, stories, &amp; reels with friends you love",
+    "patches": [
+      "Ghost Mode",
+      "Story Privacy",
+      "No Telemetry",
+      "High Quality Uploads"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/oxbow-instagram-328.0.0.42.90",
+    "sha256": "6b99b0634c4c78d36a3396fcbb69c26b40302ff5ee5e655a6d71815f1b949b9e",
+    "stars": "2",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Ghost Mode",
+      "Story Privacy",
+      "No Telemetry",
+      "High Quality Uploads"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "jz6-flexboard",
+    "name": "Gboard (Flexboard)",
+    "slug": "jz6-flexboard",
+    "packageName": "com.google.android.inputmethod.latin",
+    "category": "Tools & Utilities",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "13.9.08.612084666",
+    "bundleRepo": "JZ6/Flexboard",
+    "bundleName": "Flexboard",
+    "author": "JZ6",
+    "iconUrl": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA=s128-rw",
+    "description": "Fast and smart typing with Emojis, GIFs, and more",
+    "patches": [
+      "Custom CSS Theming",
+      "Key Border Opacity",
+      "Round Keyboard Edges"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/jz6-flexboard-13.9.08.612084666",
+    "sha256": "f8e7b4512c6adf4f63acc7d9a4001a7b811633d2e74ea31c39680b51b8516351",
+    "stars": "39",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Custom CSS Theming",
+      "Key Border Opacity",
+      "Round Keyboard Edges"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "hush-tumblr",
+    "name": "Tumblr (HushTumblr)",
+    "slug": "hush-tumblr",
+    "packageName": "com.tumblr",
+    "category": "Social & Communication",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "34.0.0.100",
+    "bundleRepo": "SysAdminDoc/HushTumblr",
+    "bundleName": "HushTumblr",
+    "author": "SysAdminDoc",
+    "iconUrl": "https://play-lh.googleusercontent.com/BWSIac9IjPlQwOwxZ3aLzaX_rmP5Dfvkwn1HtSztT16WBOHdJZ6D0JSIz_lo_GatSlql3GlSFZcHuzWqAP5n8g=s128-rw",
+    "description": "Social media for art, photo blog, fan stories, and truth",
+    "patches": [
+      "No Sponsored Posts",
+      "Pitch Black Theme",
+      "Clean Dashboard"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hush-tumblr-34.0.0.100",
+    "sha256": "f1b4195512f1e31b64fbde803192ca5217810933c264fcd69cf2d8cafcb6722c",
+    "stars": "16",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "No Sponsored Posts",
+      "Pitch Black Theme",
+      "Clean Dashboard"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "noam-chess",
+    "name": "Chess.com (Noams Patches)",
+    "slug": "noam-chess",
+    "packageName": "com.chess",
+    "category": "Gaming",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "4.6.21",
+    "bundleRepo": "ImNoammm/Noams-Morphe-Patches",
+    "bundleName": "ImNoammm",
+    "author": "ImNoammm",
+    "iconUrl": "https://play-lh.googleusercontent.com/JO7Z75U1oypXpNTAklroO5emKWePni0sK9zn1E_nRgqmbAHoMxz1oQHDfSTpcycdht92dTBejkpEDXttGeCWN74=s128-rw",
+    "description": "Play chess online with friends! Learn chess tactics, puzzles &amp; analysis!",
+    "patches": [
+      "Ad Removal",
+      "Unlimited Analysis",
+      "Board Customization"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/noam-chess-4.6.21",
+    "sha256": "d6c56279799f6ad82b0a1ea50d8cdb440acc2dcb4bfbd6ce7bb9d8a2bf7d5320",
+    "stars": "20",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Ad Removal",
+      "Unlimited Analysis",
+      "Board Customization"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "ryykitty-twitch",
+    "name": "Twitch (Ryykitty Patches)",
+    "slug": "ryykitty-twitch",
+    "packageName": "tv.twitch.android.app",
+    "category": "Media & Streaming",
+    "buildType": "autobuild",
+    "channel": "beta",
+    "version": "19.3.1",
+    "bundleRepo": "ryykitty/twitch-patched",
+    "bundleName": "Ryykitty",
+    "author": "ryykitty",
+    "iconUrl": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA=s128-rw",
+    "description": "Stream, Watch, Chat. Live.",
+    "patches": [
+      "Purple AdBlock",
+      "Chat Emote Providers",
+      "Sleep Timer Fix",
+      "Background Audio"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/ryykitty-twitch-19.3.1",
+    "sha256": "4eac904aabbfe886b2745f4eb558082cbbb3206d7a049bd35ab274b82ec8dbff",
+    "stars": "18",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Purple AdBlock",
+      "Chat Emote Providers",
+      "Sleep Timer Fix",
+      "Background Audio"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "lurk-kick",
+    "name": "Kick (JordanWoodson Lurk)",
+    "slug": "lurk-kick",
+    "packageName": "com.kick.app",
+    "category": "Media & Streaming",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "1.0.88",
+    "bundleRepo": "jordanwoodson/lurk-morphe-patches",
+    "bundleName": "JordanWoodson",
+    "author": "jordanwoodson",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/lurk-kick.png",
+    "description": "Patched build of Kick (JordanWoodson Lurk) using community bundle JordanWoodson.",
+    "patches": [
+      "Background Playback",
+      "Clean UI",
+      "Chat Badges Fix"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/lurk-kick-1.0.88",
+    "sha256": "0799cb532e608a2221e74a680aa0af6bde8db23858fa16d3768717ed8af57641",
+    "stars": "8",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Background Playback",
+      "Clean UI",
+      "Chat Badges Fix"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "breal-boost",
+    "name": "Boost for Reddit (Brealorg)",
+    "slug": "breal-boost",
+    "packageName": "com.rubenmayayo.reddit",
+    "category": "Social & Communication",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "1.12.12",
+    "bundleRepo": "brealorg/breal-morphe-patches",
+    "bundleName": "Brealorg",
+    "author": "brealorg",
+    "iconUrl": "https://play-lh.googleusercontent.com/GF71STDEmTKhbEexCYbePXAjYym_ee8E6WR7_R8jr5_Xf10jfL0Kibkjfl33zDrJBw=s128-rw",
+    "description": "Boost for Reddit is a new browsing experience for the frontpage of internet",
+    "patches": [
+      "Custom OAuth Client ID",
+      "No Ads",
+      "Imgur Integration Fix"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/breal-boost-1.12.12",
+    "sha256": "29d2b0b5246d176d3fc90b0e186151b49355fa0117fd78d49d4f80e4bff9e6a1",
+    "stars": "97",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Custom OAuth Client ID",
+      "No Ads",
+      "Imgur Integration Fix"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "hagiahaya-slack",
+    "name": "Slack (HagiaHaya)",
+    "slug": "hagiahaya-slack",
+    "packageName": "com.Slack",
+    "category": "Social & Communication",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "24.04.20.0",
+    "bundleRepo": "HagiaHaya/morphe-patches",
+    "bundleName": "HagiaHaya",
+    "author": "HagiaHaya",
+    "iconUrl": "https://play-lh.googleusercontent.com/C9w-zv2PzpS-Rr9L8PUveRfv36lfYiB2kPKiEy45ucveIYMCoUW1nKQls5VxXSJyUsNxC_s7nFqpIAbqlLbSKA=s128-rw",
+    "description": "All your team communication in one place",
+    "patches": [
+      "Disable Telemetry",
+      "Custom Fonts",
+      "Hide Huddle Nag"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/hagiahaya-slack-24.04.20.0",
+    "sha256": "aa2573c34315ef35b3cbcf9773b12d995ad2667d515b9d7eb2ed8369cfac510c",
+    "stars": "2",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Disable Telemetry",
+      "Custom Fonts",
+      "Hide Huddle Nag"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "aidan-adobescan",
+    "name": "Adobe Scan (Aidan)",
+    "slug": "aidan-adobescan",
+    "packageName": "com.adobe.scan.android",
+    "category": "Productivity & Office",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "24.04.18",
+    "bundleRepo": "ihatenodejs/aidans-patches",
+    "bundleName": "Aidan",
+    "author": "ihatenodejs",
+    "iconUrl": "https://play-lh.googleusercontent.com/4xN2UipKYDSBDuW0FKLJQ1tnhvgZyfnKj7rnoBJYhWHwUuOTMta3m-Dwc4Lo881wOIz8YUQiFY6XpcJF5h1r=s128-rw",
+    "description": "Scan paperwork into PDFs and organize into folders you can easily find and use.",
+    "patches": [
+      "Premium OCR Unlock",
+      "No Export Watermark",
+      "No Login Force"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/aidan-adobescan-24.04.18",
+    "sha256": "4ccd943e3b179f7208cadfc52bb26c497d6aa5047b8f6e31c546baaded64159d",
+    "stars": "11",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Premium OCR Unlock",
+      "No Export Watermark",
+      "No Login Force"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "steamlink-xr",
+    "name": "Steam Link (AngelDark92 GalaxyXR)",
+    "slug": "steamlink-xr",
+    "packageName": "com.valvesoftware.steamlink",
+    "category": "Gaming & VR",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "1.3.12",
+    "bundleRepo": "AngelDark92/steamlink-patches",
+    "bundleName": "Steam Link GalaxyXR",
+    "author": "AngelDark92",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/steamlink-xr.png",
+    "description": "Patched build of Steam Link (AngelDark92 GalaxyXR) using community bundle Steam Link GalaxyXR.",
+    "patches": [
+      "VR Headset Low Latency Mode",
+      "Bitrate Limit Override",
+      "HEVC 10-bit"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/steamlink-xr-1.3.12",
+    "sha256": "8d9d1366c28ef2a8a2b3bc895a793ba8c703ae5acf4d06c7095ae1a40a515b43",
+    "stars": "14",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "VR Headset Low Latency Mode",
+      "Bitrate Limit Override",
+      "HEVC 10-bit"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "oyasumi-truecaller",
+    "name": "Truecaller (Oyasumi)",
+    "slug": "oyasumi-truecaller",
+    "packageName": "com.truecaller",
+    "category": "Tools & Utilities",
+    "buildType": "autobuild",
+    "channel": "prerelease",
+    "version": "14.9.7",
+    "bundleRepo": "dunecache/oyasumi-patches",
+    "bundleName": "Oyasumi",
+    "author": "dunecache",
+    "iconUrl": "https://play-lh.googleusercontent.com/kVMxXC3fV4cyG56MZunYS2-HYaHh3eM3YTWoDbYaN5-G9xIU2k235hHVQmRrm79tzBSzt0cZ6GsBbzGzGbbMwg=s128-rw",
+    "description": "Block spam, scam &amp; robocalls. Identify unknown callers with reverse phone lookup",
+    "patches": [
+      "Gold Caller ID",
+      "Spam Blocker Force Enable",
+      "Zero Ads"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/oyasumi-truecaller-14.9.7",
+    "sha256": "05bba51f3320173f9e5627d429272ccad49b95c1441d62db195b849a4e1ed9dd",
+    "stars": "15",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Gold Caller ID",
+      "Spam Blocker Force Enable",
+      "Zero Ads"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "shahriar-telegramx",
+    "name": "Telegram X (Shahriar-0)",
+    "slug": "shahriar-telegramx",
+    "packageName": "org.thunderdog.challegram",
+    "category": "Social & Communication",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "0.26.8.1706",
+    "bundleRepo": "Shahriar-0/Telegram-X-Morphe",
+    "bundleName": "Shahriar-0",
+    "author": "Shahriar-0",
+    "iconUrl": "https://play-lh.googleusercontent.com/cVX0DX8dvrC2Q5A0E3swXM1bjGz2fyuGNrarVG144xNltRAAIipbNVCtzMao9yeFNRCLrO9n0sJmX05ahypGOsM=s128-rw",
+    "description": "Instant messaging \u2014 simple, fast, secure, and synced across all your devices.",
+    "patches": [
+      "Ghost Mode",
+      "Save Self-Destruct Media",
+      "Channel Sponsored Ad Removal"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/shahriar-telegramx-0.26.8.1706",
+    "sha256": "58f236aeb189548d319a3324edafd4547644e74ac98fc75faebdb8b9da03f2f9",
+    "stars": "2",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Ghost Mode",
+      "Save Self-Destruct Media",
+      "Channel Sponsored Ad Removal"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "catppuccin-ankidroid",
+    "name": "AnkiDroid (Catppuccin Themed)",
+    "slug": "catppuccin-ankidroid",
+    "packageName": "com.ichi2.anki",
+    "category": "Education & Learning",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "2.17.6",
+    "bundleRepo": "titandrive/morphe-catppuccin",
+    "bundleName": "Titandrive",
+    "author": "titandrive",
+    "iconUrl": "https://play-lh.googleusercontent.com/P0vG3wxzsS8UxJgIMEKEAcqdGfrgNrK4tJAA5-Tp3SPn3_fSdiTYjTJIkDzlGPmU7YtPIYSndmd_zf_Askafpw=s128-rw",
+    "description": "Memorize anything efficiently with AnkiDroid! Many pre-built decks available.",
+    "patches": [
+      "Catppuccin Mocha & Latte Themes",
+      "AMOLED Contrast",
+      "Custom Reviewer Font"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/catppuccin-ankidroid-2.17.6",
+    "sha256": "2fd60001baba9ae0dc2924bb89fc45ba0e1e8456eb7328034b951f54265531a4",
+    "stars": "1",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Catppuccin Mocha & Latte Themes",
+      "AMOLED Contrast",
+      "Custom Reviewer Font"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "samsung-health-knox",
+    "name": "Samsung Health (Knox & Root Bypass)",
+    "slug": "samsung-health-knox",
+    "packageName": "com.sec.android.app.shealth",
+    "category": "Lifestyle, Fitness & Sports",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "6.26.1.011",
+    "bundleRepo": "bigyank/morphe-patches-samsung",
+    "bundleName": "Samsung Health",
+    "author": "bigyank",
+    "iconUrl": "https://play-lh.googleusercontent.com/OS7TGfRDIg8sbKxzYpsAr6fcg8vWPBV6Wx85alc0EQivKZY4I6VQuFRNaFSyi07ZydngVcxFkmVUUkr32khBVg=s128-rw",
+    "description": "Lifestyle companion to track your fitness, weight, diet, food &amp; sleep.",
+    "patches": [
+      "Knox 0x1 Trip Bypass",
+      "Root Check Disabled",
+      "Blood Pressure / ECG Force Enable"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/samsung-health-knox-6.26.1.011",
+    "sha256": "6bc3c0cc20aedcda0a5e0ae631c009d331cb7c4e5c91ddedf8d7a25e7a8398f6",
+    "stars": "19",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Knox 0x1 Trip Bypass",
+      "Root Check Disabled",
+      "Blood Pressure / ECG Force Enable"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "alastor-operagx",
+    "name": "Opera GX (Alastor Patches)",
+    "slug": "alastor-operagx",
+    "packageName": "com.opera.gx",
+    "category": "Web Browsers",
+    "buildType": "autogenerated",
+    "channel": "stable",
+    "version": "2.5.4",
+    "bundleRepo": "Alastor-Kaneki/Morphe-Patches",
+    "bundleName": "Alastor",
+    "author": "Alastor-Kaneki",
+    "iconUrl": "https://play-lh.googleusercontent.com/kxXK3ADh1qi3Rtad1StlXpSRAVlvZ27qaqZ4CIHcQ4YmU3sy54GVPQ2_g-eu6kd1xrZ4E2uINJaT_Jxu04iMEoo=s128-rw",
+    "description": "Experience the only browser created for gamers!",
+    "patches": [
+      "Adblock Extra Filters",
+      "Bypass Anti-Adblock",
+      "Zero Tracking"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/alastor-operagx-2.5.4",
+    "sha256": "7420c5f3c0f6db6a3077fa06dd249cef300bb8b75c69ec059599cbc2d8439046",
+    "stars": "14",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Adblock Extra Filters",
+      "Bypass Anti-Adblock",
+      "Zero Tracking"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "mvaishak-letterboxd",
+    "name": "Letterboxd (Mvaishak)",
+    "slug": "mvaishak-letterboxd",
+    "packageName": "com.letterboxd.letterboxd",
+    "category": "Media & Entertainment",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "2.14.0",
+    "bundleRepo": "mvaishak/letterboxd-morphe-patches",
+    "bundleName": "Mvaishak",
+    "author": "mvaishak",
+    "iconUrl": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0=s128-rw",
+    "description": "The popular social network for film lovers, right in your pocket.",
+    "patches": [
+      "Pro Stats Unlock",
+      "Patron Poster Customizer",
+      "No Ads"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/mvaishak-letterboxd-2.14.0",
+    "sha256": "4bea18f4c40ba118e2c459ba06db0a08f480b3379c13ab0dd57621aaee5d2431",
+    "stars": "23",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Pro Stats Unlock",
+      "Patron Poster Customizer",
+      "No Ads"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "rahaatul-batteryguru",
+    "name": "Battery Guru (Rahaaatul)",
+    "slug": "rahaatul-batteryguru",
+    "packageName": "com.paget96.batteryguru",
+    "category": "Tools & Utilities",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "2.3.1",
+    "bundleRepo": "rahaaatul/morphe-patches",
+    "bundleName": "Rahaaatul",
+    "author": "rahaaatul",
+    "iconUrl": "https://play-lh.googleusercontent.com/dGzjJqkvyNS6Iz4ze1YSaqTtzXu6PH8eiSVf56ALnykqigf9S_Sb36BvOA0xX_KVeUT8NJZDR20cIziK9nby=s128-rw",
+    "description": "Battery health monitor with mAh, charging speed, always-on display and alarms.",
+    "patches": [
+      "Pro Features",
+      "Doze Optimization",
+      "No Ads"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/rahaatul-batteryguru-2.3.1",
+    "sha256": "e3668116437122cbd87d5e53e96bf5424728edb8cb415db7159e8ff40f33535d",
+    "stars": "5",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Pro Features",
+      "Doze Optimization",
+      "No Ads"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "okazakee-iptv",
+    "name": "IPTV Pro Stream Player (Okazakee)",
+    "slug": "okazakee-iptv",
+    "packageName": "com.iptv.prostreamplayer",
+    "category": "TV & Entertainment",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "4.2.1",
+    "bundleRepo": "Okazakee/iptv-morphe-patches",
+    "bundleName": "IPTV",
+    "author": "Okazakee",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/okazakee-iptv.png",
+    "description": "Patched build of IPTV Pro Stream Player (Okazakee) using community bundle IPTV.",
+    "patches": [
+      "No Ads",
+      "EPG XMLTV Speedup",
+      "HW Decoder Force"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/okazakee-iptv-4.2.1",
+    "sha256": "625ebd8350099f58b7c3fb245c862b04a8860f18d8c067fb340d351c71a254f3",
+    "stars": "4",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "No Ads",
+      "EPG XMLTV Speedup",
+      "HW Decoder Force"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "v4n1x-soundcloud",
+    "name": "SoundCloud (V4n1X Patches)",
+    "slug": "v4n1x-soundcloud",
+    "packageName": "com.soundcloud.android",
+    "category": "Music & Audio",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "2024.04.22",
+    "bundleRepo": "V4n1X/morphe-patches",
+    "bundleName": "V4n1X",
+    "author": "V4n1X",
+    "iconUrl": "https://play-lh.googleusercontent.com/rfmCNUApzYntPTdAVmor5vpaOGxIUJWNlpED2pwKcDuCTUaf_2vJlOALNzX1PiejSgZIuAT8k0F5xIBU58JG3g=s128-rw",
+    "description": "The biggest catalog in music, with the deepest DJ sets, mixes and playlists",
+    "patches": [
+      "No Audio Ads",
+      "High Quality Streaming",
+      "Clean Stream UI"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/v4n1x-soundcloud-2024.04.22",
+    "sha256": "e9c8caf62a3489c35dc6b595e3cef3ef472f5f1c8274343aefa77efd13ec1f8f",
+    "stars": "12",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "No Audio Ads",
+      "High Quality Streaming",
+      "Clean Stream UI"
+    ],
+    "type": "non-root"
+  },
+  {
+    "id": "lain-audiorelay",
+    "name": "AudioRelay (Lain Patches)",
+    "slug": "lain-audiorelay",
+    "packageName": "com.azefsw.audiorelay",
+    "category": "Tools & Media",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "0.27.5",
+    "bundleRepo": "kiraio-moe/Lain-Patches",
+    "bundleName": "Lain",
+    "author": "kiraio-moe",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/lain-audiorelay.png",
+    "description": "Patched build of AudioRelay (Lain Patches) using community bundle Lain.",
+    "patches": [
+      "Premium Unlocked",
+      "Multi-Device Audio Routing",
+      "Ultra-Low Latency Mode"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/lain-audiorelay-0.27.5",
+    "sha256": "73d56d86264bf1ea86da7b6050aacf273cacfdb6f8772e230fa3062a52a4d5f6",
+    "stars": "69",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "Premium Unlocked",
+      "Multi-Device Audio Routing",
+      "Ultra-Low Latency Mode"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "balu-googledialer",
+    "name": "Google Phone (Call Recording Enable)",
+    "slug": "balu-googledialer",
+    "packageName": "com.google.android.dialer",
+    "category": "System, Tweaks & Root Tools",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "128.0.627341852",
+    "bundleRepo": "balu100/GoogleDialerEnableCallRecording",
+    "bundleName": "Balu100",
+    "author": "balu100",
+    "iconUrl": "https://play-lh.googleusercontent.com/b0ipxfvtgDE5kT8PscD8hggLVWrP5Zodu2EwIPN0ub-3UBJ7CosIHCP0V9pSjV-hPdXQjd7u7JP2gGMrfSMZmA=s128-rw",
+    "description": "Reliable phone calls with spam protection, caller ID and more helpful features",
+    "patches": [
+      "Bypass Regional Call Recording Restriction",
+      "Mute Call Recording Warning Announcement"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/balu-googledialer-128.0.627341852",
+    "sha256": "7707984883c8c7de678712edcdf2f010829eba470eaea2ef651d1a5f70abf61d",
+    "stars": "4",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Bypass Regional Call Recording Restriction",
+      "Mute Call Recording Warning Announcement"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "pengusto-filemanager",
+    "name": "Fossify File Manager (Pengusto)",
+    "slug": "pengusto-filemanager",
+    "packageName": "org.fossify.filemanager",
+    "category": "Tools & Utilities",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "1.1.0",
+    "bundleRepo": "pengusto/penguin-patches",
+    "bundleName": "Pengusto",
+    "author": "pengusto",
+    "iconUrl": "https://play-lh.googleusercontent.com/uKFgMrLF4-811MfqkOHbxcS0QFWlS8kyIK_6Y59fCy3Rzaad0KUDbhlVI2wFQbShubpD_AnHzt5icDfWpiSx=s128-rw",
+    "description": "Handy, lightweight, open-source file explorer with essential features.",
+    "patches": [
+      "Root Explorer Mode",
+      "Material You Dynamic Colors",
+      "Clean Storage Analytics"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/pengusto-filemanager-1.1.0",
+    "sha256": "2961bd36d5a544c529adb6ca2cd3b14f8a3bda9272da4657084ac8c2e0b65437",
+    "stars": "2",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Root Explorer Mode",
+      "Material You Dynamic Colors",
+      "Clean Storage Analytics"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "tikkamasalla-stremio",
+    "name": "Stremio Android TV (Intro Skip)",
+    "slug": "tikkamasalla-stremio",
+    "packageName": "com.stremio.one",
+    "category": "TV & Entertainment",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "1.6.11",
+    "bundleRepo": "tikkamasalla/stremio-intro-skip",
+    "bundleName": "Tikkamasalla",
+    "author": "tikkamasalla",
+    "iconUrl": "https://play-lh.googleusercontent.com/OvTwEXzvUbeyfqdXd1vZiTfbBOTdMAA6EWw5TV00PiSirn7C1iz__HVD6PfXCHkN9quH_XdoPwCIT3GhB1Ukmw=s128-rw",
+    "description": "All the video content you enjoy in one place",
+    "patches": [
+      "Auto Skip Opening & Recaps",
+      "External Player Vimu Fast Forward",
+      "TV Remote Shortcuts"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/tikkamasalla-stremio-1.6.11",
+    "sha256": "8af6bacdcca92d6d87ac8ecc9c56f1a9b19bcd39f21919f4fb98fe201baa58fc",
+    "stars": "1",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Auto Skip Opening & Recaps",
+      "External Player Vimu Fast Forward",
+      "TV Remote Shortcuts"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "rustore-privacy",
+    "name": "RuStore (Privacy Patches)",
+    "slug": "rustore-privacy",
+    "packageName": "ru.vk.store",
+    "category": "App Stores & Utilities",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "1.18.2",
+    "bundleRepo": "Freeman022026/rustore-privacy-patches",
+    "bundleName": "RuStore privacy",
+    "author": "Freeman022026",
+    "iconUrl": "https://raw.githubusercontent.com/Freeman022026/rustore-privacy-patches/main/patches-bundle.png",
+    "description": "Russia's official alternative Android marketplace.",
+    "patches": [
+      "Drop VK Analytics",
+      "No Device ID Fingerprinting",
+      "Direct APK Download"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/rustore-privacy-1.18.2",
+    "sha256": "f8358e09bbfc884580085527dded6048d1370e19cc26004089a05827749f0406",
+    "stars": "9",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Drop VK Analytics",
+      "No Device ID Fingerprinting",
+      "Direct APK Download"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "rivanced-universal",
+    "name": "Ri-Vanced Universal Patches",
+    "slug": "rivanced-universal",
+    "packageName": "morphe.universal.patches",
+    "category": "System, Tweaks & Root Tools",
+    "buildType": "autobuild",
+    "channel": "stable",
+    "version": "3.1.0",
+    "bundleRepo": "rushiranpise/Ri-Vanced-Universal-Morphe-Patches",
+    "bundleName": "Ri-Vanced",
+    "author": "rushiranpise",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/rivanced-universal.png",
+    "description": "Patched build of Ri-Vanced Universal Patches using community bundle Ri-Vanced.",
+    "patches": [
+      "GmsCore Universal Hook",
+      "Disable Splash Screen Delays",
+      "Force Adaptive Icons",
+      "Disable Analytics Across 27 Apps"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/rivanced-universal-3.1.0",
+    "sha256": "732cbf031da172636bcca4c14d4854bbe4e7a9ce7cdcfc9fde99af2288a30c83",
+    "stars": "46",
+    "updatedAt": "Today",
+    "trustScore": 92,
+    "features": [
+      "GmsCore Universal Hook",
+      "Disable Splash Screen Delays",
+      "Force Adaptive Icons",
+      "Disable Analytics Across 27 Apps"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "ak800i-mixplorer",
+    "name": "MiXplorer (ak800i Patches)",
+    "slug": "ak800i-mixplorer",
+    "packageName": "com.mixplorer",
+    "category": "Tools & Utilities",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "6.65.0",
+    "bundleRepo": "ak800i/mixplorer-patches-for-morphe",
+    "bundleName": "Ak800i",
+    "author": "ak800i",
+    "iconUrl": "https://raw.githubusercontent.com/MorpheApp/morphe-branding/main/icons/ak800i-mixplorer.png",
+    "description": "Patched build of MiXplorer (ak800i Patches) using community bundle Ak800i.",
+    "patches": [
+      "Theme Unlock",
+      "Cloud Optimization",
+      "Root Mount Fast Access"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best-root-apps-for-android/releases/tag/ak800i-mixplorer-6.65.0",
+    "sha256": "9ea1844875a105949c0f189b81a02eb20909e19b0b22c85b9080e22f6398bfcf",
+    "stars": "5",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "Theme Unlock",
+      "Cloud Optimization",
+      "Root Mount Fast Access"
+    ],
+    "type": "root"
+  },
+  {
+    "id": "chefkoch-morphe",
+    "name": "Chefkoch (0x0day-0wl)",
+    "slug": "chefkoch-morphe",
+    "packageName": "de.pixelhouse",
+    "category": "Lifestyle, Fitness & Sports",
+    "buildType": "release",
+    "channel": "stable",
+    "version": "8.4.0",
+    "bundleRepo": "0x0day-0wl/morphe-patches",
+    "bundleName": "0x0day-0wl",
+    "author": "0x0day-0wl",
+    "iconUrl": "https://play-lh.googleusercontent.com/FaCReinbD0b5e3PiKfqRX_xLm1x0jXMfzJR7PCIDKrotZxf6JlS9P1wq3T4pTaHt84SIqcHXSM5yRaTqF201fQ=s128-rw",
+    "description": "Meal planner for the week with 370,000 recipes - low carb, vegetarian &amp; more",
+    "patches": [
+      "PLUS Subscription Unlocked",
+      "No Ads",
+      "No Snowplow Telemetry"
+    ],
+    "downloadUrl": "https://github.com/krishna3163/best_shizuku_apps_for_android_no_root/releases/tag/chefkoch-morphe-8.4.0",
+    "sha256": "e97c427f592d29b68bf80e6634e51ec2c2a2fca9b2c4212749f795a95d9e70c1",
+    "stars": "3",
+    "updatedAt": "Today",
+    "trustScore": 88,
+    "features": [
+      "PLUS Subscription Unlocked",
+      "No Ads",
+      "No Snowplow Telemetry"
+    ],
+    "type": "non-root"
+  }
+];
+
+export const MORPHE_BUNDLES_DB: MorpheBundleItem[] = [
+  {
+    "repo": "0x0day-0wl/morphe-patches",
+    "name": "0x0day-0wl",
+    "author": "0x0day-0wl",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=0x0day-0wl/morphe-patches",
+    "repoDescription": "Personal Morphe patch bundle (Chefkoch ads/analytics/tracking removal)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/335932362?v=4&size=168",
+    "targetApps": [
+      "Chefkoch"
+    ],
+    "samplePatches": [
+      "Remove ads",
+      "Remove analytics",
+      "Remove tracking"
+    ]
+  },
+  {
+    "repo": "0xtalos/vibe-patches",
+    "name": "0xtalos",
+    "author": "0xtalos",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=0xtalos/vibe-patches",
+    "repoDescription": "Morphe patch bundle by 0xtalos",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/42888660?v=4&size=168",
+    "targetApps": [
+      "365Scores"
+    ],
+    "samplePatches": [
+      "Block update screen",
+      "Change version code",
+      "Disable ads",
+      "Disable analytics",
+      "MicroG integration"
+    ]
+  },
+  {
+    "repo": "2eno/morphe-patches",
+    "name": "2eno",
+    "author": "2eno",
+    "source": "github",
+    "patchCount": 9,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=2eno/morphe-patches",
+    "repoDescription": "Morphe patch bundle by 2eno",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/36245804?v=4&size=168",
+    "targetApps": [
+      "InterPals",
+      "Kleinanzeigen",
+      "Untappd"
+    ],
+    "samplePatches": [
+      "Disable ad placements",
+      "Download photos",
+      "Feed age and gender filter",
+      "Hide Pur",
+      "Hide ads"
+    ]
+  },
+  {
+    "repo": "abhis1n/Morphe-Patches",
+    "name": "Splitwise",
+    "author": "abhis1n",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 18,
+    "deepLink": "https://morphe.software/add-source?github=abhis1n/Morphe-Patches",
+    "repoDescription": "Morphe Patches for Splitwise",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/114600095?v=4&size=168",
+    "targetApps": [
+      "Splitwise"
+    ],
+    "samplePatches": [
+      "Enable Features"
+    ]
+  },
+  {
+    "repo": "adderalladmiral/psychonaut-journal-patches",
+    "name": "PsychonautWiki",
+    "author": "adderalladmiral",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=adderalladmiral/psychonaut-journal-patches",
+    "repoDescription": "Liberating the Psychonaut Journal App",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/183443102?v=4&size=168",
+    "targetApps": [
+      "Journal"
+    ],
+    "samplePatches": [
+      "Clone",
+      "Custom substances database",
+      "Hide bottom tabs",
+      "Hide feedback section",
+      "Purge RevenueCat"
+    ]
+  },
+  {
+    "repo": "Adish08/morphe-patches",
+    "name": "Adish08",
+    "author": "Adish08",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=Adish08/morphe-patches",
+    "repoDescription": "Morphe patch bundle by Adish08",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/69076256?v=4&size=168",
+    "targetApps": [
+      "Jain Panchang"
+    ],
+    "samplePatches": [
+      "Premium unlock",
+      "Remove ads"
+    ]
+  },
+  {
+    "repo": "aic0d3r/oxbow",
+    "name": "Aic0d3r",
+    "author": "aic0d3r",
+    "source": "github",
+    "patchCount": 17,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=aic0d3r/oxbow",
+    "repoDescription": "Instagram without the feed, Reels, Explore, ads or endless scrolling \u2014 with downloads, ghost mode and clean links. Open-source Morphe patches + prebuilt APKs for Android. Fork of FeurStagram.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/168572732?v=4&size=168",
+    "targetApps": [
+      "Instagram"
+    ],
+    "samplePatches": [
+      "Clean share links",
+      "Clone",
+      "Comments and endless scroll",
+      "Debug bridge",
+      "Download media"
+    ]
+  },
+  {
+    "repo": "ajstrick81/morphe-androidtv-patches",
+    "name": "Android TV",
+    "author": "ajstrick81",
+    "source": "github",
+    "patchCount": 42,
+    "stars": 250,
+    "deepLink": "https://morphe.software/add-source?github=ajstrick81/morphe-androidtv-patches",
+    "repoDescription": "Patches for Android TV apks",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/229211337?v=4&size=168",
+    "targetApps": [
+      "Twitch",
+      "Tubi",
+      "Prime Video (Android TV)",
+      "ESPN",
+      "Netflix",
+      "Peacock TV",
+      "PlutoTV",
+      "Disney+"
+    ],
+    "samplePatches": [
+      "Block TV ads",
+      "Block analytics & tracking",
+      "Bundle native ad-strip hook",
+      "Clone ESPN",
+      "Clone Netflix"
+    ]
+  },
+  {
+    "repo": "ak800i/mixplorer-patches-for-morphe",
+    "name": "Ak800i",
+    "author": "ak800i",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=ak800i/mixplorer-patches-for-morphe",
+    "repoDescription": "Morphe patch for scoped-storage file sharing in stable and beta MiXplorer; includes regression tests and device evidence.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/12417145?v=4&size=168",
+    "targetApps": [
+      "MiXplorer"
+    ],
+    "samplePatches": [
+      "Fix scoped-storage file sharing"
+    ]
+  },
+  {
+    "repo": "Akash-Sriram/morphe-google-photos",
+    "name": "Akash Sriram",
+    "author": "Akash-Sriram",
+    "source": "github",
+    "patchCount": 8,
+    "stars": 83,
+    "deepLink": "https://morphe.software/add-source?github=Akash-Sriram/morphe-google-photos",
+    "repoDescription": "Morphe Patches for Google Photos and Android Apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/39720035?v=4&size=168",
+    "targetApps": [
+      "Google Photos"
+    ],
+    "samplePatches": [
+      "AMOLED dark theme",
+      "Custom Morphe branding",
+      "DCIM & backup control",
+      "Flag manager & Toolkit",
+      "GmsCore support"
+    ]
+  },
+  {
+    "repo": "Akshayykadam/Pixel-Camera",
+    "name": "Pixel Camera",
+    "author": "Akshayykadam",
+    "source": "github",
+    "patchCount": 8,
+    "stars": 152,
+    "deepLink": "https://morphe.software/add-source?github=Akshayykadam/Pixel-Camera",
+    "repoDescription": "Unlock newer Google Pixel camera features on older Pixel devices. This project brings Pixel 11\u2019s next-generation Camera Looks to Pixel 6\u201310 with no root required, plus 10x zoom, 10-bit Ultra HDR, and Pro controls for non-Pro devices.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/97009989?v=4&size=168",
+    "targetApps": [
+      "Pixel Camera"
+    ],
+    "samplePatches": [
+      "Camera Looks Backport",
+      "Viewfinder Quick Access Controls",
+      "10x Viewfinder Quick Zoom",
+      "Pixel Camera Creator Suite",
+      "Pro Manual Controls"
+    ]
+  },
+  {
+    "repo": "Akshayykadam/PixelBoard",
+    "name": "Pixel Board",
+    "author": "Akshayykadam",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 1140,
+    "deepLink": "https://morphe.software/add-source?github=Akshayykadam/PixelBoard",
+    "repoDescription": "Unlock Google 11's Gemini \\\"Rambler\\\" Natural Voice Dictation & AI Writing Tools on ANY Android phone. No root required.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/97009989?v=4&size=168",
+    "targetApps": [
+      "Gboard"
+    ],
+    "samplePatches": [
+      "AI Writing Tools",
+      "Add Gboard Signature Bypass",
+      "Advanced Voice Typing",
+      "Package Rename"
+    ]
+  },
+  {
+    "repo": "alalloush/xperia-1v-camera-patches",
+    "name": "Alalloush",
+    "author": "alalloush",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=alalloush/xperia-1v-camera-patches",
+    "repoDescription": "Morphe patches: Sony Xperia 1 VI camera app on the Xperia 1 V",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54959118?v=4&size=168",
+    "targetApps": [
+      "Sony Camera",
+      "Photography Pro"
+    ],
+    "samplePatches": [
+      "Camera common visibility",
+      "Storage fallback",
+      "Xperia 1 V camera HAL compatibility",
+      "[WIP] Raw H.264 stream",
+      "[WIP] Raw stream connect modes"
+    ]
+  },
+  {
+    "repo": "alan7383/sofatime-patches",
+    "name": "SofaTime",
+    "author": "alan7383",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=alan7383/sofatime-patches",
+    "repoDescription": "Morphe patch bundle by alan7383",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/75907296?v=4&size=168",
+    "targetApps": [
+      "SofaTime"
+    ],
+    "samplePatches": [
+      "Bypass Google Sign-In",
+      "Bypass license check",
+      "Disable telemetry",
+      "Unlock premium features"
+    ]
+  },
+  {
+    "repo": "Alastor-Kaneki/Morphe-Patches",
+    "name": "Alastor",
+    "author": "Alastor-Kaneki",
+    "source": "github",
+    "patchCount": 12,
+    "stars": 14,
+    "deepLink": "https://morphe.software/add-source?github=Alastor-Kaneki/Morphe-Patches",
+    "repoDescription": "Morphe patch bundle by Alastor-Kaneki",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/170276077?v=4&size=168",
+    "targetApps": [
+      "Mods AddOns for Minecraft PE",
+      "Suno",
+      "Opera GX",
+      "Reddit",
+      "Google Chrome",
+      "Pixilart"
+    ],
+    "samplePatches": [
+      "Custom download folder",
+      "Customize Suno branding",
+      "Download GX mods as files",
+      "Download Reddit gallery originals",
+      "Download timestamped lyrics"
+    ]
+  },
+  {
+    "repo": "Almewty/my-morphe-patches",
+    "name": "Almewty",
+    "author": "Almewty",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 15,
+    "deepLink": "https://morphe.software/add-source?github=Almewty/my-morphe-patches/tree/dev",
+    "repoDescription": "Morphe patch bundle by Almewty",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/4179544?v=4&size=168",
+    "targetApps": [
+      "Pok\u00e9Cardex"
+    ],
+    "samplePatches": [
+      "Disable scan counter",
+      "Increase scan limit"
+    ]
+  },
+  {
+    "repo": "AlonResearch/moodle-browser-login-patch",
+    "name": "AlonResearch",
+    "author": "AlonResearch",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=AlonResearch/moodle-browser-login-patch",
+    "repoDescription": "Morphe patch to use system-browser login for Moodle Android 5.2.1, with server-side SSO requirements documented.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/23438764?v=4&size=168",
+    "targetApps": [
+      "Moodle"
+    ],
+    "samplePatches": [
+      "Add browser login option"
+    ]
+  },
+  {
+    "repo": "ameenalasady/ameen-morphe",
+    "name": "Ameen",
+    "author": "ameenalasady",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 21,
+    "deepLink": "https://morphe.software/add-source?github=ameenalasady/ameen-morphe",
+    "repoDescription": "Patches for Foodvisor and PhotoGrid apps using the Morphe framework.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/105679326?v=4&size=168",
+    "targetApps": [
+      "Foodvisor",
+      "PhotoGrid"
+    ],
+    "samplePatches": [
+      "Unlock Premium",
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "Amitaisela/travian-morphe-patches",
+    "name": "Amitaisela",
+    "author": "Amitaisela",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=Amitaisela/travian-morphe-patches",
+    "repoDescription": "Morphe patch bundle by Amitaisela",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/68296620?v=4&size=168",
+    "targetApps": [
+      "Travian: Legends"
+    ],
+    "samplePatches": [
+      "Travian Tools",
+      "Travian Tools setup"
+    ]
+  },
+  {
+    "repo": "AmpleReVanced/revanced-patches",
+    "name": "Ample",
+    "author": "naijun0403",
+    "source": "github",
+    "patchCount": 128,
+    "stars": 183,
+    "deepLink": "https://morphe.software/add-source?github=AmpleReVanced/revanced-patches",
+    "repoDescription": "morphe patches for kakaotalk/dcinside",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/240258030?v=4&size=168",
+    "targetApps": [
+      "Kakao Talk",
+      "dcinside",
+      "Chzzk",
+      "Flexcil",
+      "StarNote",
+      "SOOP",
+      "NAVER Map",
+      "Samsung Keyboard"
+    ],
+    "samplePatches": [
+      "Add Packet Handler",
+      "Add Pine Lib",
+      "Add notification shortcut",
+      "Add settings",
+      "Add settings resources"
+    ]
+  },
+  {
+    "repo": "andersonlucasg3/PetalMaps-NonHuawei",
+    "name": "PetalMaps",
+    "author": "andersonlucasg3",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 9,
+    "deepLink": "https://morphe.software/add-source?github=andersonlucasg3/PetalMaps-NonHuawei",
+    "repoDescription": "Morphe/ReVanced patch that adds Android Auto support to Petal Maps (reuses the built-in HiCar automotive UI)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/1627653?v=4&size=168",
+    "targetApps": [
+      "Petal Maps"
+    ],
+    "samplePatches": [
+      "AccountPicker WebView force",
+      "Anti-Repack Bypass",
+      "Change package name",
+      "Huawei login fix",
+      "Main activity orientation fix"
+    ]
+  },
+  {
+    "repo": "andrewliang25/morphe-patches",
+    "name": "AndrewLiang25",
+    "author": "andrewliang25",
+    "source": "github",
+    "patchCount": 51,
+    "stars": 131,
+    "deepLink": "https://morphe.software/add-source?github=andrewliang25/morphe-patches",
+    "repoDescription": "Andrew's Patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/47963624?v=4&size=168",
+    "targetApps": [
+      "Facebook",
+      "LINE"
+    ],
+    "samplePatches": [
+      "[Ad] Block ad telemetry",
+      "[Ad] Block background ad prefetch",
+      "[Ad] Disable Audience Network",
+      "[Ad] Hide ad views",
+      "[Ad] Remove banner ads"
+    ]
+  },
+  {
+    "repo": "andronedev/morphe-patches",
+    "name": "Transit",
+    "author": "andronedev",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 85,
+    "deepLink": "https://morphe.software/add-source?github=andronedev/morphe-patches",
+    "repoDescription": "Throwing patches at apps and seeing what sticks. \ud83e\uddea",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/31452517?v=4&size=168",
+    "targetApps": [
+      "AdMobile - AdMob Metrics",
+      "Transit"
+    ],
+    "samplePatches": [
+      "AdMob Credentials Screen",
+      "Custom Maps API Key",
+      "Pro Features Unlock",
+      "Pro Unlock",
+      "Serverless Sign-In"
+    ]
+  },
+  {
+    "repo": "ang3lo-azevedo/morphe-patches",
+    "name": "Ang3lo-Azevedo",
+    "author": "ang3lo-azevedo",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=ang3lo-azevedo/morphe-patches",
+    "repoDescription": "My own version of Morphe Patches - Android app patching framework",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/66081804?v=4&size=168",
+    "targetApps": [
+      "Skimboarding"
+    ],
+    "samplePatches": [
+      "Unlock FirePass Premium"
+    ]
+  },
+  {
+    "repo": "AngelDark92/steamlink-patches",
+    "name": "Steam Link GalaxyXR",
+    "author": "AngelDark92",
+    "source": "github",
+    "patchCount": 39,
+    "stars": 14,
+    "deepLink": "https://morphe.software/add-source?github=AngelDark92/steamlink-patches",
+    "repoDescription": "A collection of Meta Quest and PICO APKs patched with Morphe for compatibility with Android XR devices, including Samsung Galaxy XR.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/53372897?v=4&size=168",
+    "targetApps": [
+      "4XVR",
+      "Steam Link"
+    ],
+    "samplePatches": [
+      "5.1-channel audio bridge (4XVR)",
+      "Android XR native permission names",
+      "Appear on top (legacy)",
+      "Audio bridge payload (4XVR)",
+      "Blue-noise dithering"
+    ]
+  },
+  {
+    "repo": "anxyis/anxy-patches",
+    "name": "Anxy",
+    "author": "anxyis",
+    "source": "github",
+    "patchCount": 16,
+    "stars": 11,
+    "deepLink": "https://morphe.software/add-source?github=anxyis/anxy-patches",
+    "repoDescription": "Morphe Patches for Android apps by anxyis",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/109168580?v=4&size=168",
+    "targetApps": [
+      "Alight Motion"
+    ],
+    "samplePatches": [
+      "App text fix",
+      "Block background checks",
+      "Cleaner home screen",
+      "Easy sign-in",
+      "Extra settings"
+    ]
+  },
+  {
+    "repo": "arandomhooman/hoomans-morphe-patches",
+    "name": "aRandomHooman",
+    "author": "arandomhooman",
+    "source": "github",
+    "patchCount": 65,
+    "stars": 251,
+    "deepLink": "https://morphe.software/add-source?github=arandomhooman/hoomans-morphe-patches",
+    "repoDescription": "Patches for morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/64605756?v=4&size=168",
+    "targetApps": [
+      "Twitch",
+      "Tumblr",
+      "AutoZen",
+      "Microsoft SwiftKey",
+      "BlockerHero",
+      "Google Phone",
+      "Todoist",
+      "Sofascore"
+    ],
+    "samplePatches": [
+      "7TV and BTTV emotes",
+      "Auto claim channel points",
+      "Block live ads",
+      "Disable Tumblr TV",
+      "Disable ad-free banner"
+    ]
+  },
+  {
+    "repo": "archivesteak/Quest",
+    "name": "ArchiveSteak",
+    "author": "archivesteak",
+    "source": "github",
+    "patchCount": 10,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=archivesteak/Quest",
+    "repoDescription": "Morphe patches for Pinterest and Gboard",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/256915304?v=4&size=168",
+    "targetApps": [
+      "Gboard",
+      "Pinterest"
+    ],
+    "samplePatches": [
+      "Change app name",
+      "Change package name",
+      "Copy image",
+      "Customize long-press menu",
+      "Enable image download"
+    ]
+  },
+  {
+    "repo": "Arsylk/arsylk-patches",
+    "name": "Arsylk",
+    "author": "Arsylk",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=Arsylk/arsylk-patches",
+    "repoDescription": "Arsylk's Morphe patches for Android \u2014 HideMyAndroid, HideMyEmulator, Android privacy, device fingerprinting and emulator compatibility.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/14908956?v=4&size=168",
+    "targetApps": [
+      "Hide My Android",
+      "Hide My Emulator"
+    ],
+    "samplePatches": [
+      "Unlock premium",
+      "Unlock premium",
+      "Unlock premium"
+    ]
+  },
+  {
+    "repo": "AzukiSensei/aniskip-stremio",
+    "name": "AZK",
+    "author": "AzukiSensei",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=AzukiSensei/aniskip-stremio",
+    "repoDescription": "Morphe patch bundle by AzukiSensei",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/58147897?v=4&size=168",
+    "targetApps": [
+      "Stremio Android TV"
+    ],
+    "samplePatches": [
+      "Stremio AniSkip"
+    ]
+  },
+  {
+    "repo": "bakwudo/uyu",
+    "name": "Bakwudo",
+    "author": "bakwudo",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=bakwudo/uyu",
+    "repoDescription": "Morphe patches for the Android Twitch app: channel points auto claim, Niconico-style scrolling comments and ad blocking.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/334764351?v=4&size=168",
+    "targetApps": [
+      "Twitch"
+    ],
+    "samplePatches": [
+      "Auto claim channel points",
+      "Block ads",
+      "Danmaku comments",
+      "Fix login",
+      "Fix notifications"
+    ]
+  },
+  {
+    "repo": "balu100/GoogleDialerEnableCallRecording",
+    "name": "Balu100",
+    "author": "balu100",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=balu100/GoogleDialerEnableCallRecording",
+    "repoDescription": "Morphe patch for Google Phone's built-in manual call recording, with obfuscation-resistant fingerprints and bytecode validation.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/5224983?v=4&size=168",
+    "targetApps": [
+      "Google Phone"
+    ],
+    "samplePatches": [
+      "Enable call recording",
+      "Handle rejected DroidGuard connection"
+    ]
+  },
+  {
+    "repo": "bdgerszewski/morphe-patches-ihealth",
+    "name": "iHealth",
+    "author": "bdgerszewski",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=bdgerszewski/morphe-patches-ihealth",
+    "repoDescription": "Morphe patch bundle by bdgerszewski",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/13211988?v=4&size=168",
+    "targetApps": [
+      "MultiTimer",
+      "iHealth MyVitals"
+    ],
+    "samplePatches": [
+      "Bypass DRM",
+      "Disable AI motivational modal",
+      "Disable ad banner",
+      "Enable PRO",
+      "Hide buy more devices link"
+    ]
+  },
+  {
+    "repo": "bearinmindcat/morphe-patches",
+    "name": "Bearinmind",
+    "author": "bearinmindcat",
+    "source": "github",
+    "patchCount": 52,
+    "stars": 211,
+    "deepLink": "https://morphe.software/add-source?github=bearinmindcat/morphe-patches",
+    "repoDescription": "Morphe android app patches (for apps that I use) - stable releases",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/217530752?v=4&size=168",
+    "targetApps": [
+      "Google Maps",
+      "AllTrails",
+      "Waze"
+    ],
+    "samplePatches": [
+      "120 refresh rate",
+      "2D / 3D compass",
+      "Account sheet cleanup",
+      "Add microG support",
+      "Alert distances"
+    ]
+  },
+  {
+    "repo": "benzophury/oraimo-health-morphe-patches",
+    "name": "Oraimo",
+    "author": "benzophury",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=benzophury/oraimo-health-morphe-patches",
+    "repoDescription": "Morphe patch bundle by benzophury",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/108764673?v=4&size=168",
+    "targetApps": [
+      "oraimo health"
+    ],
+    "samplePatches": [
+      "DNS Hardcoding",
+      "Hide Navigation Tabs (Layout)",
+      "Manifest Debloat",
+      "Offline Network Mode"
+    ]
+  },
+  {
+    "repo": "BholeyKaBhakt/android-patches-xtra",
+    "name": "Xtra",
+    "author": "BholeyKaBhakt",
+    "source": "github",
+    "patchCount": 24,
+    "stars": 89,
+    "deepLink": "https://morphe.software/add-source?github=BholeyKaBhakt/android-patches-xtra",
+    "repoDescription": "Some android app patches (morphe)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/111065173?v=4&size=168",
+    "targetApps": [
+      "Speedtest",
+      "Automate",
+      "Sky Tonight",
+      "Star Walk 2",
+      "Solid Explorer",
+      "ATM Fee Saver",
+      "Stellarium",
+      "Autosync"
+    ],
+    "samplePatches": [
+      "AdFree Account",
+      "Bypass ADB/Developer Options Detection",
+      "Bypass Blocks Limit",
+      "Disable Facebook SDK Tracking",
+      "Disable Firebase(Google) Analytics"
+    ]
+  },
+  {
+    "repo": "bigyank/morphe-patches-samsung",
+    "name": "Samsung Health",
+    "author": "bigyank",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 19,
+    "deepLink": "https://morphe.software/add-source?github=bigyank/morphe-patches-samsung",
+    "repoDescription": "Morphe patches for Samsung Health on Knox-tripped Galaxy devices",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/43530486?v=4&size=168",
+    "targetApps": [
+      "Samsung Health"
+    ],
+    "samplePatches": [
+      "Bypass Samsung Account provider checks",
+      "Disable Knox integrity checks",
+      "Hide home promotion panel"
+    ]
+  },
+  {
+    "repo": "binarymend/morphe-patches",
+    "name": "Binarymend",
+    "author": "binarymend",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 151,
+    "deepLink": "https://morphe.software/add-source?github=binarymend/morphe-patches",
+    "repoDescription": "A collection of unofficial Android patches built with the Morphe framework",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/274918240?v=4&size=168",
+    "targetApps": [
+      "Pinterest",
+      "Truecaller",
+      "Moon+ Reader",
+      "Quick Cursor",
+      "CalcNote",
+      "Symfonium",
+      "aCalendar"
+    ],
+    "samplePatches": [
+      "Disable Bugsnag Telemetry",
+      "Disable General Telemetry",
+      "Disable Telemetry",
+      "Make UI look like Pro",
+      "Quick Cursor PRO"
+    ]
+  },
+  {
+    "repo": "BlazeFTL/FTL-Patches",
+    "name": "FTL",
+    "author": "BlazeFTL",
+    "source": "github",
+    "patchCount": 110,
+    "stars": 47,
+    "deepLink": "https://morphe.software/add-source?github=BlazeFTL/FTL-Patches",
+    "repoDescription": "Morphe patches to remove ads, analytics, apk junk, debug info, duplicate graphics, unused languages, and use custom dpi\u2620\ufe0f",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/139938337?v=4&size=168",
+    "targetApps": [
+      "All Video Downloader & Ace Player",
+      "MX Player",
+      "Calendar 2026",
+      "Calendar",
+      "File Manager - XFolder",
+      "Video Player All Format",
+      "SnapTube",
+      "Xender"
+    ],
+    "samplePatches": [
+      "APK Junk Cleanup",
+      "Add Save Data",
+      "Add Toast",
+      "Boost Splash Screen",
+      "Boost Splash Screen Time"
+    ]
+  },
+  {
+    "repo": "braiNtropy/braintropy-patches",
+    "name": "braiNtropy",
+    "author": "braiNtropy",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=braiNtropy/braintropy-patches",
+    "repoDescription": "Custom patches for use with Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/87610087?v=4&size=168",
+    "targetApps": [
+      "RP Hypertrophy",
+      "Waking Up"
+    ],
+    "samplePatches": [
+      "Disable Expo OTA updates",
+      "Disable Pairip license check",
+      "Unlock Premium",
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "brealorg/breal-morphe-patches",
+    "name": "Brealorg",
+    "author": "brealorg",
+    "source": "github",
+    "patchCount": 78,
+    "stars": 97,
+    "deepLink": "https://morphe.software/add-source?github=brealorg/breal-morphe-patches",
+    "repoDescription": "Unofficial Morphe patch bundle for Boost for Reddit, Imgur, and other supported apps.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/6815997?v=4&size=168",
+    "targetApps": [
+      "Boost for Reddit",
+      "Reddit Sync",
+      "Joey for Reddit",
+      "Lemmy Sync",
+      "Reddit is Fun",
+      "Reddit News",
+      "BaconReader",
+      "Infinity for Reddit+"
+    ],
+    "samplePatches": [
+      "Add Boost Search bottom navigation",
+      "Add archive links to context menu",
+      "Anchor Boost Snackbars above bottom navigation",
+      "Animate media in Boost gallery previews",
+      "Auto-load next page after filtered results"
+    ]
+  },
+  {
+    "repo": "brosssh/morphe-patches",
+    "name": "Brosssh",
+    "author": "brosssh",
+    "source": "github",
+    "patchCount": 22,
+    "stars": 345,
+    "deepLink": "https://morphe.software/add-source?github=brosssh/morphe-patches",
+    "repoDescription": "\ud83e\udde9 Distraction free Instagram + few patches for apps I care about",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/44944126?v=4&size=168",
+    "targetApps": [
+      "Instagram",
+      "Chargeprice",
+      "komoot",
+      "Park4Night",
+      "Mapy.com"
+    ],
+    "samplePatches": [
+      "Bypass signature check",
+      "Clone",
+      "Disable Reels scrolling",
+      "Disable story auto flipping",
+      "Disable video autoplay"
+    ]
+  },
+  {
+    "repo": "browzomje/browzomje-patches",
+    "name": "Browzomje",
+    "author": "browzomje",
+    "source": "github",
+    "patchCount": 39,
+    "stars": 72,
+    "deepLink": "https://morphe.software/add-source?github=browzomje/browzomje-patches",
+    "repoDescription": "Morphe patch bundle by browzomje",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/295420649?v=4&size=168",
+    "targetApps": [
+      "Pinterest",
+      "Easy Sudoku"
+    ],
+    "samplePatches": [
+      "Choose startup tab",
+      "Copy direct link",
+      "Disable AppsFlyer tracking",
+      "Disable Google Engage",
+      "Disable Google Engage worker"
+    ]
+  },
+  {
+    "repo": "bruddaa/bruddas-morphe-patches",
+    "name": "Bruddas",
+    "author": "bruddaa",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=bruddaa/bruddas-morphe-patches",
+    "repoDescription": "Patches for Morphe Manager",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/139983537?v=4&size=168",
+    "targetApps": [
+      "Music player",
+      "PrinterShare",
+      "Unit Converter"
+    ],
+    "samplePatches": [
+      "Remove Ads",
+      "Unlock Premium",
+      "Unlock Pro"
+    ]
+  },
+  {
+    "repo": "bufferk/morphe-patches",
+    "name": "Bufferk",
+    "author": "bufferk",
+    "source": "github",
+    "patchCount": 13,
+    "stars": 128,
+    "deepLink": "https://morphe.software/add-source?github=bufferk/morphe-patches",
+    "repoDescription": "Morphe patch bundle by bufferk",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/82165524?v=4&size=168",
+    "targetApps": [
+      "Brave Browser",
+      "Bounce Companion",
+      "Truecaller",
+      "Medium",
+      "MyGate",
+      "Splitwise",
+      "AT4K Launcher"
+    ],
+    "samplePatches": [
+      "Brave Origin",
+      "Bypass license check",
+      "Disable analytics",
+      "Enable premium features",
+      "Freedium"
+    ]
+  },
+  {
+    "repo": "Bugg4/bugg4s-patches",
+    "name": "Bugg4",
+    "author": "Bugg4",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=Bugg4/bugg4s-patches",
+    "repoDescription": "My Morphe Patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/130578380?v=4&size=168",
+    "targetApps": [
+      "OPL Monitor"
+    ],
+    "samplePatches": [
+      "Change installer source",
+      "Remove ads",
+      "Remove internet permission",
+      "Remove license check",
+      "Spoof app version"
+    ]
+  },
+  {
+    "repo": "burakdede0/SyncPatch",
+    "name": "Burakdede0",
+    "author": "burakdede0",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=burakdede0/SyncPatch",
+    "repoDescription": "Morphe patches for Sync for Reddit app, built with AI.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/29973158?v=4&size=168",
+    "targetApps": [
+      "Reddit Sync"
+    ],
+    "samplePatches": [
+      "Exit on single back press",
+      "Fix hardcoded title fonts",
+      "Predictive back gesture"
+    ]
+  },
+  {
+    "repo": "byehi98/okish-morphe-patches",
+    "name": "byehi98",
+    "author": "byehi98",
+    "source": "github",
+    "patchCount": 114,
+    "stars": 52,
+    "deepLink": "https://morphe.software/add-source?github=byehi98/okish-morphe-patches",
+    "repoDescription": "AI was used in the making of these patches.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/203759836?v=4&size=168",
+    "targetApps": [
+      "Into the Dead 2",
+      "Into the Dead",
+      "Adda247",
+      "Dead Target: Offline Games 3D",
+      "Big Hunter",
+      "20 Minutes Till Dawn",
+      "Crash of Cars",
+      "Dead Trigger"
+    ],
+    "samplePatches": [
+      "AD Instant Rewards",
+      "Ad Removal & Instant Boost Rewards",
+      "Adda247 Ad Removal",
+      "Adda247 MoEngage In-App Blocker",
+      "All items owned"
+    ]
+  },
+  {
+    "repo": "callMeBeyonder/morphe-patches",
+    "name": "CallMeBeyonder",
+    "author": "callMeBeyonder",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=callMeBeyonder/morphe-patches",
+    "repoDescription": "Beyonder Morphe patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/56964754?v=4&size=168",
+    "targetApps": [
+      "CRICFy TV",
+      "MacroFactor Workouts",
+      "StrongLifts"
+    ],
+    "samplePatches": [
+      "Remove ads",
+      "Unlock Premium (Root)",
+      "Unlock Pro (Root)"
+    ]
+  },
+  {
+    "repo": "canh0chua/Morphe-patches",
+    "name": "canh0chua",
+    "author": "canh0chua",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=canh0chua/Morphe-patches",
+    "repoDescription": "Morphe patch bundle by canh0chua",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/252370775?v=4&size=168",
+    "targetApps": [
+      "Viber"
+    ],
+    "samplePatches": [
+      "Remove AI News",
+      "Remove Ads",
+      "Remove ChatGPT",
+      "Secondary Viber Device"
+    ]
+  },
+  {
+    "repo": "Canic/twitch-morphe-patch",
+    "name": "Canic",
+    "author": "Canic",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=Canic/twitch-morphe-patch",
+    "repoDescription": "Morphe patch bundle by Canic",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/1354329?v=4&size=168",
+    "targetApps": [
+      "Twitch"
+    ],
+    "samplePatches": [
+      "7TV emotes",
+      "Auto claim channel points",
+      "Hide display ads",
+      "Show deleted messages",
+      "Show stream latency"
+    ]
+  },
+  {
+    "repo": "CasketPizza/morphe-waze-system-tts",
+    "name": "CasketPizza",
+    "author": "CasketPizza",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=CasketPizza/morphe-waze-system-tts",
+    "repoDescription": "Enables Androids default TTS engine",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/29517500?v=4&size=168",
+    "targetApps": [
+      "Waze"
+    ],
+    "samplePatches": [
+      "Use Android system TTS for navigation"
+    ]
+  },
+  {
+    "repo": "catsmoker/anime-witcher-patches",
+    "name": "Anime Witcher",
+    "author": "catsmoker",
+    "source": "github",
+    "patchCount": 10,
+    "stars": 9,
+    "deepLink": "https://morphe.software/add-source?github=catsmoker/anime-witcher-patches",
+    "repoDescription": "Anime Witcher Morphe Patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/119059457?v=4&size=168",
+    "targetApps": [
+      "Anime Witcher"
+    ],
+    "samplePatches": [
+      "AMOLED black theme",
+      "Android TV",
+      "Android TV: D-pad navigation",
+      "Disable VPN detection and alerts",
+      "Disable ads"
+    ]
+  },
+  {
+    "repo": "cesbar/zpatches",
+    "name": "zPatches",
+    "author": "cesbar",
+    "source": "github",
+    "patchCount": 14,
+    "stars": 20,
+    "deepLink": "https://morphe.software/add-source?github=cesbar/zpatches",
+    "repoDescription": "morphe patches by cesbar",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/60568418?v=4&size=168",
+    "targetApps": [
+      "V\u00e9lo'v",
+      "Sudoku",
+      "Minesweeper",
+      "Solitaire",
+      "Citymapper",
+      "Undercover"
+    ],
+    "samplePatches": [
+      "Block data collection",
+      "Bypass PairIp",
+      "Disable Internet and Telemetry",
+      "Disable map animations",
+      "Easy deeplinks configuration"
+    ]
+  },
+  {
+    "repo": "cfels/vibe-patches",
+    "name": "Cfels",
+    "author": "cfels",
+    "source": "github",
+    "patchCount": 22,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=cfels/vibe-patches",
+    "repoDescription": "an largely vibed patches for apks feat. Codex",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/285222520?v=4&size=168",
+    "targetApps": [
+      "Yanosik"
+    ],
+    "samplePatches": [
+      "Another app copy",
+      "Debug app traffic",
+      "Less tracking",
+      "Local PRO",
+      "No Play Store updates"
+    ]
+  },
+  {
+    "repo": "ch3thanhs/stylus",
+    "name": "Stylus",
+    "author": "ch3thanhs",
+    "source": "github",
+    "patchCount": 8,
+    "stars": 26,
+    "deepLink": "https://morphe.software/add-source?github=ch3thanhs/stylus",
+    "repoDescription": "A collection of font-related Morphe patches to improve readability/accessibility.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/76928501?v=4&size=168",
+    "targetApps": [
+      "GitHub",
+      "Where is my Train",
+      "Bitwarden",
+      "Telegram"
+    ],
+    "samplePatches": [
+      "Custom font (GitHub)",
+      "Custom font (Where is my Train)",
+      "Custom monospace font (GitHub)",
+      "Force system font (Bitwarden)",
+      "Force system font (GitHub)"
+    ]
+  },
+  {
+    "repo": "chicco-carone/morphe-patches-chicco",
+    "name": "Chicco",
+    "author": "chicco-carone",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=chicco-carone/morphe-patches-chicco",
+    "repoDescription": "Morphe patch bundle by chicco-carone",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/66080458?v=4&size=168",
+    "targetApps": [
+      "ProxMobo"
+    ],
+    "samplePatches": [
+      "ProxMobo License Check Bypass",
+      "ProxMobo Premium Unlock"
+    ]
+  },
+  {
+    "repo": "chikuwadon/nicoid-re-patches",
+    "name": "Chikuwadon",
+    "author": "chikuwadon",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 29,
+    "deepLink": "https://morphe.software/add-source?github=chikuwadon/nicoid-re-patches",
+    "repoDescription": "\u30cb\u30b3\u30cb\u30b3\u52d5\u753b\u30d7\u30ec\u30a4\u30e4\u30fc\u300cnicoid\u300d\u5411\u3051Morphe\u30d1\u30c3\u30c1\u3002\u73fe\u5728\u306e\u52d5\u753b\u518d\u751f\u5f62\u5f0f\u306b\u5bfe\u5fdc\u3057\u3001\u518d\u751f\u30fb\u30b3\u30e1\u30f3\u30c8\u30fb\u691c\u7d22\u30fb\u52d5\u753b\u7ba1\u7406\u306e\u6a5f\u80fd\u3092\u62e1\u5f35\u3002\u30c0\u30fc\u30af\u30e2\u30fc\u30c9\u30fbMaterial You\u5bfe\u5fdc\u3002",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/155105320?v=4&size=168",
+    "targetApps": [
+      "nicoid"
+    ],
+    "samplePatches": [
+      "nicoid Re"
+    ]
+  },
+  {
+    "repo": "chukfinley/tidal-patches",
+    "name": "Chukfinley",
+    "author": "chukfinley",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 7,
+    "deepLink": "https://morphe.software/add-source?github=chukfinley/tidal-patches",
+    "repoDescription": "Morphe patches for TIDAL - Spotify style swipe right to add to queue",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/77645077?v=4&size=168",
+    "targetApps": [
+      "TIDAL"
+    ],
+    "samplePatches": [
+      "Swipe to add to queue"
+    ]
+  },
+  {
+    "repo": "commit-regrets/morphe-youtube-vr-patches",
+    "name": "Commit-Regrets",
+    "author": "commit-regrets",
+    "source": "github",
+    "patchCount": 10,
+    "stars": 18,
+    "deepLink": "https://morphe.software/add-source?github=commit-regrets/morphe-youtube-vr-patches",
+    "repoDescription": "Patches for YouTube VR (Meta Quest / Horizon OS), for use with Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/292802799?v=4&size=168",
+    "targetApps": [
+      "YouTube VR"
+    ],
+    "samplePatches": [
+      "App name",
+      "Default video quality",
+      "Extension",
+      "Hide ads",
+      "Install as clone"
+    ]
+  },
+  {
+    "repo": "ComoEstaisAmigos/ck-zombies-morphe-patches",
+    "name": "ComoEstaisAmigos",
+    "author": "ComoEstaisAmigos",
+    "source": "github",
+    "patchCount": 8,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=ComoEstaisAmigos/ck-zombies-morphe-patches",
+    "repoDescription": "Morphe patches for Contract Killer: Zombies (NR) v3.1.0",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/321576929?v=4&size=168",
+    "targetApps": [
+      "CK Zombies"
+    ],
+    "samplePatches": [
+      "Hide Daily Deal popup",
+      "Modern Android compatibility",
+      "Play intro once",
+      "Remove unused permissions",
+      "Render at 720p"
+    ]
+  },
+  {
+    "repo": "crimera/piko",
+    "name": "Piko",
+    "author": "crimera",
+    "source": "github",
+    "patchCount": 140,
+    "stars": 5733,
+    "deepLink": "https://morphe.software/add-source?github=crimera/piko",
+    "repoDescription": "morphe patches for twitter and instagram",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/44558091?v=4&size=168",
+    "targetApps": [
+      "Twitter",
+      "Instagram"
+    ],
+    "samplePatches": [
+      "Add ability to copy media link",
+      "Add settings",
+      "Allow user network certificate",
+      "Block redirecting to X Lite",
+      "Block update screen"
+    ]
+  },
+  {
+    "repo": "csagataj2/morphe-patches",
+    "name": "MobilKincst\u00e1r",
+    "author": "csagataj2",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=csagataj2/morphe-patches",
+    "repoDescription": "Morphe patch bundle by csagataj2",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/10565664?v=4&size=168",
+    "targetApps": [
+      "MobilKincst\u00e1r"
+    ],
+    "samplePatches": [
+      "Disable Keyboard Discrimination",
+      "Disable Root Detection",
+      "Disable SSL Pinning",
+      "Disable Screenshot Protection",
+      "Disable Tamper Protection"
+    ]
+  },
+  {
+    "repo": "d0nj/morphe-patches",
+    "name": "d0nj",
+    "author": "d0nj",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 11,
+    "deepLink": "https://morphe.software/add-source?github=d0nj/morphe-patches",
+    "repoDescription": "my personal morphe patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/246411244?v=4&size=168",
+    "targetApps": [
+      "Niagara Launcher",
+      "AI Audio Novel Reader"
+    ],
+    "samplePatches": [
+      "Fix home screen numbers tile",
+      "Remove analytics",
+      "Unlock Pro",
+      "Unlock premium"
+    ]
+  },
+  {
+    "repo": "Dan1elTheMan1el/Morphe-Patches",
+    "name": "DanielTheManiel",
+    "author": "Dan1elTheMan1el",
+    "source": "github",
+    "patchCount": 17,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=Dan1elTheMan1el/Morphe-Patches",
+    "repoDescription": "Pok\u00e9mon GO related patches for apps I use.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/179581632?v=4&size=168",
+    "targetApps": [
+      "PokeRaid",
+      "Custom Keyboard Designer",
+      "DeFit",
+      "Counter"
+    ],
+    "samplePatches": [
+      "Bounty Daily Reward Shortcut",
+      "Change keyboard name",
+      "Custom Branding",
+      "Daily Reward Background Auto-Claim",
+      "Disable Ads"
+    ]
+  },
+  {
+    "repo": "danieleavolio/lovaion-patches",
+    "name": "Danieleavolio",
+    "author": "danieleavolio",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=danieleavolio/lovaion-patches",
+    "repoDescription": "Morphe patches for Cinemaniac and Column",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/67899461?v=4&size=168",
+    "targetApps": [
+      "Column",
+      "Guitar Tuner",
+      "Cinemaniac"
+    ],
+    "samplePatches": [
+      "Unlock Premium",
+      "Unlock Premium",
+      "Unlock Pro"
+    ]
+  },
+  {
+    "repo": "dawidd612/dudeks-morphe-patches",
+    "name": "Dudek",
+    "author": "dawidd612",
+    "source": "github",
+    "patchCount": 15,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=dawidd612/dudeks-morphe-patches",
+    "repoDescription": "App patches by Dudek, for use with Morphe.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/146809461?v=4&size=168",
+    "targetApps": [
+      "Good Coffee, Great Coffee",
+      "Google Calendar",
+      "Good Pizza, Great Pizza",
+      "Mapa Turystyczna",
+      "Instagram",
+      "TikTok",
+      "AndroPods",
+      "Gardenscapes"
+    ],
+    "samplePatches": [
+      "Coffee startup support",
+      "Google Calendar authentication via MicroG-RE",
+      "Google Play Games via MicroG-RE",
+      "Google Play Games via MicroG-RE",
+      "Hide Premium prompts"
+    ]
+  },
+  {
+    "repo": "debakarr/morphe-patches",
+    "name": "Debakar",
+    "author": "debakarr",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=debakarr/morphe-patches",
+    "repoDescription": "Morphe patch bundle by debakarr",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/17507690?v=4&size=168",
+    "targetApps": [
+      "Amazon India",
+      "Amazon Shopping",
+      "Flipkart",
+      "Myntra",
+      "Meesho"
+    ],
+    "samplePatches": [
+      "Install alongside original",
+      "Sort by number of ratings",
+      "Sort by number of ratings",
+      "Sort by number of ratings",
+      "Sort by number of ratings"
+    ]
+  },
+  {
+    "repo": "dh6k/morphe-patches",
+    "name": "Brave",
+    "author": "dh6k",
+    "source": "github",
+    "patchCount": 12,
+    "stars": 75,
+    "deepLink": "https://morphe.software/add-source?github=dh6k/morphe-patches",
+    "repoDescription": "Open-source Morphe patch source for Android browsers (Brave, Quetta, Titanium): privacy, performance, and user-control patches. ~28k release downloads.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/87336618?v=4&size=168",
+    "targetApps": [
+      "Quetta Browser",
+      "Brave Browser",
+      "Brave Beta",
+      "Brave Nightly",
+      "Titanium Browser for Android"
+    ],
+    "samplePatches": [
+      "Block Quetta bundled extension installation",
+      "Brave AMOLED theme",
+      "Brave NTP four-column tiles",
+      "Brave Origin",
+      "Brave Startup Performance Optimization"
+    ]
+  },
+  {
+    "repo": "dieroboter/morphe-patches",
+    "name": "Dieroboter",
+    "author": "dieroboter",
+    "source": "github",
+    "patchCount": 40,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=dieroboter/morphe-patches",
+    "repoDescription": "Personal patch bundle for Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/87614015?v=4&size=168",
+    "targetApps": [
+      "Flappy Bird",
+      "Geometry Dash Meltdown",
+      "Geometry Dash SubZero",
+      "GIF Maker",
+      "Geometry Dash World",
+      "WiFi FTP Server",
+      "Solitaire",
+      "File Manager"
+    ],
+    "samplePatches": [
+      "Adapt to modern displays",
+      "Convert to 64-bit",
+      "Disable AppMetrica activation",
+      "Disable AppMetrica activation",
+      "Disable AppMetrica activation"
+    ]
+  },
+  {
+    "repo": "DigitalPals/johns-morphe-patches",
+    "name": "DigitalPals",
+    "author": "DigitalPals",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=DigitalPals/johns-morphe-patches",
+    "repoDescription": "Morphe patch bundle by DigitalPals",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/7024725?v=4&size=168",
+    "targetApps": [
+      "NLZIET"
+    ],
+    "samplePatches": [
+      "NLZIET native picture-in-picture"
+    ]
+  },
+  {
+    "repo": "docbt/patched-up",
+    "name": "Patched-up",
+    "author": "docbt",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 56,
+    "deepLink": "https://morphe.software/add-source?github=docbt/patched-up",
+    "repoDescription": "Revived and updated ReVanced patches for Morphe.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/14258484?v=4&size=168",
+    "targetApps": [
+      "Google News",
+      "Kleinanzeigen"
+    ],
+    "samplePatches": [
+      "Change package name",
+      "Enable CustomTabs",
+      "GmsCore support",
+      "Hide Pur",
+      "Hide ads"
+    ]
+  },
+  {
+    "repo": "dowjames/morphe-patches",
+    "name": "Dowjames",
+    "author": "dowjames",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=dowjames/morphe-patches",
+    "repoDescription": "A collection of Morphe patches for Android apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/371653?v=4&size=168",
+    "targetApps": [
+      "Waze",
+      "Pool Math",
+      "Think Dirty",
+      "Yuka",
+      "PreMom"
+    ],
+    "samplePatches": [
+      "Android Auto police alert distance",
+      "Unlock premium",
+      "Unlock premium",
+      "Unlock premium",
+      "Unlock premium"
+    ]
+  },
+  {
+    "repo": "Dreaming-Codes/morphe-patches",
+    "name": "Dreaming-Codes",
+    "author": "Dreaming-Codes",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=Dreaming-Codes/morphe-patches",
+    "repoDescription": "Morphe patches by Dreaming-Codes. First patch makes Instagram use the Android system photo picker.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/10401566?v=4&size=168",
+    "targetApps": [
+      "Instagram"
+    ],
+    "samplePatches": [
+      "Use system photo picker"
+    ]
+  },
+  {
+    "repo": "drnhzn/supreme-patches",
+    "name": "Supreme",
+    "author": "drnhzn",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=drnhzn/supreme-patches",
+    "repoDescription": "Morphe patch bundle by drnhzn",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/19513536?v=4&size=168",
+    "targetApps": [
+      "Reclub"
+    ],
+    "samplePatches": [
+      "Unlock premium"
+    ]
+  },
+  {
+    "repo": "drosoCode/morphe-patches",
+    "name": "DrosoCode",
+    "author": "drosoCode",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=drosoCode/morphe-patches",
+    "repoDescription": "Morphe patch bundle by drosoCode",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/44530920?v=4&size=168",
+    "targetApps": [
+      "ImperiHome"
+    ],
+    "samplePatches": [
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "dumb-software/T2C-App-Patch-Morphe",
+    "name": "T2C",
+    "author": "dumb-software",
+    "source": "github",
+    "patchCount": 12,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=dumb-software/T2C-App-Patch-Morphe",
+    "repoDescription": "Morphe patch bundle by dumb-software",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/212046995?v=4&size=168",
+    "targetApps": [
+      "T2C"
+    ],
+    "samplePatches": [
+      "Change API endpoint",
+      "Custom Umami endpoint",
+      "Force environment",
+      "Remove Firebase tracking",
+      "Remove Google Maps API key"
+    ]
+  },
+  {
+    "repo": "dunecache/oyasumi-patches",
+    "name": "Oyasumi",
+    "author": "dunecache",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 15,
+    "deepLink": "https://morphe.software/add-source?github=dunecache/oyasumi-patches",
+    "repoDescription": "Morphe patches for ADM (com.dv.adm): ad suppression, rating prompt removal, and download/torrent limit tweaks.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/105464717?v=4&size=168",
+    "targetApps": [
+      "Advanced Download Manager",
+      "1DM",
+      "Djezzy",
+      "Truecaller"
+    ],
+    "samplePatches": [
+      "Disable ads",
+      "Disable home screen ads",
+      "Disable rating prompts",
+      "Force Walk & Win steps to 10000",
+      "Increase connection limits"
+    ]
+  },
+  {
+    "repo": "durgesh0505/chiggi_morphe_patches",
+    "name": "Chiggi",
+    "author": "durgesh0505",
+    "source": "github",
+    "patchCount": 76,
+    "stars": 51,
+    "deepLink": "https://morphe.software/add-source?github=durgesh0505/chiggi_morphe_patches",
+    "repoDescription": "Morphe patch bundle by durgesh0505",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/60478892?v=4&size=168",
+    "targetApps": [
+      "Nutrilio",
+      "SonyLIV (Android TV)",
+      "ZEE5 (Android TV)",
+      "CrazyGames",
+      "Big Hunter",
+      "Zombie Catchers",
+      "JioHotstar",
+      "Arrow Puzzle"
+    ],
+    "samplePatches": [
+      "Add food search bar",
+      "Auto skip intro and recap",
+      "Auto-skip Up Next",
+      "Auto-skip intro and recap",
+      "Bypass Play license check"
+    ]
+  },
+  {
+    "repo": "early.egg3707/ee-morphe-patches",
+    "name": "EE Morphe",
+    "author": "early.egg3707",
+    "source": "gitlab",
+    "patchCount": 13,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?gitlab=early.egg3707/ee-morphe-patches",
+    "repoDescription": "Community patch bundle for Android applications maintained by early.egg3707.",
+    "avatarUrl": "https://secure.gravatar.com/avatar/d9da00cc6aa8cd8456262a7e9fff1dca8d39dbf321f0c74adbc3c5fb819ff288?s=80&d=identicon",
+    "targetApps": [
+      "byAir",
+      "AppSales",
+      "HypnoBox",
+      "Derdy",
+      "Going",
+      "Inoreader"
+    ],
+    "samplePatches": [
+      "Change package name",
+      "Clone app",
+      "Disable Pairip license check",
+      "Enable Online Pro",
+      "Enable Pro"
+    ]
+  },
+  {
+    "repo": "Edoardo9708/LegheFC-Morphe-Patches",
+    "name": "Edoardo9708",
+    "author": "Edoardo9708",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 0,
+    "deepLink": "https://morphe.software/add-source?github=Edoardo9708/LegheFC-Morphe-Patches",
+    "repoDescription": "Test patches ",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/192470846?v=4&size=168",
+    "targetApps": [
+      "Leghe FC"
+    ],
+    "samplePatches": [
+      "Leghe FC - Avvio e nome 3 campo",
+      "Leghe FC - Sblocca formazione suggerita e comparatore",
+      "Leghe FC - Sblocca percentuali"
+    ]
+  },
+  {
+    "repo": "Educal72/educal-patches",
+    "name": "Educal",
+    "author": "Educal72",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=Educal72/educal-patches",
+    "repoDescription": "Morphe Patches for apps I use which didn't have one. ",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/70333718?v=4&size=168",
+    "targetApps": [
+      "Viddit"
+    ],
+    "samplePatches": [
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "Entree3k/Morning-Entree-Patches",
+    "name": "Morning Entree",
+    "author": "Entree3k",
+    "source": "github",
+    "patchCount": 81,
+    "stars": 58,
+    "deepLink": "https://morphe.software/add-source?github=Entree3k/Morning-Entree-Patches",
+    "repoDescription": "A collection of unofficial Android patches built with the Morphe framework. Patches are for educational purposes only, modifying apps can be against terms and services",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/28127566?v=4&size=168",
+    "targetApps": [
+      "Gboard",
+      "Nova Launcher",
+      "Panels",
+      "Smart AudioBook Player",
+      "Niagara Launcher",
+      "AIO Launcher",
+      "Arm Workout",
+      "AutoLocation"
+    ],
+    "samplePatches": [
+      "Always incognito mode",
+      "Block tracking and analytics",
+      "Block tracking hosts",
+      "Bypass battery optimization nag",
+      "Change package name"
+    ]
+  },
+  {
+    "repo": "epxec/android-patches",
+    "name": "Epxec",
+    "author": "epxec",
+    "source": "github",
+    "patchCount": 16,
+    "stars": 14,
+    "deepLink": "https://morphe.software/add-source?github=epxec/android-patches",
+    "repoDescription": "Patches for \\\"useful\\\" apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/324753774?v=4&size=168",
+    "targetApps": [
+      "Daylio",
+      "Decompile",
+      "NotiZen Widget",
+      "Remindio",
+      "Todaii Japanese",
+      "Touch The Notch",
+      "Wallet",
+      "Vaulty"
+    ],
+    "samplePatches": [
+      "Enable Premium",
+      "Enable Premium",
+      "Enable Premium",
+      "Enable Premium",
+      "Enable Premium"
+    ]
+  },
+  {
+    "repo": "Error404rt/Anixart-patches",
+    "name": "Error404rt",
+    "author": "Error404rt",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=Error404rt/Anixart-patches",
+    "repoDescription": "Morphe patches for Anixart remove ads and other improvements.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/80292790?v=4&size=168",
+    "targetApps": [
+      "Anixart"
+    ],
+    "samplePatches": [
+      "Remove ads"
+    ]
+  },
+  {
+    "repo": "ethan-manny/spotify-tv-crossfade",
+    "name": "Spotify TV",
+    "author": "ethan-manny",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=ethan-manny/spotify-tv-crossfade",
+    "repoDescription": "Crossfade between songs for the Spotify TV app on Fire TV (Morphe patches)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/143646617?v=4&size=168",
+    "targetApps": [
+      "Spotify (TV)"
+    ],
+    "samplePatches": [
+      "Crossfade",
+      "Debuggable build",
+      "Disable Amazon Appstore DRM"
+    ]
+  },
+  {
+    "repo": "ethanm6/letterboxd-stremio-morphe-patch",
+    "name": "Ethanm6",
+    "author": "ethanm6",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 10,
+    "deepLink": "https://morphe.software/add-source?github=ethanm6/letterboxd-stremio-morphe-patch",
+    "repoDescription": "Morphe patches for the Letterboxd app: Stremio/Nuvio button, hide video store, hide where-to-watch row, and hide Spotlight ad promos",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/38443003?v=4&size=168",
+    "targetApps": [
+      "Letterboxd"
+    ],
+    "samplePatches": [
+      "Add Stremio button",
+      "Hide Spotlight Ad",
+      "Hide Video Store",
+      "Hide Where to Watch"
+    ]
+  },
+  {
+    "repo": "eZ4RK0/morphe-patches",
+    "name": "Zarko",
+    "author": "eZ4RK0",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=eZ4RK0/morphe-patches",
+    "repoDescription": "Morphe patch bundle by eZ4RK0",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/151390572?v=4&size=168",
+    "targetApps": [
+      "Sunrise Alarm: Wake-Up Light"
+    ],
+    "samplePatches": [
+      "Disable license check",
+      "Unlock premium"
+    ]
+  },
+  {
+    "repo": "Forsigh/waze-patches",
+    "name": "Forsigh",
+    "author": "Forsigh",
+    "source": "github",
+    "patchCount": 31,
+    "stars": 10,
+    "deepLink": "https://morphe.software/add-source?github=Forsigh/waze-patches",
+    "repoDescription": "Morphe patches for Waze",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/35919784?v=4&size=168",
+    "targetApps": [
+      "Waze"
+    ],
+    "samplePatches": [
+      "AMOLED Dark Mode For UI",
+      "Alert distances",
+      "Allow high refresh rate",
+      "Auto zoom",
+      "Average-speed camera alerts"
+    ]
+  },
+  {
+    "repo": "FoxxoOwO/foxxo-patches",
+    "name": "Foxxo",
+    "author": "FoxxoOwO",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=FoxxoOwO/foxxo-patches",
+    "repoDescription": "Morphe patch bundle by FoxxoOwO",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/89482938?v=4&size=168",
+    "targetApps": [
+      "Instagram"
+    ],
+    "samplePatches": [
+      "Chat only",
+      "Clone",
+      "Debug bridge"
+    ]
+  },
+  {
+    "repo": "franticg33k/morphe-patches",
+    "name": "Franticg33k",
+    "author": "franticg33k",
+    "source": "github",
+    "patchCount": 29,
+    "stars": 27,
+    "deepLink": "https://morphe.software/add-source?github=franticg33k/morphe-patches",
+    "repoDescription": "Morphe patch bundle by franticg33k",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/300474278?v=4&size=168",
+    "targetApps": [
+      "Nepalipatro",
+      "byAir",
+      "Hamropatro",
+      "Provide Lite",
+      "Atlas Photo",
+      "Fricam",
+      "JellyWatch",
+      "JellyWatch TV"
+    ],
+    "samplePatches": [
+      "Block Ad Server",
+      "Enable Online Pro",
+      "Enable Pro",
+      "Remove Ads",
+      "Remove Ads"
+    ]
+  },
+  {
+    "repo": "Freeman022026/rustore-privacy-patches",
+    "name": "RuStore privacy",
+    "author": "Freeman022026",
+    "source": "github",
+    "patchCount": 15,
+    "stars": 9,
+    "deepLink": "https://morphe.software/add-source?github=Freeman022026/rustore-privacy-patches",
+    "repoDescription": "Selectable RuStore privacy patches for Morphe with verified automatic releases.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/318002849?v=4&size=168",
+    "targetApps": [
+      "RuStore"
+    ],
+    "samplePatches": [
+      "Block remote network policy",
+      "Disable Kaspersky background scan",
+      "Disable advertisements",
+      "Disable analytics and trackers",
+      "Disable background hooks"
+    ]
+  },
+  {
+    "repo": "fynnaly/morphe-patches",
+    "name": "Fynnaly",
+    "author": "fynnaly",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=fynnaly/morphe-patches",
+    "repoDescription": "Morphe Patch.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/285165951?v=4&size=168",
+    "targetApps": [
+      "20 Minutes Till Dawn",
+      "Spaceflight Simulator"
+    ],
+    "samplePatches": [
+      "Bypass PairIP signature, license & VM gate",
+      "Skip rewarded ads",
+      "Unlock expansions"
+    ]
+  },
+  {
+    "repo": "Gamer92000/pixelcamera-patches",
+    "name": "Gamer92000",
+    "author": "Gamer92000",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=Gamer92000/pixelcamera-patches",
+    "repoDescription": "Morphe patch bundle by Gamer92000",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/42619277?v=4&size=168",
+    "targetApps": [
+      "Pixel Camera"
+    ],
+    "samplePatches": [
+      "Run Add Me without the EdgeTPU",
+      "Use third-party gallery",
+      "Use third-party gallery on lock screen"
+    ]
+  },
+  {
+    "repo": "ggYasin/ggyasin-morphe-patches",
+    "name": "ggYasin",
+    "author": "ggYasin",
+    "source": "github",
+    "patchCount": 9,
+    "stars": 10,
+    "deepLink": "https://morphe.software/add-source?github=ggYasin/ggyasin-morphe-patches",
+    "repoDescription": "Morphe patches maintained by ggYasin",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/39764629?v=4&size=168",
+    "targetApps": [
+      "9GAG",
+      "ZenSMS",
+      "Offline Games"
+    ],
+    "samplePatches": [
+      "Deactivate Firebase Analytics (9GAG 8.23.0)",
+      "Expanded OTP detection",
+      "Fast Offline Games startup",
+      "In-house ad not clickable",
+      "In-house ad only"
+    ]
+  },
+  {
+    "repo": "giaaaacomo/nifty-patches-selection",
+    "name": "Giaaaacomo",
+    "author": "giaaaacomo",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=giaaaacomo/nifty-patches-selection",
+    "repoDescription": "robocrafted with love",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/38686675?v=4&size=168",
+    "targetApps": [
+      "Samsung Daily Board",
+      "Instagram"
+    ],
+    "samplePatches": [
+      "Customize orientation",
+      "Customize screen saver",
+      "Enable media controls",
+      "Enable phone support",
+      "Force notification grouping"
+    ]
+  },
+  {
+    "repo": "Gigahawk/morphe-patches",
+    "name": "Gigahawk",
+    "author": "Gigahawk",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=Gigahawk/morphe-patches",
+    "repoDescription": "Morphe patch bundle by Gigahawk",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/10356230?v=4&size=168",
+    "targetApps": [
+      "Float Control"
+    ],
+    "samplePatches": [
+      "Enable Pro"
+    ]
+  },
+  {
+    "repo": "GitGitro/Gitro-Morphe-Patches",
+    "name": "GitGitro",
+    "author": "GitGitro",
+    "source": "github",
+    "patchCount": 13,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=GitGitro/Gitro-Morphe-Patches",
+    "repoDescription": "Morphe patch bundle by GitGitro",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/108683123?v=4&size=168",
+    "targetApps": [
+      "AI Detector",
+      "File Tree Size",
+      "Usenet Panda",
+      "Zerch",
+      "XAPK Extractor",
+      "Reverso Context",
+      "RightGallery",
+      "RillPhone"
+    ],
+    "samplePatches": [
+      "Bypass license check",
+      "Bypass license check",
+      "Bypass license check",
+      "Bypass license check",
+      "Disable ads and analytics"
+    ]
+  },
+  {
+    "repo": "GoldRift/morphe-patches",
+    "name": "GoldRift",
+    "author": "GoldRift",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=GoldRift/morphe-patches",
+    "repoDescription": "Strong (fitness tracker) and HiPaint patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/69951941?v=4&size=168",
+    "targetApps": [
+      "Strong",
+      "HiPaint"
+    ],
+    "samplePatches": [
+      "Unlock Pro",
+      "Unlock Subscription"
+    ]
+  },
+  {
+    "repo": "HagiaHaya/morphe-patches",
+    "name": "HagiaHaya",
+    "author": "HagiaHaya",
+    "source": "github",
+    "patchCount": 22,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=HagiaHaya/morphe-patches",
+    "repoDescription": "Patches for the Wykop.pl app, for use with Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/26824260?v=4&size=168",
+    "targetApps": [
+      "Wykop.pl",
+      "Pepper",
+      "Slack"
+    ],
+    "samplePatches": [
+      "Fix sidebar layout",
+      "GmsCore support",
+      "GmsCore support",
+      "Hide newsletter prompt",
+      "Remove ads"
+    ]
+  },
+  {
+    "repo": "hajs110208/morphe-patches",
+    "name": "Hajs110208",
+    "author": "hajs110208",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=hajs110208/morphe-patches",
+    "repoDescription": "Morphe Patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/156035391?v=4&size=168",
+    "targetApps": [
+      "Minecraft"
+    ],
+    "samplePatches": [
+      "Add documents provider",
+      "Add mtbinloader2 lib",
+      "Change Package Name",
+      "Change app branding",
+      "Remove music"
+    ]
+  },
+  {
+    "repo": "hammadhassan94/ary-live",
+    "name": "Hammadhassan94",
+    "author": "hammadhassan94",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=hammadhassan94/ary-live",
+    "repoDescription": "ARY Live \u2014 community patches for ARY PLUS, for use with Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/58123576?v=4&size=168",
+    "targetApps": [
+      "ARY PLUS"
+    ],
+    "samplePatches": [
+      "Bypass PairIP license check",
+      "Custom branding",
+      "Hide ads"
+    ]
+  },
+  {
+    "repo": "hashtagbasit/aimal-patches",
+    "name": "Aimal",
+    "author": "hashtagbasit",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 10,
+    "deepLink": "https://morphe.software/add-source?github=hashtagbasit/aimal-patches",
+    "repoDescription": "Android player patches for Crunchyroll, HBO Max, Disney+ and Viki. Playback speed, aspect ratio, subtitle styling and better layouts on foldable phones.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/53941105?v=4&size=168",
+    "targetApps": [
+      "Crunchyroll",
+      "HBO Max",
+      "Disney+",
+      "Viki"
+    ],
+    "samplePatches": [
+      "Aspect ratio control",
+      "Playback speed",
+      "Playback speed and aspect ratio",
+      "Remove ads",
+      "Subtitle styling"
+    ]
+  },
+  {
+    "repo": "HellLord77/media-patches",
+    "name": "Media",
+    "author": "HellLord77",
+    "source": "github",
+    "patchCount": 50,
+    "stars": 11,
+    "deepLink": "https://morphe.software/add-source?github=HellLord77/media-patches",
+    "repoDescription": "Morphe patch bundle by HellLord77",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/34152085?v=4&size=168",
+    "targetApps": [
+      "Hoichoi",
+      "Platform8",
+      "Platform8 (Android TV)",
+      "Shadhin",
+      "Klikk",
+      "Chorki",
+      "Chorki TV",
+      "Kabbik"
+    ],
+    "samplePatches": [
+      "Access content",
+      "Access content",
+      "Access content",
+      "Access content",
+      "Anonymous user"
+    ]
+  },
+  {
+    "repo": "HellveticaStandard/HellveticaPatches",
+    "name": "HellveticaStandard",
+    "author": "HellveticaStandard",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 13,
+    "deepLink": "https://morphe.software/add-source?github=HellveticaStandard/HellveticaPatches",
+    "repoDescription": "I'm as normal as they come and this is a contest of freaks! What do you want me to do, shoot my slingshot at him? ",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/181237861?v=4&size=168",
+    "targetApps": [
+      "Sankaku App"
+    ],
+    "samplePatches": [
+      "Disable Infinite Upgrade Popup"
+    ]
+  },
+  {
+    "repo": "heval99/Heval-Morphe-Patches",
+    "name": "Heval",
+    "author": "heval99",
+    "source": "github",
+    "patchCount": 184,
+    "stars": 68,
+    "deepLink": "https://morphe.software/add-source?github=heval99/Heval-Morphe-Patches",
+    "repoDescription": "Custom Morphe patches by heval99",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/111246900?v=4&size=168",
+    "targetApps": [
+      "Firefox Focus",
+      "Sofascore",
+      "Flashscore",
+      "Hevy",
+      "Brave Browser",
+      "MyFitnessPal",
+      "Alarm Clock Xtreme",
+      "BeSoccer"
+    ],
+    "samplePatches": [
+      "Add-on support",
+      "Block marketing notifications",
+      "Block marketing popups",
+      "Block telemetry & trackers",
+      "Brave Origin"
+    ]
+  },
+  {
+    "repo": "heyymichii/michii-patches",
+    "name": "Heyymichii",
+    "author": "heyymichii",
+    "source": "github",
+    "patchCount": 12,
+    "stars": 13,
+    "deepLink": "https://morphe.software/add-source?github=heyymichii/michii-patches",
+    "repoDescription": "Morphe patch bundle by heyymichii",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/338268511?v=4&size=168",
+    "targetApps": [
+      "LinkedIn"
+    ],
+    "samplePatches": [
+      "Block tracking",
+      "Disable double-tap like",
+      "Download media",
+      "Feed filters",
+      "Hide Premium upsells"
+    ]
+  },
+  {
+    "repo": "hhawkinsau/hh-patches",
+    "name": "HH",
+    "author": "hhawkinsau",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=hhawkinsau/hh-patches",
+    "repoDescription": "Morphe patch bundle by hhawkinsau",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/228664931?v=4&size=168",
+    "targetApps": [
+      "Punge"
+    ],
+    "samplePatches": [
+      "Disable Play Store redirect for Punge",
+      "Disable remote config for Punge",
+      "Hide ads for Punge",
+      "Unlock Punge premium"
+    ]
+  },
+  {
+    "repo": "Hiosdra/morphe-patches",
+    "name": "Hiosdra",
+    "author": "Hiosdra",
+    "source": "github",
+    "patchCount": 9,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=Hiosdra/morphe-patches",
+    "repoDescription": "Morphe patch bundle by Hiosdra",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/22264762?v=4&size=168",
+    "targetApps": [
+      "F1 TV",
+      "Movie Paradise"
+    ],
+    "samplePatches": [
+      "F1 TV - Background playback",
+      "F1 TV - Change package name",
+      "F1 TV - Disable Play Store updates",
+      "F1 TV - Dismiss forced update prompt",
+      "F1 TV - Foreground playback service"
+    ]
+  },
+  {
+    "repo": "homelander11/beetle-patches",
+    "name": "Beetle",
+    "author": "homelander11",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=homelander11/beetle-patches",
+    "repoDescription": "Custom Morphe patches for multiple Android apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/155063704?v=4&size=168",
+    "targetApps": [
+      "Slowly"
+    ],
+    "samplePatches": [
+      "Slowly Pairip license check bypass",
+      "Slowly avatar builder items",
+      "Slowly extended Explore filters"
+    ]
+  },
+  {
+    "repo": "hoo-dles/morphe-patches",
+    "name": "Hoodles",
+    "author": "hoo-dles",
+    "source": "github",
+    "patchCount": 78,
+    "stars": 1253,
+    "deepLink": "https://morphe.software/add-source?github=hoo-dles/morphe-patches",
+    "repoDescription": "\ud83c\udf43 Human-made patches for Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/207470673?v=4&size=168",
+    "targetApps": [
+      "GitHub",
+      "SoundCloud",
+      "Lingory",
+      "SuperChinese",
+      "Goodreads",
+      "Pandora",
+      "Sofascore",
+      "Duolingo"
+    ],
+    "samplePatches": [
+      "AMOLED dark theme",
+      "AMOLED dark theme",
+      "Block Permissions Request",
+      "Block launch upsell",
+      "Change package name"
+    ]
+  },
+  {
+    "repo": "HSlightsteel/slight-patches",
+    "name": "Slight",
+    "author": "HSlightsteel",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=HSlightsteel/slight-patches",
+    "repoDescription": "Morphe patches for Android apps by Slight",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/38702569?v=4&size=168",
+    "targetApps": [
+      "Sparkle TV",
+      "AT4K Launcher"
+    ],
+    "samplePatches": [
+      "Unlock Plus",
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "hu-liberator/patches",
+    "name": "hu-liberator",
+    "author": "hu-liberator",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=hu-liberator/patches",
+    "repoDescription": "Morphe patch bundle by hu-liberator",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/313133940?v=4&size=168",
+    "targetApps": [
+      "M\u00c1VPlusz",
+      "Id\u0151k\u00e9p"
+    ],
+    "samplePatches": [
+      "Disable Firebase Crashlytics",
+      "Disable Pairip license check",
+      "Disable Play Integrity failure crash",
+      "Disable Play Integrity gating flag wait",
+      "Disable Play Integrity token request"
+    ]
+  },
+  {
+    "repo": "HvQ/eksi-morphe",
+    "name": "Ek\u015fi",
+    "author": "HvQ",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 12,
+    "deepLink": "https://morphe.software/add-source?github=HvQ/eksi-morphe",
+    "repoDescription": "Eksisozluk app morphed",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/9199904?v=4&size=168",
+    "targetApps": [
+      "Ek\u015fi S\u00f6zl\u00fck"
+    ],
+    "samplePatches": [
+      "Hide ads",
+      "Open external links in browser"
+    ]
+  },
+  {
+    "repo": "hxreborn/morphe-patches",
+    "name": "Hxreborn",
+    "author": "hxreborn",
+    "source": "github",
+    "patchCount": 303,
+    "stars": 203,
+    "deepLink": "https://morphe.software/add-source?github=hxreborn/morphe-patches",
+    "repoDescription": "\ud83e\udde9 Android patches for Morphe: AMOLED themes, ad removal and premium unlocks. Proton Mail, Cx File Explorer, Projectivy Launcher and more.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/32096750?v=4&size=168",
+    "targetApps": [
+      "BlurWall",
+      "Cx File Explorer",
+      "Cxxdroid",
+      "Jvdroid",
+      "Pydroid 3",
+      "imo",
+      "Kick",
+      "MiniShare"
+    ],
+    "samplePatches": [
+      "AMOLED dark theme",
+      "AMOLED dark theme",
+      "AMOLED dark theme",
+      "AMOLED dark theme",
+      "AMOLED dark theme"
+    ]
+  },
+  {
+    "repo": "icysymmetra/tiktok-patches-for-morphe",
+    "name": "Metra TikTok",
+    "author": "icysymmetra",
+    "source": "github",
+    "patchCount": 146,
+    "stars": 434,
+    "deepLink": "https://morphe.software/add-source?github=icysymmetra/tiktok-patches-for-morphe",
+    "repoDescription": "Morphe patches for TikTok, modernized and updated for newer TikTok app targets.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/131003867?v=4&size=168",
+    "targetApps": [
+      "TikTok"
+    ],
+    "samplePatches": [
+      "Always show publish date",
+      "Comment sort controls",
+      "Copy comments without username",
+      "Custom offline videos limit",
+      "Diagnostic tools"
+    ]
+  },
+  {
+    "repo": "ihatenodejs/aidans-patches",
+    "name": "Aidan",
+    "author": "ihatenodejs",
+    "source": "github",
+    "patchCount": 71,
+    "stars": 11,
+    "deepLink": "https://morphe.software/add-source?github=ihatenodejs/aidans-patches",
+    "repoDescription": "My Morphe patches; mainly focused on financial and productivity/utility apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/178358868?v=4&size=168",
+    "targetApps": [
+      "SidelineSwap",
+      "AfterShip",
+      "Blackjack",
+      "Sezzle",
+      "365 Pay",
+      "Fizz",
+      "Geocaching",
+      "NHL"
+    ],
+    "samplePatches": [
+      "AMOLED Theme",
+      "Add Copy Tracking Number Option",
+      "Add Custom Chip Store",
+      "Block Tracking and Telemetry",
+      "Bypass Native Signature Check"
+    ]
+  },
+  {
+    "repo": "ilikeadofai/vocacolle-morphe-patches",
+    "name": "VocaColle",
+    "author": "ilikeadofai",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 10,
+    "deepLink": "https://morphe.software/add-source?github=ilikeadofai/vocacolle-morphe-patches",
+    "repoDescription": "Korean translation patches for VocaColle, built for Morphe.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/129715411?v=4&size=168",
+    "targetApps": [
+      "VocaColle"
+    ],
+    "samplePatches": [
+      "Customize VocaColle branding",
+      "English UI",
+      "Korean UI",
+      "VocaColle Morphe settings",
+      "VocaColle compatibility probe"
+    ]
+  },
+  {
+    "repo": "ImNoammm/Noams-Morphe-Patches",
+    "name": "ImNoammm",
+    "author": "ImNoammm",
+    "source": "github",
+    "patchCount": 80,
+    "stars": 20,
+    "deepLink": "https://morphe.software/add-source?github=ImNoammm/Noams-Morphe-Patches",
+    "repoDescription": "My Morphe patches for the apps I use, in one source for Morphe Manager.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/268442138?v=4&size=168",
+    "targetApps": [
+      "Chess.com",
+      "Gboard",
+      "Block Blast!",
+      "Geocaching"
+    ],
+    "samplePatches": [
+      "AMOLED black",
+      "Accent color",
+      "Access Points menu style",
+      "Animation theme",
+      "Arcade animations"
+    ]
+  },
+  {
+    "repo": "IMXEren/mix-patches",
+    "name": "Mix",
+    "author": "IMXEren",
+    "source": "gitlab",
+    "patchCount": 15,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?gitlab=IMXEren/mix-patches",
+    "repoDescription": "Mix Patches",
+    "avatarUrl": "https://gitlab.com/uploads/-/system/user/avatar/41449487/avatar.png?v=1792713605",
+    "targetApps": [
+      "RailOne",
+      "iPay Sri Lanka",
+      "Reddit Sync",
+      "Trakt"
+    ],
+    "samplePatches": [
+      "Bypass developer options",
+      "Bypass device integrity checks",
+      "Bypass signature check",
+      "Clone app",
+      "Disable Pairip license check"
+    ]
+  },
+  {
+    "repo": "ispacecase/patchweaver",
+    "name": "Patchweaver",
+    "author": "ispacecase",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=ispacecase/patchweaver",
+    "repoDescription": "Personal Morphe patches (F-Droid selectable install backend)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/173310662?v=4&size=168",
+    "targetApps": [
+      "F-Droid",
+      "Merkury Smart"
+    ],
+    "samplePatches": [
+      "Selectable install backend",
+      "Own premium plan"
+    ]
+  },
+  {
+    "repo": "isuruhg/cricinfo-tweaks",
+    "name": "ESPNcricinfo",
+    "author": "isuruhg",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=isuruhg/cricinfo-tweaks",
+    "repoDescription": "Ad, tracking, splash-ad and forced-update-lockout patches for the ESPNcricinfo Android app \u2014 for use with Morphe. Patch source only; no app binaries.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/11230703?v=4&size=168",
+    "targetApps": [
+      "ESPNcricinfo"
+    ],
+    "samplePatches": [
+      "Block tracking & telemetry",
+      "Remove ads",
+      "Remove splash ad, startup delay & forced update"
+    ]
+  },
+  {
+    "repo": "jackblk/morphe-patches",
+    "name": "Jackblk",
+    "author": "jackblk",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=jackblk/morphe-patches",
+    "repoDescription": "just my personal morphe patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/12843654?v=4&size=168",
+    "targetApps": [
+      "Sleepa"
+    ],
+    "samplePatches": [
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "JacksonJones2003/immersive-keyboard-patches",
+    "name": "JacksonJones2003 Immersive",
+    "author": "JacksonJones2003",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=JacksonJones2003/immersive-keyboard-patches",
+    "repoDescription": "Immersive Keyboard: a patch for use with Morphe that lets Gboard draw under the camera cutout in landscape",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/154122377?v=4&size=168",
+    "targetApps": [
+      "Gboard"
+    ],
+    "samplePatches": [
+      "Emoji Key On Right",
+      "Glass Panel",
+      "Glass Press Effect",
+      "Immersive Keyboard",
+      "Theme Follows Dark Mode"
+    ]
+  },
+  {
+    "repo": "JacksonJones2003/qqmusic-english-patches",
+    "name": "JacksonJones2003 QQMusic",
+    "author": "JacksonJones2003",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=JacksonJones2003/qqmusic-english-patches",
+    "repoDescription": "Unofficial Morphe patches that translate the QQ Music Android app interface to English",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/154122377?v=4&size=168",
+    "targetApps": [
+      "QQ\u97f3\u4e50"
+    ],
+    "samplePatches": [
+      "English translation"
+    ]
+  },
+  {
+    "repo": "JacobPlaysGames/CrimeRadar-Morphe-Patches",
+    "name": "Jacobs",
+    "author": "JacobPlaysGames",
+    "source": "github",
+    "patchCount": 13,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=JacobPlaysGames/CrimeRadar-Morphe-Patches",
+    "repoDescription": "Morphe patches for CrimeRadar - premium bypass and modifications",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/80339878?v=4&size=168",
+    "targetApps": [
+      "Crime Radar",
+      "Scanner Radio"
+    ],
+    "samplePatches": [
+      "Branding",
+      "Branding",
+      "Change package name",
+      "Change package name",
+      "Debug Settings"
+    ]
+  },
+  {
+    "repo": "janowakps/morphe-patches-action",
+    "name": "Janowakps",
+    "author": "janowakps",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=janowakps/morphe-patches-action",
+    "repoDescription": "Morphe patches for Action app (Dark Mode)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/36198623?v=4&size=168",
+    "targetApps": [
+      "Action"
+    ],
+    "samplePatches": [
+      "Dark Mode",
+      "Dark Splash Screen",
+      "Weekly Deals Sorting"
+    ]
+  },
+  {
+    "repo": "jaredcat/morphe-patches",
+    "name": "JaredCat",
+    "author": "jaredcat",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=jaredcat/morphe-patches",
+    "repoDescription": "Morphe patch bundle by jaredcat",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/3268576?v=4&size=168",
+    "targetApps": [
+      "Expand",
+      "OfferUp",
+      "ASL Bloom",
+      "Lumenate",
+      "Sweepy"
+    ],
+    "samplePatches": [
+      "Disable Analytics",
+      "Hide Ads",
+      "Unlock Plus",
+      "Unlock Premium",
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "jasonwu1994/Gboard-patches",
+    "name": "Gboard",
+    "author": "jasonwu1994",
+    "source": "github",
+    "patchCount": 44,
+    "stars": 889,
+    "deepLink": "https://morphe.software/add-source?github=jasonwu1994/Gboard-patches",
+    "repoDescription": "Morphe patches for Gboard with practical upgrades for global users and Taiwan-focused enhancements.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/21318815?v=4&size=168",
+    "targetApps": [
+      "Gboard"
+    ],
+    "samplePatches": [
+      "AI Writing Tools",
+      "Access Points menu style",
+      "Add Gboard Signature Bypass",
+      "Advanced Voice Typing",
+      "Backup & Restore"
+    ]
+  },
+  {
+    "repo": "jaydenluuuu-sys/line-font-patches",
+    "name": "Jaydenluuuu-Sys",
+    "author": "jaydenluuuu-sys",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=jaydenluuuu-sys/line-font-patches",
+    "repoDescription": "Custom font patch for LINE. Compatible with Morphe.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/232624381?v=4&size=168",
+    "targetApps": [
+      "LINE"
+    ],
+    "samplePatches": [
+      "[General] Custom font"
+    ]
+  },
+  {
+    "repo": "JCapretta/chessable-patches",
+    "name": "JCapretta",
+    "author": "JCapretta",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=JCapretta/chessable-patches",
+    "repoDescription": "Morphe patch bundle by JCapretta",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/46580735?v=4&size=168",
+    "targetApps": [
+      "Chessable"
+    ],
+    "samplePatches": [
+      "Enable folder reviews",
+      "Enable offline mode"
+    ]
+  },
+  {
+    "repo": "Jeff-tek/jeff-patches",
+    "name": "Jeff-tek",
+    "author": "Jeff-tek",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=Jeff-tek/jeff-patches",
+    "repoDescription": "Morphe patch bundle by Jeff-tek",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/75492107?v=4&size=168",
+    "targetApps": [
+      "MP3 Cutter and Ringtone Maker"
+    ],
+    "samplePatches": [
+      "Remove ads",
+      "Unlock all features"
+    ]
+  },
+  {
+    "repo": "jkennethcarino/adobo",
+    "name": "Adobo",
+    "author": "jkennethcarino",
+    "source": "github",
+    "patchCount": 50,
+    "stars": 285,
+    "deepLink": "https://morphe.software/add-source?github=jkennethcarino/adobo",
+    "repoDescription": "Patches for Morphe to disable ads, trackers and analytics, remove Reddit ads everywhere, always open Gboard in incognito mode, and much more! ",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/6307355?v=4&size=168",
+    "targetApps": [
+      "Gboard",
+      "Reddit",
+      "9GAG",
+      "IMDb"
+    ],
+    "samplePatches": [
+      "Always-incognito mode",
+      "Block ads, trackers, and analytics",
+      "Change package name",
+      "Colorize comment indent lines",
+      "Deactivate Firebase Analytics"
+    ]
+  },
+  {
+    "repo": "JonnyVR1/morph-patches",
+    "name": "JonnyVR1",
+    "author": "JonnyVR1",
+    "source": "github",
+    "patchCount": 13,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=JonnyVR1/morph-patches",
+    "repoDescription": "Custom Morphe patches for multiple Android apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/949967?v=4&size=168",
+    "targetApps": [
+      "Tantan"
+    ],
+    "samplePatches": [
+      "AB Test Override",
+      "Ad Removal",
+      "Analytics Disable",
+      "Dialog Cleanup",
+      "GMS Compatibility"
+    ]
+  },
+  {
+    "repo": "jordanwoodson/lurk-morphe-patches",
+    "name": "JordanWoodson",
+    "author": "jordanwoodson",
+    "source": "github",
+    "patchCount": 127,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=jordanwoodson/lurk-morphe-patches",
+    "repoDescription": "Morphe privacy patches for Twitch, Kick and Rumble. Watch the stream, skip the tracking.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/64621053?v=4&size=168",
+    "targetApps": [
+      "Kick",
+      "Rumble",
+      "Twitch"
+    ],
+    "samplePatches": [
+      "AMOLED black",
+      "AMOLED black",
+      "AMOLED black",
+      "Anonymous chat",
+      "Anonymous chat"
+    ]
+  },
+  {
+    "repo": "Joristdh/Platypatch",
+    "name": "Platypatch",
+    "author": "Joristdh",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 12,
+    "deepLink": "https://morphe.software/add-source?github=Joristdh/Platypatch",
+    "repoDescription": "Platypatch contains (ported) patches that were still missing for Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/6518350?v=4&size=168",
+    "targetApps": [
+      "Reddit Sync"
+    ],
+    "samplePatches": [
+      "Predictive back gesture",
+      "Experimental: Restore \"Swipe to return\" translucency"
+    ]
+  },
+  {
+    "repo": "jrddupont/discord-patches",
+    "name": "Discord",
+    "author": "jrddupont",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=jrddupont/discord-patches",
+    "repoDescription": "Morphe patches hiding Discord's quest promo banner",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/11879774?v=4&size=168",
+    "targetApps": [
+      "Discord"
+    ],
+    "samplePatches": [
+      "Hide gift button",
+      "Hide quest promo banner",
+      "Pin app to built-in bundle"
+    ]
+  },
+  {
+    "repo": "Juankyyy/morphe-patches",
+    "name": "Juankyyy",
+    "author": "Juankyyy",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=Juankyyy/morphe-patches",
+    "repoDescription": "custom morphe patches by juankyyy",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/103221572?v=4&size=168",
+    "targetApps": [
+      "Remote Mouse",
+      "WaterMinder"
+    ],
+    "samplePatches": [
+      "Disable popups",
+      "Remove ads",
+      "Remove license check",
+      "Unlock PRO",
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "JZ6/Flexboard",
+    "name": "Flexboard",
+    "author": "JZ6",
+    "source": "github",
+    "patchCount": 14,
+    "stars": 39,
+    "deepLink": "https://morphe.software/add-source?github=JZ6/Flexboard",
+    "repoDescription": "Morphe patches for gboard to improve your life",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/10971263?v=4&size=168",
+    "targetApps": [
+      "Gboard"
+    ],
+    "samplePatches": [
+      "Bigger Toolbar",
+      "Bypass Gboard Signature",
+      "Crash reporter (debug)",
+      "Enable Rambler",
+      "Hidden Features"
+    ]
+  },
+  {
+    "repo": "jzl1/morphe-patches",
+    "name": "Jzl1",
+    "author": "jzl1",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=jzl1/morphe-patches",
+    "repoDescription": "Patches for some apps I use myself.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/34795003?v=4&size=168",
+    "targetApps": [
+      "analiti"
+    ],
+    "samplePatches": [
+      "Disable telemetry",
+      "Hide sign-in banner",
+      "Neutralize tamper fork bomb",
+      "Unlock Expert"
+    ]
+  },
+  {
+    "repo": "K8R8TO/kizu-morphe-patches",
+    "name": "Kizu",
+    "author": "K8R8TO",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=K8R8TO/kizu-morphe-patches",
+    "repoDescription": "Twitch patch for Morphe, inspired by projects like PurpleTV, with enhanced chat features, player controls, third-party emotes, and quality-of-life improvements.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/78065389?v=4&size=168",
+    "targetApps": [
+      "Twitch"
+    ],
+    "samplePatches": [
+      "Twitch Enhancement"
+    ]
+  },
+  {
+    "repo": "kanup4m/morphe-patches",
+    "name": "Kanup4m",
+    "author": "kanup4m",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=kanup4m/morphe-patches",
+    "repoDescription": "Custom Morphe patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/30197499?v=4&size=168",
+    "targetApps": [
+      "Seven"
+    ],
+    "samplePatches": [
+      "Seven PairIP Bypass",
+      "Seven Premium"
+    ]
+  },
+  {
+    "repo": "Kecerim24/morphe-patches",
+    "name": "Kecerim24",
+    "author": "Kecerim24",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=Kecerim24/morphe-patches",
+    "repoDescription": "Morphe patch bundle by Kecerim24",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/89810158?v=4&size=168",
+    "targetApps": [
+      "Now Playing",
+      "Merlin Bird ID",
+      "Settle Up",
+      "dream Player"
+    ],
+    "samplePatches": [
+      "Change music service packages",
+      "Czech translation",
+      "Remove ads",
+      "Unlock premium",
+      "Unlock premium"
+    ]
+  },
+  {
+    "repo": "kim20598/hakim-morphe-patches",
+    "name": "Kim20598",
+    "author": "kim20598",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=kim20598/hakim-morphe-patches",
+    "repoDescription": "Morphe patch bundle by kim20598",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/195821901?v=4&size=168",
+    "targetApps": [
+      "Busuu",
+      "Letterboxd"
+    ],
+    "samplePatches": [
+      "AMOLED (baked in)",
+      "Appearance",
+      "Brighter Watched-by stars",
+      "Custom poster (local)",
+      "Denser poster grid"
+    ]
+  },
+  {
+    "repo": "kiraio-moe/Lain-Patches",
+    "name": "Lain",
+    "author": "kiraio-moe",
+    "source": "github",
+    "patchCount": 47,
+    "stars": 69,
+    "deepLink": "https://morphe.software/add-source?github=kiraio-moe/Lain-Patches",
+    "repoDescription": "Morphe patches \u2728",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/58289710?v=4&size=168",
+    "targetApps": [
+      "MANGA Plus by SHUEISHA",
+      "UDisc",
+      "Android Proxy Server",
+      "Nekopoi",
+      "Timestamp Camera Free",
+      "MediBang Paint",
+      "Epic!",
+      "Atomic"
+    ],
+    "samplePatches": [
+      "Bypass Reading Limitation",
+      "Change package name",
+      "Course Maps Fix",
+      "Disable Ads",
+      "Disable Ads"
+    ]
+  },
+  {
+    "repo": "kmru/nai64extrapatches",
+    "name": "Nai64 Extra",
+    "author": "kmru",
+    "source": "gitlab",
+    "patchCount": 432,
+    "stars": 27,
+    "deepLink": "https://morphe.software/add-source?gitlab=kmru/nai64extrapatches",
+    "repoDescription": "Morphe patch bundle by kmru",
+    "avatarUrl": "https://gitlab.com/uploads/-/system/user/avatar/43016731/avatar.png?v=1792703402",
+    "targetApps": [
+      "Bandcamp"
+    ],
+    "samplePatches": [
+      "Skip Consent Popup",
+      "Skip Rate-Us Prompt",
+      "Spoof Play Store Install Source",
+      "Spoof Amazon Appstore Availability",
+      "Limit Ad Tracking"
+    ]
+  },
+  {
+    "repo": "kmru/nai64patches",
+    "name": "Nai64",
+    "author": "kmru",
+    "source": "gitlab",
+    "patchCount": 5,
+    "stars": 27,
+    "deepLink": "https://morphe.software/add-source?gitlab=kmru/nai64patches",
+    "repoDescription": "Morphe patch bundle by kmru",
+    "avatarUrl": "https://gitlab.com/uploads/-/system/user/avatar/43016731/avatar.png?v=1792703402",
+    "targetApps": [],
+    "samplePatches": [
+      "Unlock Premium",
+      "Free In-app Purchases",
+      "No Ads",
+      "Ads Free Rewards",
+      "Pairip Bypass"
+    ]
+  },
+  {
+    "repo": "kolaron/morphe-patches",
+    "name": "Kolaron",
+    "author": "kolaron",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 11,
+    "deepLink": "https://morphe.software/add-source?github=kolaron/morphe-patches",
+    "repoDescription": "Morphe patch bundle by kolaron",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/15245555?v=4&size=168",
+    "targetApps": [
+      "IDOS"
+    ],
+    "samplePatches": [
+      "Disable ads"
+    ]
+  },
+  {
+    "repo": "kondratjev/morphe-patches",
+    "name": "Kondratjev",
+    "author": "kondratjev",
+    "source": "github",
+    "patchCount": 20,
+    "stars": 39,
+    "deepLink": "https://morphe.software/add-source?github=kondratjev/morphe-patches",
+    "repoDescription": "Morphe patch bundle by kondratjev",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/39211385?v=4&size=168",
+    "targetApps": [
+      "pillo",
+      "SoundCloud",
+      "FatSecret",
+      "Lyfta",
+      "Lifesum",
+      "Medisafe",
+      "Muscle Motion Strength Training",
+      "Ornament"
+    ],
+    "samplePatches": [
+      "Change version code",
+      "Disable Pairip license check",
+      "Disable analytics",
+      "Disable analytics",
+      "Disable analytics"
+    ]
+  },
+  {
+    "repo": "kuchingneko28/ipusnas-patches",
+    "name": "iPusnas",
+    "author": "kuchingneko28",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 18,
+    "deepLink": "https://morphe.software/add-source?github=kuchingneko28/ipusnas-patches",
+    "repoDescription": "morphe patches for ipusnas",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/73223302?v=4&size=168",
+    "targetApps": [
+      "iPusnas"
+    ],
+    "samplePatches": [
+      "Bypass Play Store redirect",
+      "Disable Firebase Analytics and FCM",
+      "Neuter Telegram security breach reporter",
+      "Remove certificate pinning",
+      "Remove screenshot restriction"
+    ]
+  },
+  {
+    "repo": "kuntal-devrat/diskwala-patches",
+    "name": "DiskWala",
+    "author": "kuntal-devrat",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=kuntal-devrat/diskwala-patches",
+    "repoDescription": "Morphe patches for DiskWala - Disable ads & Remove forced update screen (24.5)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/184121074?v=4&size=168",
+    "targetApps": [
+      "DiskWala"
+    ],
+    "samplePatches": [
+      "Disable ads",
+      "Disable forced update",
+      "Patch native libraries",
+      "Unlock premium"
+    ]
+  },
+  {
+    "repo": "kveld9/kveld-extra-morphe-patches",
+    "name": "Kveld9 Extra",
+    "author": "kveld9",
+    "source": "github",
+    "patchCount": 58,
+    "stars": 30,
+    "deepLink": "https://morphe.software/add-source?github=kveld9/kveld-extra-morphe-patches",
+    "repoDescription": "Standalone, app-specific patches for use with Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/179108235?v=4&size=168",
+    "targetApps": [
+      "Instagram",
+      "Twitter",
+      "NokoPrint - WiFi, Bluetooth, USB",
+      "CapCut",
+      "Moovit",
+      "Copilot",
+      "PowerPoint",
+      "SUBE"
+    ],
+    "samplePatches": [
+      "AR Effects Slimmer",
+      "Background Slimmer",
+      "Block Ads",
+      "Block Crash & Diagnostics",
+      "Block Telemetry & Trackers"
+    ]
+  },
+  {
+    "repo": "kveld9/kveld-morphe-patches",
+    "name": "Kveld9",
+    "author": "kveld9",
+    "source": "github",
+    "patchCount": 93,
+    "stars": 137,
+    "deepLink": "https://morphe.software/add-source?github=kveld9/kveld-morphe-patches",
+    "repoDescription": "Custom Morphe patches on Android.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/179108235?v=4&size=168",
+    "targetApps": [
+      "TikTok",
+      "Gboard",
+      "Brave Browser"
+    ],
+    "samplePatches": [
+      "Allow Screenshots",
+      "Allow Screenshots (Universal)",
+      "Always Show Publish Date",
+      "Auto-Pause First Video",
+      "Battery & Resource Saver"
+    ]
+  },
+  {
+    "repo": "LaBlazer/morphe-patches",
+    "name": "LaBlazer",
+    "author": "LaBlazer",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=LaBlazer/morphe-patches",
+    "repoDescription": "My morphe patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/6269859?v=4&size=168",
+    "targetApps": [
+      "eTesty Auto\u0161kola"
+    ],
+    "samplePatches": [
+      "Enable premium features"
+    ]
+  },
+  {
+    "repo": "LaKakaReal/LaKakaShitPatches",
+    "name": "LaKaka",
+    "author": "LaKakaReal",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 14,
+    "deepLink": "https://morphe.software/add-source?github=LaKakaReal/LaKakaShitPatches",
+    "repoDescription": "Community patches by LaKaka",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/192383339?v=4&size=168",
+    "targetApps": [
+      "Soundbrenner",
+      "Instapaper",
+      "Depth Live Wallpaper"
+    ],
+    "samplePatches": [
+      "Unlock Plus",
+      "Unlock Premium",
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "lchanc3/morphe-patches",
+    "name": "JPTT",
+    "author": "lchanc3",
+    "source": "github",
+    "patchCount": 16,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=lchanc3/morphe-patches",
+    "repoDescription": "Personal Morphe patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/30790600?v=4&size=168",
+    "targetApps": [
+      "Local Dream",
+      "JPTT"
+    ],
+    "samplePatches": [
+      "Batch upscale",
+      "Disable Play license check",
+      "Fix article list loading",
+      "Fix image links",
+      "Fix photo upload in clones"
+    ]
+  },
+  {
+    "repo": "legendsciber/morphe-patches",
+    "name": "Legendsciber",
+    "author": "legendsciber",
+    "source": "github",
+    "patchCount": 34,
+    "stars": 13,
+    "deepLink": "https://morphe.software/add-source?github=legendsciber/morphe-patches",
+    "repoDescription": "legendsciber's Patches - Morphe patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/106559486?v=4&size=168",
+    "targetApps": [
+      "Age Of War 2",
+      "Aphelion",
+      "Toolbox for Minecraft PE",
+      "Dan the Man",
+      "Death Rover",
+      "Extreme Car Driving Simulator",
+      "Hill Climb Racing",
+      "Hungry Shark"
+    ],
+    "samplePatches": [
+      "Age Of War 2 Remove Ads",
+      "Age Of War 2 Store Modes Unlock",
+      "Aphelion Ad-Free Hint Unlock",
+      "Aphelion Installer Source Fix",
+      "Bypass Google Play Install Check"
+    ]
+  },
+  {
+    "repo": "LimeLimes/cbc-patches",
+    "name": "Ryley",
+    "author": "LimeLimes",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=LimeLimes/cbc-patches",
+    "repoDescription": "Morphe patches that remove ads from the CBC News Android app",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/9027500?v=4&size=168",
+    "targetApps": [
+      "CBC News"
+    ],
+    "samplePatches": [
+      "Disable ads",
+      "Disable article ads",
+      "Disable interstitial ads",
+      "Disable video ads"
+    ]
+  },
+  {
+    "repo": "liongalahad/liongalahad-nuviotv-morphe-patches",
+    "name": "NuvioTV",
+    "author": "liongalahad",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 29,
+    "deepLink": "https://morphe.software/add-source?github=liongalahad/liongalahad-nuviotv-morphe-patches",
+    "repoDescription": "Prerelease Morphe patches for the official NuvioTV Android application",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/145302945?v=4&size=168",
+    "targetApps": [
+      "NuvioTV"
+    ],
+    "samplePatches": [
+      "Allow Importing Subs from Local Storage",
+      "Local Downloads",
+      "Local Media",
+      "Mark SDH Subtitles",
+      "Random Episode"
+    ]
+  },
+  {
+    "repo": "liongalahad/liongalahad-stremio-morphe-patches",
+    "name": "Stremio",
+    "author": "liongalahad",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 16,
+    "deepLink": "https://morphe.software/add-source?github=liongalahad/liongalahad-stremio-morphe-patches",
+    "repoDescription": "Multi-account and side-by-side installation patches for Stremio Android TV",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/145302945?v=4&size=168",
+    "targetApps": [
+      "Stremio Android TV"
+    ],
+    "samplePatches": [
+      "Addon reordering",
+      "Multi-account",
+      "Side-by-side installation"
+    ]
+  },
+  {
+    "repo": "LOCKhart07/morphe-patches",
+    "name": "LOCKhart07",
+    "author": "LOCKhart07",
+    "source": "gitlab",
+    "patchCount": 4,
+    "stars": 0,
+    "deepLink": "https://morphe.software/add-source?gitlab=LOCKhart07/morphe-patches",
+    "repoDescription": "Morphe patch bundle by LOCKhart07",
+    "avatarUrl": "https://gitlab.com/uploads/-/system/user/avatar/6324181/avatar.png?v=1792599724",
+    "targetApps": [
+      "Heads Up!"
+    ],
+    "samplePatches": [
+      "Hide empty custom decks",
+      "Round length",
+      "Sort decks alphabetically",
+      "Unlock all decks"
+    ]
+  },
+  {
+    "repo": "logm1lo/logm1lo-patches",
+    "name": "Logm1lo",
+    "author": "logm1lo",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 10,
+    "deepLink": "https://morphe.software/add-source?github=logm1lo/logm1lo-patches",
+    "repoDescription": "Morphe patches I actually use. Please report bugs and request more apps or patches via GitHub.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/55241926?v=4&size=168",
+    "targetApps": [
+      "Calistree",
+      "Cube Solver"
+    ],
+    "samplePatches": [
+      "Dart Pro gates (libapp.so)",
+      "Premium Unlock",
+      "Puzzles Unlock",
+      "Remove Ads"
+    ]
+  },
+  {
+    "repo": "loody227/masajid-patches",
+    "name": "Loody227",
+    "author": "loody227",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=loody227/masajid-patches",
+    "repoDescription": "Masajid Patches bundle for Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/60251679?v=4&size=168",
+    "targetApps": [
+      "\u0645\u0633\u0627\u062c\u062f Masajid"
+    ],
+    "samplePatches": [
+      "Bypass PairIP license check",
+      "Bypass root / bootloader detection",
+      "Bypass mock-location detection"
+    ]
+  },
+  {
+    "repo": "lootdev78/psylos-morphe-patches",
+    "name": "Psylos",
+    "author": "lootdev78",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=lootdev78/psylos-morphe-patches",
+    "repoDescription": "Morphe patch bundle by lootdev78",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/289309337?v=4&size=168",
+    "targetApps": [
+      "SoundCloud"
+    ],
+    "samplePatches": [
+      "AMOLED dark theme",
+      "Disable telemetry",
+      "Download button hook",
+      "Enable SoundCloud Go",
+      "Hide Cast icon"
+    ]
+  },
+  {
+    "repo": "madhu-gowda6/atharv-patches",
+    "name": "Atharv",
+    "author": "madhu-gowda6",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=madhu-gowda6/atharv-patches",
+    "repoDescription": "Morphe patch bundle by madhu-gowda6",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/142603446?v=4&size=168",
+    "targetApps": [
+      "Ola Electric"
+    ],
+    "samplePatches": [
+      "Force enable Megaphone, Tamper Detection, Krutrim and Kruti",
+      "High quality document upload"
+    ]
+  },
+  {
+    "repo": "madushas/pdb_patch",
+    "name": "Madushas",
+    "author": "madushas",
+    "source": "github",
+    "patchCount": 18,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=madushas/pdb_patch",
+    "repoDescription": "Morphe patches for Pdb (pdb.app): premium unlock, ad removal, PairIP bypass and a power-user feature menu.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/44031016?v=4&size=168",
+    "targetApps": [
+      "Pdb"
+    ],
+    "samplePatches": [
+      "Allow standalone install (split-less APK)",
+      "Bypass PairIP license check",
+      "Disable PairIP license check",
+      "Disable trackers",
+      "Fix Firebase after re-signing"
+    ]
+  },
+  {
+    "repo": "mich111discord/MightyMichs-Patches",
+    "name": "MightyMich",
+    "author": "mich111discord",
+    "source": "github",
+    "patchCount": 39,
+    "stars": 14,
+    "deepLink": "https://morphe.software/add-source?github=mich111discord/MightyMichs-Patches",
+    "repoDescription": "Morphe patch bundle by mich111discord",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/141028293?v=4&size=168",
+    "targetApps": [
+      "Sofascore",
+      "Nova Launcher",
+      "Pou",
+      "Lightroom Mobile",
+      "MX Player Pro",
+      "VivaCut",
+      "InShot",
+      "PhotoApp"
+    ],
+    "samplePatches": [
+      "Bypass Login Requirements",
+      "Remove Internet permission (Nova)",
+      "Unlimited Coins (Experimental)",
+      "Unlock Everything (Experimental)",
+      "Unlock Lightroom Premium"
+    ]
+  },
+  {
+    "repo": "MiguelNinja19/miguel-morphe-patches",
+    "name": "MiguelNinja19",
+    "author": "MiguelNinja19",
+    "source": "github",
+    "patchCount": 25,
+    "stars": 38,
+    "deepLink": "https://morphe.software/add-source?github=MiguelNinja19/miguel-morphe-patches",
+    "repoDescription": "\ud83e\udde9Patches for Morphe, made with AI",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/212266985?v=4&size=168",
+    "targetApps": [
+      "Hunter Assassin",
+      "The Battle of Polytopia",
+      "Plants vs. Zombies FREE",
+      "Climb!",
+      "Oddmar",
+      "Anger of Stick 5",
+      "CubeX Solver",
+      "Supreme Duelist Stickman"
+    ],
+    "samplePatches": [
+      "Auto reward ads",
+      "Billing bypass",
+      "Free in-app purchases",
+      "Free in-app purchases",
+      "Free in-app purchases"
+    ]
+  },
+  {
+    "repo": "mohamedamrnady/anghami-patches",
+    "name": "Nady",
+    "author": "mohamedamrnady",
+    "source": "github",
+    "patchCount": 18,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=mohamedamrnady/anghami-patches",
+    "repoDescription": "Morphe patches for Anghami",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/103646211?v=4&size=168",
+    "targetApps": [
+      "Anghami"
+    ],
+    "samplePatches": [
+      "AMOLED black background",
+      "Disable audio ads",
+      "Header Play + Shuffle",
+      "Hide Gold features",
+      "Hide shuffle badges"
+    ]
+  },
+  {
+    "repo": "Mubelotix/my-morphe-patches",
+    "name": "Mubelotix",
+    "author": "Mubelotix",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=Mubelotix/my-morphe-patches",
+    "repoDescription": "Some android app patches I made",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/42696684?v=4&size=168",
+    "targetApps": [
+      "Jakdojade: public transport",
+      "Picolo drinking game",
+      "Truth or Dare Game - Party App",
+      "Sudoku.com - Sudoku Puzzle",
+      "My Astuce",
+      "Pinterest",
+      "Score tracker",
+      "French Tarot Counter"
+    ],
+    "samplePatches": [
+      "Activates premium features",
+      "Activates premium features",
+      "Activates premium features",
+      "Disable ads",
+      "Offline Validation Fix"
+    ]
+  },
+  {
+    "repo": "mvaishak/letterboxd-morphe-patches",
+    "name": "Mvaishak",
+    "author": "mvaishak",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 23,
+    "deepLink": "https://morphe.software/add-source?github=mvaishak/letterboxd-morphe-patches",
+    "repoDescription": " Morphe patches that re-theme Letterboxd for Android \u2014 Material You, OLED black, custom accent colour, and layout tweaks",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/27264154?v=4&size=168",
+    "targetApps": [
+      "Letterboxd"
+    ],
+    "samplePatches": [
+      "Appearance",
+      "Brighter Watched-by stars",
+      "Denser poster grid",
+      "Hide ads",
+      "Material You theme"
+    ]
+  },
+  {
+    "repo": "mxkrgt/dbtcoach-morphe-patches",
+    "name": "DBT Coach",
+    "author": "mxkrgt",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=mxkrgt/dbtcoach-morphe-patches",
+    "repoDescription": "Morphe patches for DBT Coach Android app \u2014 unlocks premium features",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/179023623?v=4&size=168",
+    "targetApps": [
+      "DBT Coach: Guided Therapy"
+    ],
+    "samplePatches": [
+      "Unlock premium"
+    ]
+  },
+  {
+    "repo": "Nagol12344/patch",
+    "name": "Nagol12344",
+    "author": "Nagol12344",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=Nagol12344/patch",
+    "repoDescription": "Morphe patch bundle by Nagol12344",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/63481547?v=4&size=168",
+    "targetApps": [
+      "Better Place"
+    ],
+    "samplePatches": [
+      "Allow landscape orientation",
+      "Fix file picker camera prompt",
+      "Inject Charity Framework",
+      "Remove Camera Requirements",
+      "Remove unnecessary camera permission request"
+    ]
+  },
+  {
+    "repo": "NekoGryphou/gryphous-morphe-patches",
+    "name": "Gryphou",
+    "author": "NekoGryphou",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=NekoGryphou/gryphous-morphe-patches",
+    "repoDescription": "Morphe patch bundle by NekoGryphou",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/40165444?v=4&size=168",
+    "targetApps": [
+      "De'Longhi Comfort",
+      "Crunchyroll",
+      "PETKIT"
+    ],
+    "samplePatches": [
+      "Disable login location requirement",
+      "Disable notification permission prompt",
+      "Disable review request dialog",
+      "Enable Picture-in-Picture",
+      "Hide shared-devices incident popup"
+    ]
+  },
+  {
+    "repo": "newuser7171/telegram-morphe-patches-",
+    "name": "newuser7171",
+    "author": "newuser7171",
+    "source": "github",
+    "patchCount": 20,
+    "stars": 10,
+    "deepLink": "https://morphe.software/add-source?github=newuser7171/telegram-morphe-patches-",
+    "repoDescription": "Morphe patch bundle by newuser7171",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/217369131?v=4&size=168",
+    "targetApps": [
+      "Telegram",
+      "Plus Messenger"
+    ],
+    "samplePatches": [
+      "Anti-delete messages",
+      "Anti-disappearing media",
+      "Anti-screenshot notification",
+      "Bypass channel restrictions",
+      "Bypass content restrictions"
+    ]
+  },
+  {
+    "repo": "Nezumi-2711/morphe-patches",
+    "name": "Nezumi-2711",
+    "author": "Nezumi-2711",
+    "source": "github",
+    "patchCount": 9,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=Nezumi-2711/morphe-patches",
+    "repoDescription": "Morphe patch bundle by Nezumi-2711",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/123229563?v=4&size=168",
+    "targetApps": [
+      "Zalo"
+    ],
+    "samplePatches": [
+      "Chat heads instead of Android bubbles",
+      "Chat reaction picker",
+      "Custom font",
+      "Drive backup via microG",
+      "Hide Media Box in Messages"
+    ]
+  },
+  {
+    "repo": "nickcomua/airofit-pro2-morphe-patches",
+    "name": "Nickcomua",
+    "author": "nickcomua",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=nickcomua/airofit-pro2-morphe-patches",
+    "repoDescription": "Experimental Airofit Elite 1.9.0 Pro 2 Morphe patch source",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/61518319?v=4&size=168",
+    "targetApps": [
+      "Airofit Elite"
+    ],
+    "samplePatches": [
+      "Experimental Pro 2 compatibility adapter (Elite 1.9.0)"
+    ]
+  },
+  {
+    "repo": "ns1207/morphe-patches-template",
+    "name": "ns1207",
+    "author": "ns1207",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=ns1207/morphe-patches-template",
+    "repoDescription": "Morphe patch bundle by ns1207",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/1382399?v=4&size=168",
+    "targetApps": [
+      "Dumpert"
+    ],
+    "samplePatches": [
+      "dumpert-premium"
+    ]
+  },
+  {
+    "repo": "NullWaypoint/morphe-patches",
+    "name": "NullWaypoint",
+    "author": "NullWaypoint",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=NullWaypoint/morphe-patches",
+    "repoDescription": "Custom Android patches for the Morphe patching framework.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/321500030?v=4&size=168",
+    "targetApps": [
+      "Crunchyroll"
+    ],
+    "samplePatches": [
+      "Enable Picture-in-Picture",
+      "Remove from Continue Watching"
+    ]
+  },
+  {
+    "repo": "o0b/morphe-patches",
+    "name": "o0b",
+    "author": "o0b",
+    "source": "github",
+    "patchCount": 53,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=o0b/morphe-patches",
+    "repoDescription": "Morphe patch bundle by o0b",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/42755546?v=4&size=168",
+    "targetApps": [
+      "Nova Launcher",
+      "Hurry Day Countdown & Reminder",
+      "Business Calendar 2",
+      "meteoblue Weather",
+      "Octopi Launcher",
+      "Wavelet",
+      "Your Calendar Widget"
+    ],
+    "samplePatches": [
+      "Disable Amazon IAP components",
+      "Disable Android debugging",
+      "Disable Bugsnag",
+      "Disable CafeBazaar components",
+      "Disable Firebase analytics and remote config"
+    ]
+  },
+  {
+    "repo": "Okazakee/iptv-morphe-patches",
+    "name": "IPTV",
+    "author": "Okazakee",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=Okazakee/iptv-morphe-patches",
+    "repoDescription": "Morphe patches - Unlock Pro for IPTV Pro Stream Player (com.iptvprostreamplayer.v1)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/17621558?v=4&size=168",
+    "targetApps": [
+      "IPTV Pro Stream Player"
+    ],
+    "samplePatches": [
+      "Unlock Pro (IPTV)"
+    ]
+  },
+  {
+    "repo": "osirisad/teamsnap-patches",
+    "name": "TeamSnap",
+    "author": "osirisad",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=osirisad/teamsnap-patches",
+    "repoDescription": "Morphe patches for TeamSnap",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/27285500?v=4&size=168",
+    "targetApps": [
+      "TeamSnap"
+    ],
+    "samplePatches": [
+      "Disable ads"
+    ]
+  },
+  {
+    "repo": "Paresh-Maheshwari/paresh-patches",
+    "name": "Paresh",
+    "author": "Paresh-Maheshwari",
+    "source": "gitlab",
+    "patchCount": 61,
+    "stars": 74,
+    "deepLink": "https://morphe.software/add-source?gitlab=Paresh-Maheshwari/paresh-patches",
+    "repoDescription": "Morphe patches",
+    "avatarUrl": "https://gitlab.com/uploads/-/system/user/avatar/10208861/avatar.png?v=1788354198",
+    "targetApps": [
+      "Plus Messenger",
+      "Telegram",
+      "JioHotstar",
+      "CREX",
+      "Cricbuzz",
+      "Proton VPN",
+      "Truecaller",
+      "Document Scanner"
+    ],
+    "samplePatches": [
+      "Anti-delete messages",
+      "Anti-delete messages",
+      "Anti-disappearing media",
+      "Anti-disappearing media",
+      "Anti-screenshot notification"
+    ]
+  },
+  {
+    "repo": "pengusto/penguin-patches",
+    "name": "Pengusto",
+    "author": "pengusto",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=pengusto/penguin-patches",
+    "repoDescription": "Focused Android app patches compatible with Morphe. Current catalogue: Fossify Calendar, Messages, File Manager, Contacts and Music Player. Pre-release.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/106893073?v=4&size=168",
+    "targetApps": [
+      "Fossify Calendar",
+      "Fossify Messages",
+      "Fossify File Manager",
+      "Fossify Music Player",
+      "Fossify Contacts"
+    ],
+    "samplePatches": [
+      "Readable Calendar descriptions",
+      "Avoid notifications for visible conversations",
+      "Dismiss notifications when marking conversations read",
+      "Keep background conversations unread",
+      "Keep favorites consistent after folder rename or removal"
+    ]
+  },
+  {
+    "repo": "PerfLite/morphe-patches-zona",
+    "name": "PerfLite Zona",
+    "author": "PerfLite",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=PerfLite/morphe-patches-zona",
+    "repoDescription": "Morphe patches for FreeZona",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/96340456?v=4&size=168",
+    "targetApps": [
+      "FreeZona World"
+    ],
+    "samplePatches": [
+      "Disable analytics",
+      "Force landscape player",
+      "Install as a separate app",
+      "Preferred quality priority",
+      "Video buffer"
+    ]
+  },
+  {
+    "repo": "PerfLite/VK-Zen",
+    "name": "PerfLite VK-Zen",
+    "author": "PerfLite",
+    "source": "github",
+    "patchCount": 12,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=PerfLite/VK-Zen",
+    "repoDescription": "\u041f\u0430\u0442\u0447\u0438 Morphe \u0434\u043b\u044f \u0412\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u0435",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/96340456?v=4&size=168",
+    "targetApps": [
+      "VKontakte"
+    ],
+    "samplePatches": [
+      "Bypass security and package checks",
+      "Clone app",
+      "Customize navigation bar",
+      "Disable audio ads",
+      "Disable telemetry"
+    ]
+  },
+  {
+    "repo": "phamleduy04/duy-patches",
+    "name": "Duy",
+    "author": "phamleduy04",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=phamleduy04/duy-patches",
+    "repoDescription": "Morphe patch bundle by phamleduy04",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/32657584?v=4&size=168",
+    "targetApps": [
+      "FlightConnections"
+    ],
+    "samplePatches": [
+      "Remove ads"
+    ]
+  },
+  {
+    "repo": "picarica/My-moprhe-patches",
+    "name": "AFFiNE",
+    "author": "picarica",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=picarica/My-moprhe-patches",
+    "repoDescription": "Morphe patch bundle by picarica",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/45492894?v=4&size=168",
+    "targetApps": [
+      "Stick War: Legacy",
+      "AFFiNE"
+    ],
+    "samplePatches": [
+      "Remove Google Play requirement",
+      "Remove Google requirements"
+    ]
+  },
+  {
+    "repo": "pigfoot/morphe-patches",
+    "name": "Pigfoot",
+    "author": "pigfoot",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=pigfoot/morphe-patches",
+    "repoDescription": "App-scoped Morphe patches built with the official Gradle template",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/69261?v=4&size=168",
+    "targetApps": [
+      "\u53f0\u7063\u9435\u9053\u901a"
+    ],
+    "samplePatches": [
+      "Change package name",
+      "RailsGo bus update without video",
+      "RailsGo sideload startup compatibility"
+    ]
+  },
+  {
+    "repo": "Pilotkosinus/morphe-waze-patches",
+    "name": "Pilotkosinus",
+    "author": "Pilotkosinus",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=Pilotkosinus/morphe-waze-patches",
+    "repoDescription": "Morphe patches for Waze, enabling integration and media controls for patched YouTube Music.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/45830242?v=4&size=168",
+    "targetApps": [
+      "Waze"
+    ],
+    "samplePatches": [
+      "Always Play Speed Camera Sound",
+      "Google Assistant Button",
+      "Morphe Patch Settings",
+      "Waze \u2013 Patched YouTube Music Support"
+    ]
+  },
+  {
+    "repo": "PixelPusher247/morphe-patches",
+    "name": "Trakt",
+    "author": "PixelPusher247",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 28,
+    "deepLink": "https://morphe.software/add-source?github=PixelPusher247/morphe-patches",
+    "repoDescription": "Morphe patch bundle by PixelPusher247",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/47973790?v=4&size=168",
+    "targetApps": [
+      "Trakt"
+    ],
+    "samplePatches": [
+      "Hide VIP banner"
+    ]
+  },
+  {
+    "repo": "Plyrs1/morphe-patches",
+    "name": "Plyrs1",
+    "author": "Plyrs1",
+    "source": "github",
+    "patchCount": 30,
+    "stars": 7,
+    "deepLink": "https://morphe.software/add-source?github=Plyrs1/morphe-patches",
+    "repoDescription": "Morphe patch bundle by Plyrs1",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/97564087?v=4&size=168",
+    "targetApps": [
+      "E-Ujian Browser",
+      "Struk Pom / SPBU",
+      "Habitica",
+      "Pertaminiku",
+      "Struk POM"
+    ],
+    "samplePatches": [
+      "Allow System UI",
+      "Background Persistence (WakeLock + Foreground Service)",
+      "Bypass App Blacklist Scan",
+      "Bypass DND Detection",
+      "Bypass Multi-Window Detection"
+    ]
+  },
+  {
+    "repo": "polka-bear/morphe-patches",
+    "name": "Polka-Bear",
+    "author": "polka-bear",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 22,
+    "deepLink": "https://morphe.software/add-source?github=polka-bear/morphe-patches",
+    "repoDescription": "Morphe patch bundle by polka-bear",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/275592792?v=4&size=168",
+    "targetApps": [
+      "Easy Blacklist",
+      "IPO Ji"
+    ],
+    "samplePatches": [
+      "Remove Ads",
+      "Unlock Premium",
+      "Unlock Premium",
+      "Bypass Integrity Protection"
+    ]
+  },
+  {
+    "repo": "PrathxmOp/Prathxm-Patches",
+    "name": "Prathxm",
+    "author": "PrathxmOp",
+    "source": "github",
+    "patchCount": 8,
+    "stars": 83,
+    "deepLink": "https://morphe.software/add-source?github=PrathxmOp/Prathxm-Patches",
+    "repoDescription": "Custom Patches for Chess.com with offline Stockfish 16.1 integration, puzzle system, and local analysis tools for learning chess",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/185752095?v=4&size=168",
+    "targetApps": [
+      "Chess.com"
+    ],
+    "samplePatches": [
+      "Ad-Free",
+      "Clone Chess.com",
+      "Custom Titles",
+      "Global Crash Handler",
+      "Lichess Puzzles"
+    ]
+  },
+  {
+    "repo": "PyFlat-JR/Morphe-Patches",
+    "name": "PyFlat",
+    "author": "PyFlat-JR",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=PyFlat-JR/Morphe-Patches",
+    "repoDescription": "Morphe patch bundle by PyFlat-JR",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/101415786?v=4&size=168",
+    "targetApps": [
+      "ARD Mediathek",
+      "Disney+",
+      "kicker Fu\u00dfball News"
+    ],
+    "samplePatches": [
+      "Hold to speed up",
+      "Hold to speed up",
+      "Unlock Plus",
+      "Unlock Pur"
+    ]
+  },
+  {
+    "repo": "quantavil/edge-morphe-patches",
+    "name": "Edge",
+    "author": "quantavil",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 48,
+    "deepLink": "https://morphe.software/add-source?github=quantavil/edge-morphe-patches",
+    "repoDescription": "Custom Morphe patches for Microsoft Edge on Android.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/120050022?v=4&size=168",
+    "targetApps": [
+      "Microsoft Edge",
+      "Microsoft Edge Canary"
+    ],
+    "samplePatches": [
+      "Change package name",
+      "Copilot feature toggle",
+      "Disable Play Store updates",
+      "Disable news notifications",
+      "Telemetry elimination"
+    ]
+  },
+  {
+    "repo": "R2bEEaton/walmart-morphe",
+    "name": "R2bEEaton",
+    "author": "R2bEEaton",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=R2bEEaton/walmart-morphe",
+    "repoDescription": "Morphe patch bundle by R2bEEaton",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/34921506?v=4&size=168",
+    "targetApps": [
+      "Walmart"
+    ],
+    "samplePatches": [
+      "Default Lists Tab",
+      "Find Item for Linked Items",
+      "Flash Everywhere",
+      "Real-Time Stock & Inventory Display",
+      "Remove Shop"
+    ]
+  },
+  {
+    "repo": "RabehX/rabehx-patches",
+    "name": "RabehX",
+    "author": "RabehX",
+    "source": "github",
+    "patchCount": 12,
+    "stars": 12,
+    "deepLink": "https://morphe.software/add-source?github=RabehX/rabehx-patches",
+    "repoDescription": "Free-time patches for apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/64314390?v=4&size=168",
+    "targetApps": [
+      "Webetu",
+      "BaridiMob",
+      "My Ooredoo"
+    ],
+    "samplePatches": [
+      "Allow screenshots",
+      "Bypass certificate checks",
+      "Disable Frida Detection",
+      "Disable Play Integrity",
+      "Disable SSL Pinning"
+    ]
+  },
+  {
+    "repo": "rabilrbl/fluffy-patches",
+    "name": "Fluffy",
+    "author": "rabilrbl",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 37,
+    "deepLink": "https://morphe.software/add-source?github=rabilrbl/fluffy-patches",
+    "repoDescription": "A Morphe Patches repository with patches for some Android apps.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/63334479?v=4&size=168",
+    "targetApps": [
+      "BlockerX",
+      "Alarmy"
+    ],
+    "samplePatches": [
+      "Bypass Instant Approval",
+      "Enable Premium",
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "rafag00/morphe-patches",
+    "name": "Rafag00",
+    "author": "rafag00",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=rafag00/morphe-patches",
+    "repoDescription": "Morphe patch bundle by rafag00",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/57418462?v=4&size=168",
+    "targetApps": [
+      "Sony | Sound Connect"
+    ],
+    "samplePatches": [
+      "Use patched YouTube Music in Scene"
+    ]
+  },
+  {
+    "repo": "rahaaatul/morphe-patches",
+    "name": "Rahaaatul",
+    "author": "rahaaatul",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=rahaaatul/morphe-patches",
+    "repoDescription": "Get Morphed.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/86149861?v=4&size=168",
+    "targetApps": [
+      "Battery Guru",
+      "Privacy Kit",
+      "Remake Face AI",
+      "Yatse"
+    ],
+    "samplePatches": [
+      "Unlock Premium",
+      "Unlock Pro",
+      "Change installer source",
+      "Remove Ads",
+      "Yatse Unlocker"
+    ]
+  },
+  {
+    "repo": "RealCyberwash/max-patches",
+    "name": "Chmax",
+    "author": "RealCyberwash",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 27,
+    "deepLink": "https://morphe.software/add-source?github=RealCyberwash/max-patches",
+    "repoDescription": "Morphe patch bundle by RealCyberwash",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/230782173?v=4&size=168",
+    "targetApps": [
+      "MAX"
+    ],
+    "samplePatches": [
+      "Bypass VPN Check"
+    ]
+  },
+  {
+    "repo": "ReemX/morphe-me-patches",
+    "name": "ReemX",
+    "author": "ReemX",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=ReemX/morphe-me-patches",
+    "repoDescription": "Morphe patches for the Me caller-ID app (com.nfo.me.android): hide ads + disable interstitials",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/35267832?v=4&size=168",
+    "targetApps": [
+      "Me"
+    ],
+    "samplePatches": [
+      "Disable interstitial ads",
+      "Hide ads"
+    ]
+  },
+  {
+    "repo": "rhubarbshoelaces/morphe-patches",
+    "name": "RhubarbShoelaces",
+    "author": "rhubarbshoelaces",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 13,
+    "deepLink": "https://morphe.software/add-source?github=rhubarbshoelaces/morphe-patches",
+    "repoDescription": "Morphe patch bundle by rhubarbshoelaces",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/137114071?v=4&size=168",
+    "targetApps": [
+      "Google Maps",
+      "Boost for Reddit",
+      "theScore"
+    ],
+    "samplePatches": [
+      "Custom Cartographic Region",
+      "Fix Random Subreddit Button",
+      "Hybrid Theme (Dark Menus, Light Map)",
+      "Remove Ads"
+    ]
+  },
+  {
+    "repo": "RikoDEV/morphed-pl",
+    "name": "RikoDEV",
+    "author": "RikoDEV",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=RikoDEV/morphed-pl",
+    "repoDescription": "Morphe patches for Polish apps. ONLY .smali hex patches \u2014 no proprietary code or rebuilded apks!",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/18230443?v=4&size=168",
+    "targetApps": [
+      "Yanosik"
+    ],
+    "samplePatches": [
+      "Bypass Android Auto certificate checks",
+      "Remove Yanosik ads",
+      "Remove Yanosik radio",
+      "Unlock Yanosik PRO"
+    ]
+  },
+  {
+    "repo": "rikunode/pupil-swipe-disable-patches",
+    "name": "Rikunode",
+    "author": "rikunode",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=rikunode/pupil-swipe-disable-patches",
+    "repoDescription": "Minimal Morphe patch to disable left swipes on Pupil gallery cards",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/312470895?v=4&size=168",
+    "targetApps": [
+      "Pupil"
+    ],
+    "samplePatches": [
+      "Disable automatic update checks",
+      "Disable gallery left swipe",
+      "Favorites random shortcut"
+    ]
+  },
+  {
+    "repo": "riky-dev/morphe-patches",
+    "name": "Riky",
+    "author": "riky-dev",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 28,
+    "deepLink": "https://morphe.software/add-source?github=riky-dev/morphe-patches",
+    "repoDescription": "Personal Morphe patch bundle",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/58308241?v=4&size=168",
+    "targetApps": [
+      "CapCut",
+      "Electron",
+      "3BMeteo",
+      "VN",
+      "Tramonto & Alba: PhotoTime",
+      "komoot"
+    ],
+    "samplePatches": [
+      "Bypass effects region restriction",
+      "CapCut network tunnel",
+      "Hide ads",
+      "Hide ads",
+      "Hide export nags"
+    ]
+  },
+  {
+    "repo": "Ripthulhu/morphe-google-patches",
+    "name": "Google feed",
+    "author": "Ripthulhu",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 17,
+    "deepLink": "https://morphe.software/add-source?github=Ripthulhu/morphe-google-patches",
+    "repoDescription": "Morphe patch bundle by Ripthulhu",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/70382811?v=4&size=168",
+    "targetApps": [
+      "Google"
+    ],
+    "samplePatches": [
+      "Install as standalone app",
+      "Remove Discover feed ads"
+    ]
+  },
+  {
+    "repo": "RjBiermann/brave-waffle",
+    "name": "AIS",
+    "author": "RjBiermann",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=RjBiermann/brave-waffle",
+    "repoDescription": "Morphe patch bundle by RjBiermann",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/198417406?v=4&size=168",
+    "targetApps": [
+      "AIS"
+    ],
+    "samplePatches": [
+      "Bypass TV PRO check on site browsing",
+      "Hide account/PRO nav links",
+      "Mod settings page",
+      "Remove TV player error dialog",
+      "Remove WebView version nag"
+    ]
+  },
+  {
+    "repo": "RookieEnough/De-Vanced",
+    "name": "De-Vanced",
+    "author": "RookieEnough",
+    "source": "github",
+    "patchCount": 75,
+    "stars": 1322,
+    "deepLink": "https://morphe.software/add-source?github=RookieEnough/De-Vanced",
+    "repoDescription": "ReVanced patches, migrated to Morphe.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/128968367?v=4&size=168",
+    "targetApps": [
+      "Facebook",
+      "Strava",
+      "Amazon Shopping",
+      "Twitch",
+      "Adobe Photoshop Mix",
+      "Hex Editor",
+      "Messenger",
+      "Google Photos"
+    ],
+    "samplePatches": [
+      "AMOLED dark theme",
+      "Add 'Give Kudos' button to 'Group Activity'",
+      "Add activity export",
+      "Add media download",
+      "Add route export"
+    ]
+  },
+  {
+    "repo": "RoundSalmon4/morphe-patches-template",
+    "name": "RoundSalmon4",
+    "author": "RoundSalmon4",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=RoundSalmon4/morphe-patches-template",
+    "repoDescription": "Personal repo for creating and releasing custom Morphe patches.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/209016228?v=4&size=168",
+    "targetApps": [
+      "SeriesGuide"
+    ],
+    "samplePatches": [
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "rudrakshrajpurohit417/rj-patches",
+    "name": "Rudrakshrajpurohit417",
+    "author": "rudrakshrajpurohit417",
+    "source": "gitlab",
+    "patchCount": 3,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?gitlab=rudrakshrajpurohit417/rj-patches",
+    "repoDescription": "Morphe patch bundle by rudrakshrajpurohit417",
+    "avatarUrl": "https://gitlab.com/uploads/-/system/user/avatar/43036239/avatar.png?v=1792560674",
+    "targetApps": [
+      "Local TTS",
+      "MovieBox",
+      "GPS Map Camera"
+    ],
+    "samplePatches": [
+      "Local TTS Pro",
+      "MovieBox Premium",
+      "Premium Unlocked"
+    ]
+  },
+  {
+    "repo": "rushiranpise/morphe-patches",
+    "name": "Doom",
+    "author": "rushiranpise",
+    "source": "github",
+    "patchCount": 277,
+    "stars": 911,
+    "deepLink": "https://morphe.software/add-source?github=rushiranpise/morphe-patches",
+    "repoDescription": "New mask, same task.                                                                 All patches answer to Doom.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/37355997?v=4&size=168",
+    "targetApps": [
+      "AAAD",
+      "Google Photos",
+      "Messenger",
+      "Telegram",
+      "Plus Messenger",
+      "DooFlix",
+      "Amazon Shopping",
+      "Amazon India"
+    ],
+    "samplePatches": [
+      "AAAD Premium",
+      "AAAD Security Bypass",
+      "AMOLED dark theme",
+      "Allow screen capture",
+      "Anti-delete messages"
+    ]
+  },
+  {
+    "repo": "rushiranpise/Ri-Vanced-Universal-Morphe-Patches",
+    "name": "Ri-Vanced",
+    "author": "rushiranpise",
+    "source": "github",
+    "patchCount": 27,
+    "stars": 46,
+    "deepLink": "https://morphe.software/add-source?github=rushiranpise/Ri-Vanced-Universal-Morphe-Patches",
+    "repoDescription": "A collection of universal and shared Morphe patches adapted from ReVanced.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/37355997?v=4&size=168",
+    "targetApps": [],
+    "samplePatches": [
+      "Change package name",
+      "Change version code",
+      "Custom network security",
+      "Disable PairIP license check",
+      "Disable Play Integrity"
+    ]
+  },
+  {
+    "repo": "ryykitty/twitch-patched",
+    "name": "Ryykitty",
+    "author": "ryykitty",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 18,
+    "deepLink": "https://morphe.software/add-source?github=ryykitty/twitch-patched",
+    "repoDescription": "Twitch Morphe patches for android. PurpleTV and vaft inspired integrated adblock and QoL patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/197667736?v=4&size=168",
+    "targetApps": [
+      "Twitch"
+    ],
+    "samplePatches": [
+      "Auto-claim bonus channel points",
+      "BTTV, FFZ and 7TV emotes",
+      "Block client-requested ads",
+      "Block stream ads",
+      "Hide Turbo promotions"
+    ]
+  },
+  {
+    "repo": "sabbirexist/kodex-patches",
+    "name": "Sabbirexist",
+    "author": "sabbirexist",
+    "source": "github",
+    "patchCount": 22,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=sabbirexist/kodex-patches",
+    "repoDescription": "Morphe patch bundles maintained by Kodex.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/138793371?v=4&size=168",
+    "targetApps": [
+      "Eyecon",
+      "VLC",
+      "InShare",
+      "Desh Bangla Keyboard",
+      "Heart Rate Monitor",
+      "TouchRetouch"
+    ],
+    "samplePatches": [
+      "AMOLED black theme",
+      "AMOLED black theme",
+      "Block contact upload",
+      "Block tracking & analytics",
+      "Disable audio time-stretch"
+    ]
+  },
+  {
+    "repo": "SailHighSea/sailhighsea-patches",
+    "name": "SailHighSea",
+    "author": "SailHighSea",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=SailHighSea/sailhighsea-patches",
+    "repoDescription": "Morphe patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/338685204?v=4&size=168",
+    "targetApps": [
+      "Clear Scanner",
+      "Renamer",
+      "Castbox",
+      "HDQ Walls"
+    ],
+    "samplePatches": [
+      "Local auto backup",
+      "Remove ads",
+      "Remove ads",
+      "Remove ads",
+      "Remove ads"
+    ]
+  },
+  {
+    "repo": "Santodan/santodan-patches",
+    "name": "Santodan",
+    "author": "Santodan",
+    "source": "github",
+    "patchCount": 28,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=Santodan/santodan-patches",
+    "repoDescription": "Some patches made with AI for Morphe-Patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/25581907?v=4&size=168",
+    "targetApps": [
+      "Car Scanner ELM OBD2",
+      "MEO (Android TV)",
+      "NuvioTV",
+      "Peafowl Theme Maker for EMUI",
+      "pillo",
+      "Reddit",
+      "TFD Companion"
+    ],
+    "samplePatches": [
+      "Car Scanner - Premium status",
+      "MEO - Side-by-side installation",
+      "MEO - Spoof supported device",
+      "NuvioTV - Android TV launcher channels",
+      "NuvioTV - Customize playback buttons"
+    ]
+  },
+  {
+    "repo": "SapitoSucio/FroggoMorphePatches",
+    "name": "Froggo",
+    "author": "SapitoSucio",
+    "source": "github",
+    "patchCount": 12,
+    "stars": 93,
+    "deepLink": "https://morphe.software/add-source?github=SapitoSucio/FroggoMorphePatches",
+    "repoDescription": "Morphe patch bundle by SapitoSucio",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/7357354?v=4&size=168",
+    "targetApps": [
+      "Facebook"
+    ],
+    "samplePatches": [
+      "Block Facebook Feed ads (573)",
+      "Block Facebook Reels ads (573)",
+      "Block Facebook Story ads (573)",
+      "Block Facebook automatic refresh (573)",
+      "Download Facebook Media (573)"
+    ]
+  },
+  {
+    "repo": "serajr/x-twitter-patches",
+    "name": "Serajr",
+    "author": "serajr",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=serajr/x-twitter-patches",
+    "repoDescription": "X (Twitter) Morphe Patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/7276712?v=4&size=168",
+    "targetApps": [
+      "Twitter"
+    ],
+    "samplePatches": [
+      "Desativar Blur do X",
+      "Fix Navigation Bar Haze",
+      "Keep Bottom Bar Visible",
+      "Manter Barra Inferior Vis\u00edvel",
+      "Preservar contraste da Barra de Navega\u00e7\u00e3o"
+    ]
+  },
+  {
+    "repo": "Sfehhrths/ekispert-morphe-patches",
+    "name": "Ekispert Wear",
+    "author": "Sfehhrths",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=Sfehhrths/ekispert-morphe-patches",
+    "repoDescription": "Morphe patch bundle by Sfehhrths",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/1615845?v=4&size=168",
+    "targetApps": [
+      "\u99c5\u3059\u3071\u3042\u3068"
+    ],
+    "samplePatches": [
+      "Response tap"
+    ]
+  },
+  {
+    "repo": "Shahriar-0/Telegram-X-Morphe",
+    "name": "Shahriar-0",
+    "author": "Shahriar-0",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=Shahriar-0/Telegram-X-Morphe",
+    "repoDescription": "morphe patch for telegram x, fuck ads",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/77535132?v=4&size=168",
+    "targetApps": [
+      "Telegram X"
+    ],
+    "samplePatches": [
+      "Remove Telegram X sponsored messages"
+    ]
+  },
+  {
+    "repo": "shaun-the-sheep-patches/morphe-patches",
+    "name": "KineStop",
+    "author": "shaun-the-sheep-patches",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=shaun-the-sheep-patches/morphe-patches",
+    "repoDescription": "Morphe patch bundle by shaun-the-sheep-patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/162771763?v=4&size=168",
+    "targetApps": [
+      "RSS Reader",
+      "KineStop",
+      "Flud"
+    ],
+    "samplePatches": [
+      "RSS Reader Premium",
+      "Unlock Premium",
+      "Flud Ad-Free & Bypasses"
+    ]
+  },
+  {
+    "repo": "shini-cell/shini-morphe",
+    "name": "Shini-Cell",
+    "author": "shini-cell",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=shini-cell/shini-morphe",
+    "repoDescription": "Morphe patches made by shini",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/341313001?v=4&size=168",
+    "targetApps": [
+      "Nagram XF"
+    ],
+    "samplePatches": [
+      "Custom branding"
+    ]
+  },
+  {
+    "repo": "shuhaibnc/morphe-patches",
+    "name": "Shuhaibnc",
+    "author": "shuhaibnc",
+    "source": "github",
+    "patchCount": 30,
+    "stars": 20,
+    "deepLink": "https://morphe.software/add-source?github=shuhaibnc/morphe-patches",
+    "repoDescription": "\ud83d\udc08\u200d\u2b1b Patches for niche apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/56123591?v=4&size=168",
+    "targetApps": [
+      "apk-signer",
+      "World Map Quiz",
+      "CandyLink VPN",
+      "FFmpeg Media Encoder",
+      "Beat.ly",
+      "Footej Camera",
+      "GoCut",
+      "Mvideo"
+    ],
+    "samplePatches": [
+      "APK Signer Unlock Pro",
+      "Amoled Dark Theme",
+      "Disable Forground Services Warning",
+      "Disable Tracking",
+      "Fake System Time"
+    ]
+  },
+  {
+    "repo": "snowyegret23/morphe-patches",
+    "name": "Snowyegret23",
+    "author": "snowyegret23",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=snowyegret23/morphe-patches",
+    "repoDescription": "Morphe patch bundle by snowyegret23",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/79635537?v=4&size=168",
+    "targetApps": [
+      "Chzzk"
+    ],
+    "samplePatches": [
+      "Auto claim TongPow",
+      "CDN playback",
+      "Change package name",
+      "Chat customization",
+      "Custom app branding"
+    ]
+  },
+  {
+    "repo": "SouBryan/pinterest-morphed",
+    "name": "Pinterest",
+    "author": "SouBryan",
+    "source": "github",
+    "patchCount": 14,
+    "stars": 40,
+    "deepLink": "https://morphe.software/add-source?github=SouBryan/pinterest-morphed",
+    "repoDescription": "Morphe patches for Pinterest \u2014 removes ads, ad SDKs, trackers and analytics for a clean, distraction-free feed.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/110749727?v=4&size=168",
+    "targetApps": [
+      "Pinterest"
+    ],
+    "samplePatches": [
+      "Disable Android Privacy Sandbox Ad Services",
+      "Disable AppsFlyer tracking",
+      "Disable Bugsnag crash tracking",
+      "Disable Firebase services",
+      "Disable Google Ads SDK"
+    ]
+  },
+  {
+    "repo": "spookyexe/morphe-patches",
+    "name": "Spooky",
+    "author": "spookyexe",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=spookyexe/morphe-patches",
+    "repoDescription": "Morphe patch bundle by spookyexe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/313338176?v=4&size=168",
+    "targetApps": [
+      "Beeline"
+    ],
+    "samplePatches": [
+      "Unlock Beeline Plus features"
+    ]
+  },
+  {
+    "repo": "sqzass/patches",
+    "name": "Sqzass",
+    "author": "sqzass",
+    "source": "github",
+    "patchCount": 36,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=sqzass/patches",
+    "repoDescription": "patches for morphe (highly experimental - expect things to break!)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/320068387?v=4&size=168",
+    "targetApps": [],
+    "samplePatches": [
+      "AMOLED dark theme force",
+      "Ads-free rewards",
+      "Allow screenshots and screen recording",
+      "Bypass PairIP protection",
+      "Bypass Play Integrity"
+    ]
+  },
+  {
+    "repo": "subenoeva/roadsync-patches",
+    "name": "Subenoeva",
+    "author": "subenoeva",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=subenoeva/roadsync-patches",
+    "repoDescription": "Morphe patches for Honda RoadSync",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/11498775?v=4&size=168",
+    "targetApps": [
+      "RoadSync"
+    ],
+    "samplePatches": [
+      "Add music sources",
+      "Bypass Google login",
+      "Offline pairing"
+    ]
+  },
+  {
+    "repo": "Sudashiii/at-tv-patches",
+    "name": "Sudashiii",
+    "author": "Sudashiii",
+    "source": "github",
+    "patchCount": 9,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=Sudashiii/at-tv-patches",
+    "repoDescription": "Unofficial Morphe patches for ServusTV On and ORF on",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/35486261?v=4&size=168",
+    "targetApps": [
+      "ORF ON",
+      "ServusTV On"
+    ],
+    "samplePatches": [
+      "Block forced updates",
+      "Block forced updates",
+      "Disable review prompts",
+      "Disable tracking",
+      "Disable tracking"
+    ]
+  },
+  {
+    "repo": "sudeepcapri/morphe_patch",
+    "name": "Sudeepcapri",
+    "author": "sudeepcapri",
+    "source": "github",
+    "patchCount": 18,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=sudeepcapri/morphe_patch",
+    "repoDescription": "Morphe patch bundle by sudeepcapri",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/230876946?v=4&size=168",
+    "targetApps": [
+      "Telegram",
+      "MyGate",
+      "Prime Video (Android TV)",
+      "ZEE5 (Android TV)",
+      "Coloring and Learn"
+    ],
+    "samplePatches": [
+      "Anti-disappearing media",
+      "Block Flutter Ads",
+      "Bundle native ad-strip hook",
+      "Bundle native ad-strip hook",
+      "Clone Prime Video"
+    ]
+  },
+  {
+    "repo": "Supperelias2/sbs-morphe-patches",
+    "name": "Supperelias2 SBS",
+    "author": "Supperelias2",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=Supperelias2/sbs-morphe-patches",
+    "repoDescription": "CLI-first Morphe patches developed for SBS On Demand",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/36726086?v=4&size=168",
+    "targetApps": [
+      "SBS On Demand"
+    ],
+    "samplePatches": [
+      "Prefer direct VOD stream",
+      "Prefer direct live stream",
+      "SBS playback compatibility check"
+    ]
+  },
+  {
+    "repo": "Supperelias2/sbs-tv-morphe-patches",
+    "name": "Supperelias2 SBS TV",
+    "author": "Supperelias2",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=Supperelias2/sbs-tv-morphe-patches",
+    "repoDescription": "Morphe patches for SBS On Demand on Android TV",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/36726086?v=4&size=168",
+    "targetApps": [
+      "SBS On Demand for Android TV"
+    ],
+    "samplePatches": [
+      "Allow sideloaded installation",
+      "Prefer direct VOD stream",
+      "Prefer direct live stream",
+      "SBS playback compatibility check"
+    ]
+  },
+  {
+    "repo": "sushruth/imgur-patches",
+    "name": "Imgur",
+    "author": "sushruth",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=sushruth/imgur-patches",
+    "repoDescription": "Experimental Morphe patches that remove all ads from the Imgur Android app. Educational purposes only.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/2114206?v=4&size=168",
+    "targetApps": [
+      "Imgur"
+    ],
+    "samplePatches": [
+      "Remove ads"
+    ]
+  },
+  {
+    "repo": "SysAdminDoc/Hushfacebook",
+    "name": "Hushfacebook",
+    "author": "SysAdminDoc",
+    "source": "github",
+    "patchCount": 97,
+    "stars": 363,
+    "deepLink": "https://morphe.software/add-source?github=SysAdminDoc/Hushfacebook",
+    "repoDescription": "Hushfacebook Morphe patches for Facebook. Hide ads, suggested posts, save videos and photos, tune playback and Reels, and use a focused Marketplace mode, and much more.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54586742?v=4&size=168",
+    "targetApps": [
+      "Facebook"
+    ],
+    "samplePatches": [
+      "AMOLED black theme",
+      "Accent color",
+      "Allow screenshots",
+      "Block Instant Games ads",
+      "Block ad telemetry"
+    ]
+  },
+  {
+    "repo": "SysAdminDoc/hushfeed",
+    "name": "Hushfeed",
+    "author": "SysAdminDoc",
+    "source": "github",
+    "patchCount": 138,
+    "stars": 288,
+    "deepLink": "https://morphe.software/add-source?github=SysAdminDoc/hushfeed",
+    "repoDescription": "Hushfeed Morphe patches for TikTok.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54586742?v=4&size=168",
+    "targetApps": [
+      "TikTok",
+      "PineDrama - Short Dramas"
+    ],
+    "samplePatches": [
+      "AMOLED dark theme",
+      "Accent color",
+      "Advanced downloads",
+      "Allow Duet and Stitch",
+      "Allow screenshots and Circle to Search"
+    ]
+  },
+  {
+    "repo": "SysAdminDoc/HushGram",
+    "name": "HushGram",
+    "author": "SysAdminDoc",
+    "source": "github",
+    "patchCount": 114,
+    "stars": 219,
+    "deepLink": "https://morphe.software/add-source?github=SysAdminDoc/HushGram",
+    "repoDescription": "HushGram v0.0.15: Morphe patches for Instagram that hide ads, suggested posts and much more. 114 patches for Instagram 452.1.0.53.64.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54586742?v=4&size=168",
+    "targetApps": [
+      "Instagram"
+    ],
+    "samplePatches": [
+      "Accent color",
+      "Allow screenshots",
+      "Ask before a call",
+      "Ask before a like",
+      "Ask before a refresh"
+    ]
+  },
+  {
+    "repo": "SysAdminDoc/HushMessenger",
+    "name": "HushMessenger",
+    "author": "SysAdminDoc",
+    "source": "github",
+    "patchCount": 63,
+    "stars": 146,
+    "deepLink": "https://morphe.software/add-source?github=SysAdminDoc/HushMessenger",
+    "repoDescription": "Morphe patches for Facebook Messenger. Privacy switches and fewer promotions.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54586742?v=4&size=168",
+    "targetApps": [
+      "Messenger"
+    ],
+    "samplePatches": [
+      "Allow chat bubbles",
+      "Allow screenshots",
+      "Auto reply",
+      "Bold and italic text",
+      "Clone install under another package name"
+    ]
+  },
+  {
+    "repo": "SysAdminDoc/HushPinterest",
+    "name": "HushPinterest",
+    "author": "SysAdminDoc",
+    "source": "github",
+    "patchCount": 33,
+    "stars": 33,
+    "deepLink": "https://morphe.software/add-source?github=SysAdminDoc/HushPinterest",
+    "repoDescription": "HushPinterest Morphe patches for Pinterest. Hides promoted pins, AI-labeled pins, and much more.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54586742?v=4&size=168",
+    "targetApps": [
+      "Pinterest"
+    ],
+    "samplePatches": [
+      "AMOLED black",
+      "Disable analytics",
+      "Disable update nag",
+      "Download board",
+      "Download pins"
+    ]
+  },
+  {
+    "repo": "SysAdminDoc/HushTelegram",
+    "name": "HushTelegram",
+    "author": "SysAdminDoc",
+    "source": "github",
+    "patchCount": 67,
+    "stars": 76,
+    "deepLink": "https://morphe.software/add-source?github=SysAdminDoc/HushTelegram",
+    "repoDescription": "HushTelegram v0.0.19: Morphe patches that take sponsored messages, search ads, Stories and upsells out of Telegram and keep its usage reports on your phone. 67 patches for Telegram 13.0.3.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54586742?v=4&size=168",
+    "targetApps": [
+      "Telegram"
+    ],
+    "samplePatches": [
+      "AMOLED black",
+      "Add Repeat to the message menu",
+      "Allow chat blur on slower phones",
+      "Ask before sending a sticker",
+      "Black and white launch logo"
+    ]
+  },
+  {
+    "repo": "SysAdminDoc/HushThreads",
+    "name": "HushThreads",
+    "author": "SysAdminDoc",
+    "source": "github",
+    "patchCount": 20,
+    "stars": 53,
+    "deepLink": "https://morphe.software/add-source?github=SysAdminDoc/HushThreads",
+    "repoDescription": "HushThreads Morphe patches that take the ads out of your Threads feed and let you save photos and videos.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54586742?v=4&size=168",
+    "targetApps": [
+      "Threads"
+    ],
+    "samplePatches": [
+      "Block background-return feed refresh",
+      "Change version code",
+      "Disable analytics",
+      "Disable screenshot detection",
+      "Disable swipe to Search"
+    ]
+  },
+  {
+    "repo": "SysAdminDoc/HushTumblr",
+    "name": "HushTumblr",
+    "author": "SysAdminDoc",
+    "source": "github",
+    "patchCount": 46,
+    "stars": 16,
+    "deepLink": "https://morphe.software/add-source?github=SysAdminDoc/HushTumblr",
+    "repoDescription": "HushTumblr Morphe patches for Tumblr. Takes ads and clutter out of your dashboard, and much more.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/54586742?v=4&size=168",
+    "targetApps": [
+      "Tumblr"
+    ],
+    "samplePatches": [
+      "Dark background color",
+      "Disable analytics",
+      "Disable update prompts",
+      "Filter activity notifications",
+      "Fix push notifications"
+    ]
+  },
+  {
+    "repo": "tachibana-shin/morphe-patches",
+    "name": "Tachibana-Shin",
+    "author": "tachibana-shin",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=tachibana-shin/morphe-patches",
+    "repoDescription": "My patches for Morphe Mananager",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/45375496?v=4&size=168",
+    "targetApps": [
+      "APKPure",
+      "Zepp"
+    ],
+    "samplePatches": [
+      "Disable ads",
+      "Disable telemetry"
+    ]
+  },
+  {
+    "repo": "testiwy268/morphe-patches",
+    "name": "Testiwy268",
+    "author": "testiwy268",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=testiwy268/morphe-patches",
+    "repoDescription": "Morphe patch bundle by testiwy268",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/152843286?v=4&size=168",
+    "targetApps": [
+      "Dual Space: Multi App Clone"
+    ],
+    "samplePatches": [
+      "Dualspace Premium Unlock"
+    ]
+  },
+  {
+    "repo": "theabhishekbhujang/morphe-patches",
+    "name": "Abhishek",
+    "author": "theabhishekbhujang",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=theabhishekbhujang/morphe-patches",
+    "repoDescription": "Morphe patch bundle by theabhishekbhujang",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/59395512?v=4&size=168",
+    "targetApps": [
+      "Harmonium",
+      "Rhythm with Tabla & Tanpura"
+    ],
+    "samplePatches": [
+      "Remove Ads",
+      "Unlock Pro"
+    ]
+  },
+  {
+    "repo": "thegibbonn/morphe-patches-anilili",
+    "name": "Anilili",
+    "author": "thegibbonn",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=thegibbonn/morphe-patches-anilili",
+    "repoDescription": "Morphe Patches for Anilili (recycled bitmap crash fix)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/63139212?v=4&size=168",
+    "targetApps": [
+      "Anilili"
+    ],
+    "samplePatches": [
+      "Fix Recycled Bitmap Crash"
+    ]
+  },
+  {
+    "repo": "Thewanwan/bestapp",
+    "name": "Bestweb",
+    "author": "Thewanwan",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=Thewanwan/bestapp",
+    "repoDescription": "Morphe patch bundle by Thewanwan",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/118653947?v=4&size=168",
+    "targetApps": [
+      "Weibo"
+    ],
+    "samplePatches": [
+      "Bypass signature check",
+      "Hide comment ads",
+      "Hide feed ads",
+      "Hide search ads",
+      "Hide splash ads"
+    ]
+  },
+  {
+    "repo": "tiaruebar1024/tiaruebar-patches",
+    "name": "Tiaruebar1024",
+    "author": "tiaruebar1024",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 9,
+    "deepLink": "https://morphe.software/add-source?github=tiaruebar1024/tiaruebar-patches",
+    "repoDescription": "GUYS THERE'S NO BITLIFE, YOU HAVE TO WAIT",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/107429446?v=4&size=168",
+    "targetApps": [
+      "Devices Tycoon"
+    ],
+    "samplePatches": [
+      "Devices Tycoon Premium"
+    ]
+  },
+  {
+    "repo": "tikkamasalla/stremio-intro-skip",
+    "name": "Tikkamasalla",
+    "author": "tikkamasalla",
+    "source": "github",
+    "patchCount": 12,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=tikkamasalla/stremio-intro-skip",
+    "repoDescription": "Patches for Stremio and Vimu, for use with Morphe",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/104959287?v=4&size=168",
+    "targetApps": [
+      "Stremio Android TV",
+      "Vimu"
+    ],
+    "samplePatches": [
+      "Auto-pick best stream",
+      "Avoid SDH subtitles",
+      "Binge with external players",
+      "External player progress",
+      "External player progress manifest"
+    ]
+  },
+  {
+    "repo": "TimBuckrue/nyt-games-vrr-patch",
+    "name": "TimBuckrue",
+    "author": "TimBuckrue",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=TimBuckrue/nyt-games-vrr-patch",
+    "repoDescription": "Morphe patch bundle by TimBuckrue",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/30376835?v=4&size=168",
+    "targetApps": [
+      "NYT Games"
+    ],
+    "samplePatches": [
+      "Optimize home screen (disable animated cards)",
+      "Unlock high refresh rate"
+    ]
+  },
+  {
+    "repo": "titandrive/morphe-catppuccin",
+    "name": "Titandrive",
+    "author": "titandrive",
+    "source": "github",
+    "patchCount": 9,
+    "stars": 1,
+    "deepLink": "https://morphe.software/add-source?github=titandrive/morphe-catppuccin",
+    "repoDescription": "A Morphe patch that adds Catppuccin themes to various apps including Todoist, GBoard, and Boost.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/240087026?v=4&size=168",
+    "targetApps": [
+      "Boost for Reddit",
+      "Gboard",
+      "AnkiDroid Flashcards",
+      "Todoist",
+      "Fastmail"
+    ],
+    "samplePatches": [
+      "Catppuccin theme",
+      "Boost custom font",
+      "Gboard Catppuccin theme",
+      "Gboard custom font",
+      "AnkiDroid Catppuccin theme and fonts"
+    ]
+  },
+  {
+    "repo": "TorbenStriegel/morphe-patches-custom",
+    "name": "TorbenStriegel",
+    "author": "TorbenStriegel",
+    "source": "github",
+    "patchCount": 8,
+    "stars": 7,
+    "deepLink": "https://morphe.software/add-source?github=TorbenStriegel/morphe-patches-custom",
+    "repoDescription": "Custom Morphe patches (Weather&Radar, Skat). Built from the official Morphe patches template.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/29056807?v=4&size=168",
+    "targetApps": [
+      "OneFootball",
+      "Weather&Radar",
+      "Skat",
+      "SAI Split APKs Installer",
+      "Toralarm",
+      "ntv"
+    ],
+    "samplePatches": [
+      "Disable ads",
+      "Enable Premium",
+      "Remove Ads",
+      "Remove Play Store redirect",
+      "Remove Play Store redirect"
+    ]
+  },
+  {
+    "repo": "Tornillo2/movistar-block-ads-morphe",
+    "name": "Movistar",
+    "author": "Tornillo2",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 7,
+    "deepLink": "https://morphe.software/add-source?github=Tornillo2/movistar-block-ads-morphe",
+    "repoDescription": "Morphe patch bundle by Tornillo2",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/132702415?v=4&size=168",
+    "targetApps": [
+      "Movistar Plus"
+    ],
+    "samplePatches": [
+      "Block Ads"
+    ]
+  },
+  {
+    "repo": "totsiaw/proxma-patches",
+    "name": "Proxma",
+    "author": "totsiaw",
+    "source": "github",
+    "patchCount": 34,
+    "stars": 22,
+    "deepLink": "https://morphe.software/add-source?github=totsiaw/proxma-patches",
+    "repoDescription": "Morphe patch bundle by totsiaw",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/301634153?v=4&size=168",
+    "targetApps": [
+      "Simosa",
+      "My Telenor",
+      "Storywise",
+      "Investify",
+      "NetMonster",
+      "foodpanda",
+      "Safar",
+      "OLX"
+    ],
+    "samplePatches": [
+      "Auto check-in & claim daily reward",
+      "Auto-claim daily rewards",
+      "Background daily check-in worker",
+      "Block trackers",
+      "Block trackers (manifest flags)"
+    ]
+  },
+  {
+    "repo": "UnkyBadTouch/plex-morphe-patches",
+    "name": "UnkyBadTouch",
+    "author": "UnkyBadTouch",
+    "source": "github",
+    "patchCount": 1,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=UnkyBadTouch/plex-morphe-patches",
+    "repoDescription": "Plex Morphe patch \u2014 client-side Plex Pass unlock. Add repo as patch source in Morphe (Settings \u2192 Patches \u2192 Add source).",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/80658878?v=4&size=168",
+    "targetApps": [
+      "Plex"
+    ],
+    "samplePatches": [
+      "Premium unlock"
+    ]
+  },
+  {
+    "repo": "uta-a/linimal",
+    "name": "Uta-a",
+    "author": "uta-a",
+    "source": "github",
+    "patchCount": 46,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=uta-a/linimal",
+    "repoDescription": "Morphe patch bundle by uta-a",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/138108040?v=4&size=168",
+    "targetApps": [
+      "LINE"
+    ],
+    "samplePatches": [
+      "Linimal",
+      "Linimal \u306e\u30d1\u30c3\u30c1\u9069\u7528\u72b6\u6cc1",
+      "Linimal \u306e\u30d1\u30c3\u30c1\u9069\u7528\u78ba\u8a8d",
+      "Linimal \u306e\u521d\u671f\u5316",
+      "Linimal \u306e\u57fa\u76e4"
+    ]
+  },
+  {
+    "repo": "V4n1X/morphe-patches",
+    "name": "V4n1X",
+    "author": "V4n1X",
+    "source": "github",
+    "patchCount": 6,
+    "stars": 12,
+    "deepLink": "https://morphe.software/add-source?github=V4n1X/morphe-patches",
+    "repoDescription": "\ud83c\udf43 SoundCloud patches for Morphe (Enable Go, AMOLED theme, Disable analytics & consent popup)",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/23241347?v=4&size=168",
+    "targetApps": [
+      "SoundCloud",
+      "Parcello"
+    ],
+    "samplePatches": [
+      "AMOLED dark theme",
+      "Disable ads",
+      "Disable analytics",
+      "Disable consent popup",
+      "Enable SoundCloud Go+"
+    ]
+  },
+  {
+    "repo": "VenusIsJaded/Venus-Patches",
+    "name": "VenusIsJaded",
+    "author": "VenusIsJaded",
+    "source": "github",
+    "patchCount": 40,
+    "stars": 54,
+    "deepLink": "https://morphe.software/add-source?github=VenusIsJaded/Venus-Patches",
+    "repoDescription": "Independent Morphe patches for Discord: attachment file sizes, custom voice messages, and runtime controls.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/119279783?v=4&size=168",
+    "targetApps": [
+      "Discord"
+    ],
+    "samplePatches": [
+      "Account switcher",
+      "Complete Quests automatically",
+      "Copy profile bios",
+      "Custom branding",
+      "Custom themes"
+    ]
+  },
+  {
+    "repo": "VipinVIP/railone-patches",
+    "name": "VipinVIP",
+    "author": "VipinVIP",
+    "source": "github",
+    "patchCount": 7,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=VipinVIP/railone-patches",
+    "repoDescription": "Morphe patches for RailOne (org.cris.aikyam): disarm the anti-tamper checks so the app works with USB debugging enabled.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/58673683?v=4&size=168",
+    "targetApps": [
+      "RailOne"
+    ],
+    "samplePatches": [
+      "Allow screenshots",
+      "Bypass USB-debugging detection",
+      "Bypass rjsniffer ADB check",
+      "Bypass signature verification",
+      "Disable native security SDK"
+    ]
+  },
+  {
+    "repo": "virzak/morphe-patches",
+    "name": "Virzak",
+    "author": "virzak",
+    "source": "github",
+    "patchCount": 5,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=virzak/morphe-patches",
+    "repoDescription": "Morphe patch source (RuTube and more). Add: github.com/virzak/morphe-patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/6209775?v=4&size=168",
+    "targetApps": [
+      "RuTube"
+    ],
+    "samplePatches": [
+      "Custom branding icon",
+      "Disable ads",
+      "Enable background playback",
+      "Lift download restrictions",
+      "Unlock subscription features"
+    ]
+  },
+  {
+    "repo": "VoltoxderEchte/waze-gearslip-morphe-patch",
+    "name": "VoltoxderEchte",
+    "author": "VoltoxderEchte",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 5,
+    "deepLink": "https://morphe.software/add-source?github=VoltoxderEchte/waze-gearslip-morphe-patch",
+    "repoDescription": "Morphe patch to use Waze with Gearslip",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/84557630?v=4&size=168",
+    "targetApps": [
+      "Waze"
+    ],
+    "samplePatches": [
+      "Allow Gearslip",
+      "Fix speed drops"
+    ]
+  },
+  {
+    "repo": "WaggBR/Wagg13Patch_Morphe",
+    "name": "Wagg13Patch",
+    "author": "WaggBR",
+    "source": "github",
+    "patchCount": 28,
+    "stars": 84,
+    "deepLink": "https://morphe.software/add-source?github=WaggBR/Wagg13Patch_Morphe",
+    "repoDescription": "Patch for Android application and implementation of new features. ",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/57603689?v=4&size=168",
+    "targetApps": [
+      "BuzzCast",
+      "PicsArt",
+      "Pinterest",
+      "Bisbi",
+      "Instagram Instants",
+      "Car Scanner ELM OBD2",
+      "Notifications Simulator",
+      "Tinder"
+    ],
+    "samplePatches": [
+      "Block app open reports",
+      "Bypass signature check",
+      "Delete button in pin menu",
+      "Disable trackers",
+      "Enable Premium"
+    ]
+  },
+  {
+    "repo": "wchill/patcheddit",
+    "name": "Patcheddit",
+    "author": "wchill",
+    "source": "github",
+    "patchCount": 39,
+    "stars": 810,
+    "deepLink": "https://morphe.software/add-source?github=wchill/patcheddit",
+    "repoDescription": "Morphe patches for reddit apps",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/3746651?v=4&size=168",
+    "targetApps": [
+      "Boost for Reddit",
+      "Reddit Sync",
+      "Joey for Reddit",
+      "Lemmy Sync",
+      "Reddit is Fun",
+      "Reddit News",
+      "BaconReader",
+      "Infinity for Reddit+"
+    ],
+    "samplePatches": [
+      "Add archive links to context menu",
+      "Automatically undelete Imgur images",
+      "Automatically undelete Reddit content",
+      "Disable Sync for Lemmy bottom sheet",
+      "Disable ads"
+    ]
+  },
+  {
+    "repo": "wonjoonSeol-WS/morphe-patches",
+    "name": "WonjoonSeol-WS",
+    "author": "wonjoonSeol-WS",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=wonjoonSeol-WS/morphe-patches",
+    "repoDescription": "Morphe patches for KakaoTalk 26.8.3: block KakaoPay, clean up ad slots. Use with caution, accounts can be banned.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/65998019?v=4&size=168",
+    "targetApps": [
+      "Kakao Talk"
+    ],
+    "samplePatches": [
+      "Block KakaoPay",
+      "Disable Friend Feed ads",
+      "Hide Friends tab banner ad",
+      "Set collapsed OpenChat room count"
+    ]
+  },
+  {
+    "repo": "WZSE/aapam-patches",
+    "name": "aapam",
+    "author": "WZSE",
+    "source": "github",
+    "patchCount": 19,
+    "stars": 10,
+    "deepLink": "https://morphe.software/add-source?github=WZSE/aapam-patches",
+    "repoDescription": "Morphe patch bundle by WZSE",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/9087102?v=4&size=168",
+    "targetApps": [
+      "Telegram",
+      "MyGate",
+      "Prime Video (Android TV)",
+      "ZEE5 (Android TV)",
+      "Coloring and Learn",
+      "CRED"
+    ],
+    "samplePatches": [
+      "Anti-disappearing media",
+      "Block Flutter Ads",
+      "Bundle native ad-strip hook",
+      "Bundle native ad-strip hook",
+      "Clone Prime Video"
+    ]
+  },
+  {
+    "repo": "Xhehab/Xhehab-Patches",
+    "name": "Xhehab",
+    "author": "Xhehab",
+    "source": "github",
+    "patchCount": 14,
+    "stars": 17,
+    "deepLink": "https://morphe.software/add-source?github=Xhehab/Xhehab-Patches",
+    "repoDescription": "Morphe patch bundle by Xhehab",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/104538865?v=4&size=168",
+    "targetApps": [
+      "Video Player All Format",
+      "BASE Strength AI",
+      "Boostcamp",
+      "Built With Science",
+      "FST-7",
+      "Ganbaru Method",
+      "JuggernautAI",
+      "MH Physique"
+    ],
+    "samplePatches": [
+      "Disable Rate Dialog",
+      "Unlock BASE Strength Premium",
+      "Unlock Boostcamp Premium",
+      "Unlock Built With Science Premium",
+      "Unlock FST-7 Subscription"
+    ]
+  },
+  {
+    "repo": "Xittered/xitter-morphe",
+    "name": "Xittered",
+    "author": "Xittered",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=Xittered/xitter-morphe",
+    "repoDescription": "(WIP) morphe patches for xitter",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/342220672?v=4&size=168",
+    "targetApps": [
+      "Twitter"
+    ],
+    "samplePatches": [
+      "Change package name",
+      "Xitter"
+    ]
+  },
+  {
+    "repo": "xob0t/morphe-patches",
+    "name": "xob0t",
+    "author": "xob0t",
+    "source": "github",
+    "patchCount": 25,
+    "stars": 55,
+    "deepLink": "https://morphe.software/add-source?github=xob0t/morphe-patches",
+    "repoDescription": "Morphe patch bundle by xob0t",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/32616886?v=4&size=168",
+    "targetApps": [
+      "Avito",
+      "TBank",
+      "Ozon",
+      "Wildberries"
+    ],
+    "samplePatches": [
+      "AMOLED dark theme",
+      "Block listings",
+      "Bypass anti-tamper",
+      "Disable Adjust",
+      "Disable AppMetrica"
+    ]
+  },
+  {
+    "repo": "XTapped/morphe-patches",
+    "name": "XTapped",
+    "author": "XTapped",
+    "source": "github",
+    "patchCount": 3,
+    "stars": 8,
+    "deepLink": "https://morphe.software/add-source?github=XTapped/morphe-patches",
+    "repoDescription": "A collection of my patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/30569190?v=4&size=168",
+    "targetApps": [
+      "MotionCam Pro Trial",
+      "Tetrd",
+      "Gboard"
+    ],
+    "samplePatches": [
+      "Unlock Pro",
+      "Unlock Pro",
+      "Enable Google Rambler"
+    ]
+  },
+  {
+    "repo": "xxxR3Dxxx/R3D-PatchLab",
+    "name": "R3D PatchLab",
+    "author": "xxxR3Dxxx",
+    "source": "github",
+    "patchCount": 2,
+    "stars": 6,
+    "deepLink": "https://morphe.software/add-source?github=xxxR3Dxxx/R3D-PatchLab",
+    "repoDescription": "Morphe patch bundle by xxxR3Dxxx",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/32422152?v=4&size=168",
+    "targetApps": [
+      "StandBy Mode"
+    ],
+    "samplePatches": [
+      "Rename StandBy",
+      "Unlock Premium"
+    ]
+  },
+  {
+    "repo": "yann-soliman/morphe-patches",
+    "name": "Yann-Soliman",
+    "author": "yann-soliman",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 3,
+    "deepLink": "https://morphe.software/add-source?github=yann-soliman/morphe-patches",
+    "repoDescription": "Yann's patches: correctifs Android compatibles avec Morphe, dont le support des adresses email avec + dans Keepcool.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/22856901?v=4&size=168",
+    "targetApps": [
+      "Keep Cool",
+      "Leboncoin",
+      "Meteo Consult",
+      "Naolib v\u00e9lo"
+    ],
+    "samplePatches": [
+      "Keep Cool : afficher les disponibilit\u00e9s",
+      "Keep Cool : autoriser le + dans les adresses e-mail",
+      "Leboncoin : conserver les filtres de recherche",
+      "Leboncoin : limiter le suivi",
+      "Leboncoin : supprimer les publicit\u00e9s"
+    ]
+  },
+  {
+    "repo": "ysamjo/morphe-patches",
+    "name": "Ysamjo",
+    "author": "ysamjo",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 4,
+    "deepLink": "https://morphe.software/add-source?github=ysamjo/morphe-patches",
+    "repoDescription": "Morphe-Patches f\u00fcr YouTube for Android TV, TizenTube Cobalt und RTL+ \u2014 werbefrei auf Android TV",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/26360094?v=4&size=168",
+    "targetApps": [
+      "YouTube for Android TV",
+      "TizenTube",
+      "RTL+"
+    ],
+    "samplePatches": [
+      "Cobalt-Start-URL \u00e4ndern",
+      "MOD-Kennzeichnung f\u00fcr Icon und Banner",
+      "RTL+ Werbung deaktivieren (Yospace DAI)",
+      "Werbe-Blocker-Userscript einspritzen"
+    ]
+  },
+  {
+    "repo": "yuubinnkyoku/morphe-tver-patch",
+    "name": "Yuubinnkyoku",
+    "author": "yuubinnkyoku",
+    "source": "github",
+    "patchCount": 4,
+    "stars": 2,
+    "deepLink": "https://morphe.software/add-source?github=yuubinnkyoku/morphe-tver-patch",
+    "repoDescription": "Morphe patch for TVer",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/137483288?v=4&size=168",
+    "targetApps": [
+      "TVer(\u30c6\u30a3\u30fc\u30d0\u30fc) \u6c11\u653e\u516c\u5f0f\u30c6\u30ec\u30d3\u914d\u4fe1\u30b5\u30fc\u30d3\u30b9"
+    ],
+    "samplePatches": [
+      "TVer: Android system PiP (7.2.1)",
+      "TVer: resolution quality picker (7.2.1)",
+      "TVer: suppress player ads (7.2.1)",
+      "TVer: Nico comment overlay prototype (7.2.1)"
+    ]
+  },
+  {
+    "repo": "Zanuaimi/UniPatches",
+    "name": "UniPatches",
+    "author": "Zanuaimi",
+    "source": "github",
+    "patchCount": 13,
+    "stars": 90,
+    "deepLink": "https://morphe.software/add-source?github=Zanuaimi/UniPatches",
+    "repoDescription": "UniPatches is a curated collection of universal Morphe patches, combining community-contributed patches, maintained adaptations, enhancements, and original patches.",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/209285030?v=4&size=168",
+    "targetApps": [
+      "Hill Climb Racing"
+    ],
+    "samplePatches": [
+      "Ads Block Patch ( Experimental, Enhanced, Overlay Support, UniManager Support )",
+      "Bypass Emulator Detection",
+      "Bypass Forced Updates (Experimental)",
+      "Control Embedded Auth / Stores Patch ( Enhanced )",
+      "Custom App Display Patch (Experimental, Enhanced)"
+    ]
+  },
+  {
+    "repo": "zeldrisho/morphe-patches",
+    "name": "Zeldris",
+    "author": "zeldrisho",
+    "source": "github",
+    "patchCount": 27,
+    "stars": 22,
+    "deepLink": "https://morphe.software/add-source?github=zeldrisho/morphe-patches",
+    "repoDescription": "Yet another Morphe Patches",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/80939130?v=4&size=168",
+    "targetApps": [
+      "Zalo",
+      "Threads"
+    ],
+    "samplePatches": [
+      "Bypass Zalo Drive Contacts permission gate",
+      "Bypass native startup tamper check",
+      "Change Zalo app name",
+      "Change Zalo package name",
+      "Change app name"
+    ]
+  },
+  {
+    "repo": "ZoomSass/Mighty-Morphing",
+    "name": "ZoomSass",
+    "author": "ZoomSass",
+    "source": "github",
+    "patchCount": 11,
+    "stars": 7,
+    "deepLink": "https://morphe.software/add-source?github=ZoomSass/Mighty-Morphing",
+    "repoDescription": "Mighty Morphing Joey patches!",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/221530624?v=4&size=168",
+    "targetApps": [
+      "Joey for Reddit"
+    ],
+    "samplePatches": [
+      "Backup and restore",
+      "Disable tooltips",
+      "Dismiss without tearing",
+      "Editor image and GIF upload",
+      "Fix login page"
+    ]
   }
 ];
